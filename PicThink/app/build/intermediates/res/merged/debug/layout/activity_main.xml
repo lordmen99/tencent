@@ -9,4 +9,4 @@
     <TextView android:text="Hello World!" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </RelativeLayout>
-<!-- From: file:/E:/PicThinkLive/PicThink/app/src/main/res/layout/activity_main.xml -->
+<!-- From: file:/E:/PicThinkLive/app/src/main/res/layout/activity_main.xml -->
