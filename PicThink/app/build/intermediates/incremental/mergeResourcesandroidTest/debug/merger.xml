@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="E:\PicThinkLive\PicThink\app\src\androidTest\res"/><source path="E:\PicThinkLive\PicThink\app\build\generated\res\rs\androidTest\debug"/><source path="E:\PicThinkLive\PicThink\app\build\generated\res\resValues\androidTest\debug"/></dataSet><mergedItems/></merger>
+<merger version="3"><dataSet config="main"><source path="E:\PicThinkLive\app\src\androidTest\res"/><source path="E:\PicThinkLive\app\build\generated\res\rs\androidTest\debug"/><source path="E:\PicThinkLive\app\build\generated\res\resValues\androidTest\debug"/></dataSet><mergedItems/></merger>
