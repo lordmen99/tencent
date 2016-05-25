@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical"
+    tools:context="com.mb.picthinklive.PicLoginActivity">
+
+    <include layout="@layout/common_top_view" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="30dip"
+        android:background="@drawable/start_corner_gray"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="15dip"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="15dip">
+
+
+        <EditText
+            android:id="@+id/pic_login_phone_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dip"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableLeft="@mipmap/pic_login_shoujihaoma"
+            android:drawablePadding="10dip"
+            android:hint="请输入手机号 (11位数)"
+            android:textColor="#484848"
+            android:textColorHint="#CECECE"
+            android:textCursorDrawable="@null"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+
+        android:layout_marginTop="20dip"
+        android:background="@drawable/start_corner_gray"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:id="@+id/pic_login_code_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableLeft="@mipmap/pic_login_yanzhengma"
+            android:drawablePadding="10dip"
+            android:hint="请输入短信验证码"
+            android:paddingBottom="15dip"
+            android:paddingRight="10dip"
+            android:paddingTop="15dip"
+            android:textColor="#484848"
+            android:textColorHint="#CECECE"
+            android:textCursorDrawable="@null"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="15dip"
+            android:layout_marginTop="15dip"
+            android:background="#F8D150" />
+
+        <TextView
+            android:id="@+id/pic_login_send_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="15dip"
+            android:text="发送验证码"
+            android:textColor="#F8D150"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:layout_marginTop="10dip"
+        android:text="运营商将给您发送验证码,请注意查收"
+        android:textColor="#A0A0A0"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/pic_login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:layout_marginTop="30dip"
+        android:background="@drawable/start_corner_yellow"
+        android:text="登录"
+        android:textColor="@color/tencent_tls_ui_white"
+        android:textSize="16sp" />
+</LinearLayout>
+
