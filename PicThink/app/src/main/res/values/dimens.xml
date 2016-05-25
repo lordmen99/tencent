@@ -18,8 +18,6 @@
     <dimen name="tencent_tls_ui_buttonFontSize">16dp</dimen>
 
 
-
-
     <!--大小-->
     <!--h1-->
     <dimen name="h1">9sp</dimen>
@@ -66,8 +64,6 @@
     <dimen name="small_area_width">60dp</dimen>
     <dimen name="small_area_marginright">10dp</dimen>
     <dimen name="small_area_marginbetween">10dp</dimen>
-
-
 
 
     <!-- AVSDK *******************************************************************************************************************************-->

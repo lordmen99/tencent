@@ -48,8 +48,8 @@
     <string name="live_report_yellow">淫秽信息</string>
 
     <!-- msgadapter -->
-    <item type="id" name="tag_first"></item>
-    <item type="id" name="tag_second"></item>
+    <item name="tag_first" type="id"></item>
+    <item name="tag_second" type="id"></item>
 
 
     <!-- profile fragment-->
@@ -109,4 +109,9 @@
     <string name="host_funs">粉丝数:9090</string>
     <string name="host_follow">关注:7089</string>
     <string name="host_admire">赞:11.3w</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>
