@@ -17,13 +17,18 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,11 +36,13 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.mb.picthinklive.R;
+import com.mb.picthinklive.bean.AllGoodsBean;
 import com.tencent.TIMUserProfile;
 import com.tencent.av.sdk.AVView;
 import com.tencent.qcloud.suixinbo.QavsdkApplication;
-
+import com.tencent.qcloud.suixinbo.adapters.AllGoodsAdapter;
 import com.tencent.qcloud.suixinbo.adapters.ChatMsgListAdapter;
+import com.tencent.qcloud.suixinbo.adapters.SwipAdapter;
 import com.tencent.qcloud.suixinbo.avcontrollers.QavsdkControl;
 import com.tencent.qcloud.suixinbo.model.ChatEntity;
 import com.tencent.qcloud.suixinbo.model.CurLiveInfo;
@@ -55,6 +62,8 @@ import com.tencent.qcloud.suixinbo.utils.UIUtils;
 import com.tencent.qcloud.suixinbo.views.customviews.HeartLayout;
 import com.tencent.qcloud.suixinbo.views.customviews.InputTextMsgDialog;
 import com.tencent.qcloud.suixinbo.views.customviews.MembersDialog;
+import com.tencent.qcloud.suixinbo.views.customviews.MyListView;
+import com.tencent.qcloud.suixinbo.views.customviews.SwipeListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -328,6 +337,13 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
         BtnCtrlVideo = (TextView) findViewById(R.id.camera_controll);
         BtnCtrlMic = (TextView) findViewById(R.id.mic_controll);
         BtnHungup = (TextView) findViewById(R.id.close_member_video);
+
+        TextView tv_message = (TextView) findViewById(R.id.tv_message);//消息图标
+        TextView tv_sale = (TextView) findViewById(R.id.tv_sale);//出售商品
+
+        tv_message.setOnClickListener(this);
+        tv_sale.setOnClickListener(this);
+
         BtnCtrlVideo.setOnClickListener(this);
         BtnCtrlMic.setOnClickListener(this);
         BtnHungup.setOnClickListener(this);
@@ -346,19 +362,19 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
             mHostCtrView.setVisibility(View.VISIBLE);
             mNomalMemberCtrView.setVisibility(View.GONE);
             mRecordBall = (ImageView) findViewById(R.id.record_ball);
-            Btnflash = (TextView) findViewById(R.id.flash_btn);
-            BtnSwitch = (TextView) findViewById(R.id.switch_cam);
-            BtnBeauty = (TextView) findViewById(R.id.beauty_btn);
-            BtnMic = (TextView) findViewById(R.id.mic_btn);
-
-            BtnScreen = (TextView) findViewById(R.id.fullscreen_btn);
+//            Btnflash = (TextView) findViewById(R.id.flash_btn);
+//            BtnSwitch = (TextView) findViewById(R.id.switch_cam);
+//            BtnBeauty = (TextView) findViewById(R.id.beauty_btn);
+//            BtnMic = (TextView) findViewById(R.id.mic_btn);
+//
+//            BtnScreen = (TextView) findViewById(R.id.fullscreen_btn);
             mVideoChat.setVisibility(View.VISIBLE);
-            Btnflash.setOnClickListener(this);
-            BtnSwitch.setOnClickListener(this);
-            BtnBeauty.setOnClickListener(this);
-            BtnMic.setOnClickListener(this);
-            BtnScreen.setOnClickListener(this);
-            mVideoChat.setOnClickListener(this);
+//            Btnflash.setOnClickListener(this);
+//            BtnSwitch.setOnClickListener(this);
+//            BtnBeauty.setOnClickListener(this);
+//            BtnMic.setOnClickListener(this);
+//            BtnScreen.setOnClickListener(this);
+//            mVideoChat.setOnClickListener(this);
             inviteView1 = (TextView) findViewById(R.id.invite_view1);
             inviteView2 = (TextView) findViewById(R.id.invite_view2);
             inviteView3 = (TextView) findViewById(R.id.invite_view3);
@@ -1005,33 +1021,33 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
                     //Toast.makeText(this, getString(R.string.text_live_admire_limit), Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.flash_btn:
-                if (mLiveHelper.isFrontCamera() == true) {
-                    Toast.makeText(LiveActivity.this, "this is front cam", Toast.LENGTH_SHORT).show();
-                } else {
-                    mLiveHelper.toggleFlashLight();
-                }
-                break;
-            case R.id.switch_cam:
-                mLiveHelper.switchCamera();
-                break;
-            case R.id.mic_btn:
-                if (mLiveHelper.isMicOpen() == true) {
-                    BtnMic.setBackgroundResource(R.drawable.icon_mic_close);
-                    mLiveHelper.muteMic();
-                } else {
-                    BtnMic.setBackgroundResource(R.drawable.icon_mic_open);
-                    mLiveHelper.openMic();
-                }
-                break;
-            case R.id.head_up_layout:
-                showHostDetail();
-                break;
-            case R.id.clean_screen:
-            case R.id.fullscreen_btn:
-                mFullControllerUi.setVisibility(View.INVISIBLE);
-                BtnNormal.setVisibility(View.VISIBLE);
-                break;
+//            case R.id.flash_btn:
+//                if (mLiveHelper.isFrontCamera() == true) {
+//                    Toast.makeText(LiveActivity.this, "this is front cam", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    mLiveHelper.toggleFlashLight();
+//                }
+//                break;
+//            case R.id.switch_cam:
+//                mLiveHelper.switchCamera();
+//                break;
+//            case R.id.mic_btn:
+//                if (mLiveHelper.isMicOpen() == true) {
+//                    BtnMic.setBackgroundResource(R.drawable.icon_mic_close);
+//                    mLiveHelper.muteMic();
+//                } else {
+//                    BtnMic.setBackgroundResource(R.drawable.icon_mic_open);
+//                    mLiveHelper.openMic();
+//                }
+//                break;
+//            case R.id.head_up_layout:
+//                showHostDetail();
+//                break;
+//            case R.id.clean_screen:
+//            case R.id.fullscreen_btn:
+//                mFullControllerUi.setVisibility(View.INVISIBLE);
+//                BtnNormal.setVisibility(View.VISIBLE);
+//                break;
 //            case R.id.av_screen_layout:
 //                mHostCtrView.setVisibility(View.VISIBLE);
 //                mVideoMemberCtrlView.setVisibility(View.INVISIBLE);
@@ -1064,19 +1080,19 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
             case R.id.close_member_video://主动关闭成员摄像头
                 cancelMemberView(backGroundId);
                 break;
-            case R.id.beauty_btn:
-                if (mBeautySettings != null) {
-                    if (mBeautySettings.getVisibility() == View.GONE) {
-                        mBeautySettings.setVisibility(View.VISIBLE);
-                        mFullControllerUi.setVisibility(View.INVISIBLE);
-                    } else {
-                        mBeautySettings.setVisibility(View.GONE);
-                        mFullControllerUi.setVisibility(View.VISIBLE);
-                    }
-                } else {
-                    SxbLog.i(TAG, "beauty_btn mTopBar  is null ");
-                }
-                break;
+//            case R.id.beauty_btn:
+//                if (mBeautySettings != null) {
+//                    if (mBeautySettings.getVisibility() == View.GONE) {
+//                        mBeautySettings.setVisibility(View.VISIBLE);
+//                        mFullControllerUi.setVisibility(View.INVISIBLE);
+//                    } else {
+//                        mBeautySettings.setVisibility(View.GONE);
+//                        mFullControllerUi.setVisibility(View.VISIBLE);
+//                    }
+//                } else {
+//                    SxbLog.i(TAG, "beauty_btn mTopBar  is null ");
+//                }
+//                break;
             case R.id.qav_beauty_setting_finish:
                 mBeautySettings.setVisibility(View.GONE);
                 mFullControllerUi.setVisibility(View.VISIBLE);
@@ -1096,8 +1112,125 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
             case R.id.param_video:
                 showTips = !showTips;
                 break;
+            case  R.id.tv_message://消息
+                inputMsgDialog();//消息输入框
+                break;
+            case  R.id.tv_sale://出售商品
+                SalePopWindow();//商品的Dialog
+                break;
         }
     }
+/********************************关于购物商品模块*******************************************/
+    /**
+     * 测试商品
+     */
+    private SwipeListView mListView;
+    private ArrayList<String> mList = new ArrayList<String>();
+    private void initData() {
+        for (int i = 0; i < 5; i++) {
+            mList.add("Dior迪奥真我香水系列");
+        }
+    }
+    /**
+     * 出售商品列表
+     */
+    private void SalePopWindow() {
+
+        initData();
+
+        LayoutInflater inflater = this.getLayoutInflater();
+        View view = inflater.inflate(R.layout.pop_sale_window, null);
+        PopupWindow popupWindow = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT, 700);
+        popupWindow.setFocusable(true);
+        //显示(在该控件下面)
+        final WindowManager.LayoutParams params = getWindow().getAttributes();//创建当前界面的一个参数对象
+        params.alpha = 0.5f;//设置参数的透明度
+        getWindow().setAttributes(params);
+        popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
+
+        //解决ListView抢占焦点
+        ScrollView scroll = (ScrollView) view.findViewById(R.id.scroll);
+        scroll.smoothScrollTo(0, 20);
+
+        SwipeListView mListView = (SwipeListView) view.findViewById(R.id.lv_goods);
+        MyListView lv_all_goods = (MyListView) view.findViewById(R.id.lv_all_goods);
+        //所有商品
+        List<AllGoodsBean> allGoodsList = AllGoodsBean.getList();
+        AllGoodsAdapter alladapter = new AllGoodsAdapter(this,allGoodsList,R.layout.sale_window_item);
+        lv_all_goods.setAdapter(alladapter);
+
+        //代理的商品
+        ListViewAdapter adapter = new ListViewAdapter(this);
+        mListView.setAdapter(adapter);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //商品详情
+                Intent intent = new Intent();
+//                intent.setClass(LiveActivity.this,GoodsDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    class ListViewAdapter extends SwipAdapter {
+
+        public ListViewAdapter(Context context) {
+            super(context);
+        }
+
+        @Override
+        public int getCount() {
+            return mList.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return mList.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            return super.getView(position, convertView, parent);
+        }
+
+        /**
+         * B版本记得优化下ListView
+         */
+        protected View generateLeftView(final int position) {
+             View  view=LayoutInflater.from(mContext).inflate(R.layout.sale_window_item,null);
+            TextView tv_goodsname = (TextView) view.findViewById(R.id.tv_goodsname);
+            tv_goodsname.setText(mList.get(position));
+
+            return view;
+        }
+        //删除按钮
+        protected View generateRightView(final int position) {
+            TextView view = new TextView(mContext);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(150, 150);
+            view.setLayoutParams(lp);
+            view.setText("删除");
+            view.setTextColor(Color.parseColor("#FFFFFF"));
+            view.setGravity(Gravity.CENTER);
+            view.setBackgroundColor(Color.parseColor("#FF6B6B"));
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "del " + mList.get(position), Toast.LENGTH_SHORT).show();
+                    mList.remove(position);
+                    notifyDataSetChanged();
+                }
+            });
+            return view;
+        }
+    }
+/******************************************************************************************/
+
 
     //for 测试获取测试参数
     private boolean showTips = false;
@@ -1181,7 +1314,7 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
 
         lp.width = (int) (display.getWidth()); //设置宽度
         inputMsgDialog.getWindow().setAttributes(lp);
-        inputMsgDialog.setCancelable(true);
+//        inputMsgDialog.setCancelable(true);
         inputMsgDialog.show();
     }
 

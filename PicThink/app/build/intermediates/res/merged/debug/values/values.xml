@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/arrays.xml -->
+    <eat-comment/>
+    <string-array name="openid_list">
+    </string-array>
+    <string-array name="openkey_list">
+    </string-array>
+    <string-array name="qq_list">
+    </string-array>
     <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
@@ -20,23 +28,85 @@
     <color name="abc_search_url_text_selected">@android:color/black</color>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="background">#F9F7F8</color>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@android:color/white</color>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="background_gray1">#EBEBEB</color>
+    <color name="background_gray2">#E6E6E6</color>
+    <color name="background_gray3">#D4D4D4</color>
+    <color name="background_gray4">#EFEFF4</color>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="black">#000000</color>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
     <color name="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark</color>
     <color name="bright_foreground_material_dark">@android:color/white</color>
     <color name="bright_foreground_material_light">@android:color/black</color>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="btn_blue">#0F73CB</color>
+    <color name="btn_blue_hover">#1E86E4</color>
+    <color name="btn_red">#D63F41</color>
+    <color name="btn_red_hover">#E8484B</color>
+    <color name="btn_text">#FFFFFF</color>
+    <color name="btn_text_hover">#CCFFFFFF</color>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
     <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorBackground">#F0F0F0</color>
+    <color name="colorGray1">#F0F0F0</color>
+    <color name="colorGray2">#DCDCDC</color>
+    <color name="colorGray3">#C8C8C8</color>
+    <color name="colorGray4">#787878</color>
+    <color name="colorGray5">#505050</color>
+    <color name="colorGray6">#141414</color>
+    <color name="colorLabelRed">#FF447D</color>
+    <color name="colorLabelRedActive">#FF89AB</color>
+    <color name="colorLabelYellow">#FFAE20</color>
+    <color name="colorLabelYellowActive">#FFCD35</color>
+    <color name="colorLabelYellowMask">#4DFFAE20</color>
+    <color name="colorLightGray">#E6E6E6</color>
+    <color name="colorMask">#66000000</color>
+    <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorRed">#FF3333</color>
+    <color name="colorSendName">#9966cc</color>
+    <color name="colorSendName1">#FF3163</color>
+    <color name="colorSendName2">#973365</color>
+    <color name="colorSendName3">#006599</color>
+    <color name="colorSendName4">#D07E44</color>
+    <color name="colorSendName5">#97BC87</color>
+    <color name="colorSendName6">#FFAE1F</color>
+    <color name="colorSendName7">#FF437D</color>
+    <color name="colorTextBlack">#000000</color>
+    <color name="colorTextG1">#CCCCCC</color>
+    <color name="colorTextG2">#999999</color>
+    <color name="colorTextG3">#666666</color>
+    <color name="colorTextG4">#333333</color>
+    <color name="colorTextWhite">#FFFFFF</color>
+    <color name="colorTheme">#80407A</color>
+    <color name="colorThemeActive">#A15C9A</color>
+    <color name="color_line_gray">#F5F5F5</color>
+    <color name="color_text_orange_red">#FD8265</color>
+    <color name="color_text_yellow">#F8D150</color>
     <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
     <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
@@ -49,6 +119,12 @@
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
     <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="line">#DDDDDD</color>
+    <color name="line_btn">#BBBBBB</color>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
     <color name="material_blue_grey_950">#ff21272b</color>
@@ -61,6 +137,11 @@
     <color name="material_grey_800">#ff424242</color>
     <color name="material_grey_850">#ff303030</color>
     <color name="material_grey_900">#ff212121</color>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="panel_black">#25272A</color>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
     <color name="primary_material_dark">@color/material_grey_900</color>
@@ -79,6 +160,26 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="tencent_tls_ui_background">#EEEEEE</color>
+    <color name="tencent_tls_ui_black">#000000</color>
+    <color name="tencent_tls_ui_countryCodeColor">#009900</color>
+    <color name="tencent_tls_ui_deepgray">#777777</color>
+    <color name="tencent_tls_ui_defaultButtonColor">#0099FF</color>
+    <color name="tencent_tls_ui_gray">#444444</color>
+    <color name="tencent_tls_ui_pressedButtonColor">#0066CC</color>
+    <color name="tencent_tls_ui_shadowgray">#CCCCCC</color>
+    <color name="tencent_tls_ui_titleBackground">#FFFFFF</color>
+    <color name="tencent_tls_ui_titleFontColor">#000000</color>
+    <color name="tencent_tls_ui_transparent">#9000</color>
+    <color name="tencent_tls_ui_white">#FFFFFF</color>
+    <color name="text_blue1">#1173CB</color>
+    <color name="text_blue2">#1173CA</color>
+    <color name="text_gray1">#777777</color>
+    <color name="text_gray2">#767676</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
     <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ActionMenuItemView"><attr name="android:minWidth"/></declare-styleable>
@@ -92,6 +193,8 @@
     <declare-styleable name="ButtonBarLayout"><attr format="boolean" name="allowStacking"/></declare-styleable>
     <declare-styleable name="CompoundButton"><attr name="android:button"/><attr format="color" name="buttonTint"/><attr name="buttonTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr></declare-styleable>
     <declare-styleable name="DrawerArrowToggle"><attr format="color" name="color"/><attr format="boolean" name="spinBars"/><attr format="dimension" name="drawableSize"/><attr format="dimension" name="gapBetweenBars"/><attr format="dimension" name="arrowHeadLength"/><attr format="dimension" name="arrowShaftLength"/><attr format="dimension" name="barLength"/><attr format="dimension" name="thickness"/></declare-styleable>
+    <declare-styleable name="HeartLayout"><attr format="dimension" name="initX"/><attr format="dimension" name="initY"/><attr format="dimension" name="xRand"/><attr format="dimension" name="animLengthRand"/><attr format="dimension" name="xPointFactor"/><attr format="dimension" name="animLength"/><attr format="dimension" name="heart_width"/><attr format="dimension" name="heart_height"/><attr format="integer" name="bezierFactor"/><attr format="integer" name="anim_duration"/></declare-styleable>
+    <declare-styleable name="LineControllerView"><attr format="string" name="name"/><attr format="string" name="content"/><attr format="boolean" name="isBottom"/><attr format="boolean" name="canNav"/><attr format="boolean" name="isSwitch"/></declare-styleable>
     <declare-styleable name="LinearLayoutCompat"><attr name="android:orientation"/><attr name="android:gravity"/><attr name="android:baselineAligned"/><attr name="android:baselineAlignedChildIndex"/><attr name="android:weightSum"/><attr format="boolean" name="measureWithLargestChild"/><attr name="divider"/><attr name="showDividers"><flag name="none" value="0"/><flag name="beginning" value="1"/><flag name="middle" value="2"/><flag name="end" value="4"/></attr><attr format="dimension" name="dividerPadding"/></declare-styleable>
     <declare-styleable name="LinearLayoutCompat_Layout"><attr name="android:layout_width"/><attr name="android:layout_height"/><attr name="android:layout_weight"/><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ListPopupWindow"><attr name="android:dropDownVerticalOffset"/><attr name="android:dropDownHorizontalOffset"/></declare-styleable>
@@ -103,11 +206,14 @@
     <declare-styleable name="SearchView"><attr format="reference" name="layout"/><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr format="string" name="defaultQueryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/><attr format="reference" name="closeIcon"/><attr format="reference" name="goIcon"/><attr format="reference" name="searchIcon"/><attr format="reference" name="searchHintIcon"/><attr format="reference" name="voiceIcon"/><attr format="reference" name="commitIcon"/><attr format="reference" name="suggestionRowLayout"/><attr format="reference" name="queryBackground"/><attr format="reference" name="submitBackground"/><attr name="android:focusable"/></declare-styleable>
     <declare-styleable name="Spinner"><attr name="android:prompt"/><attr name="popupTheme"/><attr name="android:popupBackground"/><attr name="android:dropDownWidth"/><attr name="android:entries"/></declare-styleable>
     <declare-styleable name="SwitchCompat"><attr name="android:thumb"/><attr format="reference" name="track"/><attr name="android:textOn"/><attr name="android:textOff"/><attr format="dimension" name="thumbTextPadding"/><attr format="reference" name="switchTextAppearance"/><attr format="dimension" name="switchMinWidth"/><attr format="dimension" name="switchPadding"/><attr format="boolean" name="splitTrack"/><attr format="boolean" name="showText"/></declare-styleable>
+    <declare-styleable name="TemplateTitle"><attr format="string" name="titleText"/><attr format="boolean" name="canBack"/><attr format="string" name="backText"/><attr format="string" name="moreText"/></declare-styleable>
     <declare-styleable name="TextAppearance"><attr name="android:textSize"/><attr name="android:textColor"/><attr name="android:textStyle"/><attr name="android:typeface"/><attr name="textAllCaps"/><attr name="android:shadowColor"/><attr name="android:shadowDy"/><attr name="android:shadowDx"/><attr name="android:shadowRadius"/></declare-styleable>
     <declare-styleable name="Toolbar"><attr format="reference" name="titleTextAppearance"/><attr format="reference" name="subtitleTextAppearance"/><attr name="title"/><attr name="subtitle"/><attr name="android:gravity"/><attr format="dimension" name="titleMargins"/><attr format="dimension" name="titleMarginStart"/><attr format="dimension" name="titleMarginEnd"/><attr format="dimension" name="titleMarginTop"/><attr format="dimension" name="titleMarginBottom"/><attr name="contentInsetStart"/><attr name="contentInsetEnd"/><attr name="contentInsetLeft"/><attr name="contentInsetRight"/><attr format="dimension" name="maxButtonHeight"/><attr format="reference" name="collapseIcon"/><attr format="string" name="collapseContentDescription"/><attr name="popupTheme"/><attr format="reference" name="navigationIcon"/><attr format="string" name="navigationContentDescription"/><attr name="android:minHeight"/><attr name="logo"/><attr format="string" name="logoDescription"/><attr format="color" name="titleTextColor"/><attr format="color" name="subtitleTextColor"/></declare-styleable>
     <declare-styleable name="View"><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/><attr format="reference" name="theme"/><attr name="android:theme"/></declare-styleable>
     <declare-styleable name="ViewBackgroundHelper"><attr name="android:background"/><attr format="color" name="backgroundTint"/><attr name="backgroundTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr></declare-styleable>
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
     <dimen name="abc_action_bar_default_padding_end_material">0dp</dimen>
@@ -179,16 +285,186 @@
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="audio_actionsheet_height">51dp</dimen>
+    <dimen name="audio_friend_border_margin_top">3.25dp</dimen>
+    <dimen name="audio_friend_imgH">60dp</dimen>
+    <dimen name="audio_friend_imgW">60dp</dimen>
+    <dimen name="audio_friend_img_border">66.5dp</dimen>
+    <dimen name="audio_friend_infoH">191dp</dimen>
+    <dimen name="audio_icon_top">25dp</dimen>
+    <dimen name="audio_tip_margin">83dp</dimen>
     <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
     <eat-comment/>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="gaudio_bigname_maxwidth">156dp</dimen>
+    <dimen name="gaudio_dialog_btn_margin_top">47dp</dimen>
+    <dimen name="gaudio_dialog_height">160dp</dimen>
+    <dimen name="gaudio_dialog_height_gprs">182dp</dimen>
+    <dimen name="gaudio_dialog_textsize">4sp</dimen>
+    <dimen name="gaudio_dialog_width">270dp</dimen>
+    <dimen name="gaudio_grid_margin">3dp</dimen>
+    <dimen name="gaudio_list_name_maxwidth">120dp</dimen>
+    <dimen name="gaudio_lock_maxwidth">280dp</dimen>
+    <dimen name="gaudio_lock_textsize">5sp</dimen>
+    <dimen name="gaudio_name_maxwidth">162dp</dimen>
+    <dimen name="gaudio_name_maxwidth_dialog">130dp</dimen>
+    <dimen name="gaudio_name_maxwidth_inviter">70dp</dimen>
+    <dimen name="gaudio_name_maxwidth_title">60dp</dimen>
+    <dimen name="gaudio_padding">5dp</dimen>
+    <dimen name="gaudio_request_video_text_size">15dp</dimen>
+    <dimen name="gaudio_spacing">15dp</dimen>
+    <dimen name="gaudio_spacing_320">10dp</dimen>
+    <dimen name="gaudio_speaking_margin">1dp</dimen>
+    <dimen name="gaudio_speaking_width">56dp</dimen>
+    <dimen name="gaudio_tips_name_maxwidth">46dp</dimen>
+    <dimen name="h1">9sp</dimen>
+    <dimen name="h10">18sp</dimen>
+    <dimen name="h11">19sp</dimen>
+    <dimen name="h12">20sp</dimen>
+    <dimen name="h2">10sp</dimen>
+    <dimen name="h3">11sp</dimen>
+    <dimen name="h4">12sp</dimen>
+    <dimen name="h5">13sp</dimen>
+    <dimen name="h6">14sp</dimen>
+    <dimen name="h7">15sp</dimen>
+    <dimen name="h8">16sp</dimen>
+    <dimen name="h9">17sp</dimen>
+    <dimen name="heart_anim_bezier_x_rand">50.0dp</dimen>
+    <dimen name="heart_anim_init_x">50.0dp</dimen>
+    <dimen name="heart_anim_init_y">25.0dp</dimen>
+    <dimen name="heart_anim_length">400.0dp</dimen>
+    <dimen name="heart_anim_length_rand">350.0dp</dimen>
+    <dimen name="heart_anim_x_point_factor">30.0dp</dimen>
+    <dimen name="heart_size_height">27.3dp</dimen>
+    <dimen name="heart_size_width">32.5dp</dimen>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <item format="float" name="highlight_alpha_material_colored" type="dimen">0.26</item>
     <item format="float" name="highlight_alpha_material_dark" type="dimen">0.20</item>
     <item format="float" name="highlight_alpha_material_light" type="dimen">0.12</item>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="member_heart_layout_bottom_margin">50dp</dimen>
+    <dimen name="multi_audio_item_faceH">42dp</dimen>
+    <dimen name="multi_audio_item_faceW">42dp</dimen>
+    <dimen name="multi_video_item_faceH">56dp</dimen>
+    <dimen name="multi_video_item_faceW">56dp</dimen>
+    <dimen name="multi_video_name_max_width">95dp</dimen>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="qav_accept_video_margin_top">240dp</dimen>
+    <dimen name="qav_bottombar_bg_height">255dp</dimen>
+    <dimen name="qav_bottombar_btn_height">46dp</dimen>
+    <dimen name="qav_bottombar_btn_width">60dp</dimen>
+    <dimen name="qav_bottombar_height">170dp</dimen>
+    <dimen name="qav_bottombar_icon_spacing">1dp</dimen>
+    <dimen name="qav_bottombar_left_trans">23dp</dimen>
+    <dimen name="qav_bottombar_margin">32dp</dimen>
+    <dimen name="qav_bottombar_margin_for_ivr">18dp</dimen>
+    <dimen name="qav_bottombar_mid_trans">68dp</dimen>
+    <dimen name="qav_bottombar_normal_margin">16dp</dimen>
+    <dimen name="qav_bottombar_right_trans">5dp</dimen>
+    <dimen name="qav_bottombar_spacing">7dp</dimen>
+    <dimen name="qav_bottomlayer_margin">20dp</dimen>
+    <dimen name="qav_bubbble_icon_ratio">16dp</dimen>
+    <dimen name="qav_bubbble_icon_ratio_ex">8dp</dimen>
+    <dimen name="qav_double_friend_imgW">95dp</dimen>
+    <dimen name="qav_double_video_friend_imgW">50dp</dimen>
+    <dimen name="qav_gaudio_grid_height">300dp</dimen>
+    <dimen name="qav_gaudio_grid_icon_width">50dp</dimen>
+    <dimen name="qav_gaudio_grid_item_width">88dp</dimen>
+    <dimen name="qav_gaudio_grid_margin_members_top">110dp</dimen>
+    <dimen name="qav_gaudio_grid_margin_top_nor">60dp</dimen>
+    <dimen name="qav_gaudio_grid_margin_top_sig">157dp</dimen>
+    <dimen name="qav_gaudio_grid_margin_top_waiting">40dp</dimen>
+    <dimen name="qav_gaudio_grid_net_tip_margin_top_one_line">210dp</dimen>
+    <dimen name="qav_gaudio_grid_net_tip_margin_top_two_line">300dp</dimen>
+    <dimen name="qav_gaudio_indicate_margin_top_one_line">100dp</dimen>
+    <dimen name="qav_gaudio_indicate_margin_top_two_line">190dp</dimen>
+    <dimen name="qav_gaudio_indicator_top">250dp</dimen>
+    <dimen name="qav_gaudio_member_name_margin_top">4dp</dimen>
+    <dimen name="qav_gaudio_member_name_width">50dp</dimen>
+    <dimen name="qav_gaudio_members_container_one_line">90dp</dimen>
+    <dimen name="qav_gaudio_members_container_two_line">180dp</dimen>
+    <dimen name="qav_gaudio_members_holder_height_one_line">110dp</dimen>
+    <dimen name="qav_gaudio_members_holder_height_two_line">250dp</dimen>
+    <dimen name="qav_gaudio_members_holder_margin_top_large">80dp</dimen>
+    <dimen name="qav_gaudio_members_holder_margin_top_small">24dp</dimen>
+    <dimen name="qav_gaudio_msg_text_width">95dp</dimen>
+    <dimen name="qav_gaudio_speaking_icon_margin_left">6dp</dimen>
+    <dimen name="qav_gaudio_speaking_icon_margin_top">5dp</dimen>
+    <dimen name="qav_gaudio_speaking_icon_width">10dp</dimen>
+    <dimen name="qav_grid_view_item_width_audio">75dp</dimen>
+    <dimen name="qav_grid_view_item_width_video">64dp</dimen>
+    <dimen name="qav_info_margintop">160dp</dimen>
+    <dimen name="qav_info_margintop_ldpi">70dp</dimen>
+    <dimen name="qav_info_margintop_video">60dp</dimen>
+    <dimen name="qav_info_name_margintop">5dp</dimen>
+    <dimen name="qav_invite_btn_right_margin">60dp</dimen>
+    <dimen name="qav_invite_btn_trans">40dp</dimen>
+    <dimen name="qav_lock_bg_w">266dp</dimen>
+    <dimen name="qav_lock_left_margin">6dp</dimen>
+    <dimen name="qav_lock_margin">47dp</dimen>
+    <dimen name="qav_lock_right_edge">260dp</dimen>
+    <dimen name="qav_msg_name_max_width">100dp</dimen>
+    <dimen name="qav_msg_text_max_width">226dp</dimen>
+    <dimen name="qav_multi_video_friend_item_width">60dp</dimen>
+    <dimen name="qav_net_tip_margin_top">350dp</dimen>
+    <dimen name="qav_net_tip_margin_top_small">210dp</dimen>
+    <dimen name="qav_notification_icon">64dp</dimen>
+    <dimen name="qav_ring_margintop">130dp</dimen>
+    <dimen name="qav_setting_table_row_height">50dp</dimen>
+    <dimen name="qav_smartbar_height">48dp</dimen>
+    <dimen name="qav_tips_margintop">300dp</dimen>
+    <dimen name="qav_tips_margintop_ldpi">240dp</dimen>
+    <dimen name="qav_title_bar_height">50dp</dimen>
+    <dimen name="qav_title_margin_top">3dp</dimen>
+    <dimen name="qav_titlebar_height">25dp</dimen>
+    <dimen name="qav_waiting_text_max_width">128dp</dimen>
+    <dimen name="qav_waiting_tip_margin_top">40dp</dimen>
+    <dimen name="qav_waiting_tip_margin_top_one_line">54dp</dimen>
+    <dimen name="qav_waiting_tip_margin_top_small">50dp</dimen>
+    <dimen name="qav_waiting_tip_margin_top_two_line">113dp</dimen>
+    <dimen name="small_area_height">110dp</dimen>
+    <dimen name="small_area_margin_bottom">110dp</dimen>
+    <dimen name="small_area_margin_top">130dp</dimen>
+    <dimen name="small_area_marginbetween">10dp</dimen>
+    <dimen name="small_area_marginright">10dp</dimen>
+    <dimen name="small_area_width">60dp</dimen>
+    <dimen name="tencent_tls_ui_activity_horizontal_margin">16dp</dimen>
+    <dimen name="tencent_tls_ui_activity_vertical_margin">16dp</dimen>
+    <dimen name="tencent_tls_ui_buttonFontSize">16dp</dimen>
+    <dimen name="tencent_tls_ui_edittext_height">50dp</dimen>
+    <dimen name="tencent_tls_ui_edittext_leftpadding">20dp</dimen>
+    <dimen name="tencent_tls_ui_edittext_margin">15dp</dimen>
+    <dimen name="tencent_tls_ui_edittext_rightpadding">20dp</dimen>
+    <dimen name="tencent_tls_ui_titleBarHeight">60dp</dimen>
+    <dimen name="tencent_tls_ui_titleFontSize">21dp</dimen>
+    <dimen name="video_bottom_toolbar_margin">10dp</dimen>
+    <dimen name="video_lock_margin">-15dp</dimen>
+    <dimen name="video_msgbox_offset">3dp</dimen>
+    <dimen name="video_msgbox_offsetX">23dp</dimen>
+    <dimen name="video_msgbox_offsetY">3dp</dimen>
+    <dimen name="video_small_mute_margin">5dp</dimen>
+    <dimen name="video_small_video_margin">1.5dp</dimen>
+    <dimen name="video_small_view_height">160dp</dimen>
+    <dimen name="video_small_view_offsetX">10dp</dimen>
+    <dimen name="video_small_view_offsetY">10dp</dimen>
+    <dimen name="video_small_view_width">120dp</dimen>
+    <dimen name="video_smallview_move_thresholdX">30dp</dimen>
+    <dimen name="video_smallview_move_thresholdY">40dp</dimen>
+    <dimen name="video_title_default_width">200dp</dimen>
+    <dimen name="video_top_toolbar_margin">45dp</dimen>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
@@ -198,11 +474,27 @@
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
     <item name="split_action_bar" type="id"/>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <item name="tag_first" type="id"/>
+    <item name="tag_second" type="id"/>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <item name="up" type="id"/>
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="abc_max_action_buttons">2</integer>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/integers.xml -->
+    <eat-comment/>
+    <integer name="anim_duration">3000</integer>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <integer name="cancel_button_image_alpha">127</integer>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/integers.xml -->
+    <eat-comment/>
+    <integer name="heart_anim_bezier_factor">6</integer>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
@@ -225,10 +517,93 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="action_settings">settings</string>
     <string name="app_name">PicThink</string>
+    <string name="btn_agree">同意</string>
+    <string name="btn_cancel">取消</string>
+    <string name="btn_login_out">退出登录</string>
+    <string name="btn_pic_photo">从手机相册选择</string>
+    <string name="btn_refuse">拒绝</string>
+    <string name="btn_return">返回</string>
+    <string name="btn_return_home">返回首页</string>
+    <string name="btn_save">保存</string>
+    <string name="btn_sure">确定</string>
+    <string name="btn_take_photo">拍照</string>
+    <string name="dialog_members_tips">邀请互动连线（最多可与三个成员进行互动直播）</string>
+    <string name="edit_error">修改失败</string>
+    <string name="error_code_prefix">错误码：</string>
+    <string name="host_admire">赞:11.3w</string>
+    <string name="host_follow">关注:7089</string>
+    <string name="host_funs">粉丝数:9090</string>
+    <string name="host_phone">iPhone6S Plus</string>
+    <string name="host_sign">我的签名就是把我的世界直播给你们</string>
+    <string name="invite_dialog_tips">主播邀请您与他进行互动直播</string>
+    <string name="live_admires_tips">获赞数量</string>
+    <string name="live_end_ask_tips">确定结束直播?</string>
+    <string name="live_end_tips">直播结束啦</string>
+    <string name="live_members_tips">观看人数</string>
+    <string name="live_report_dirty">垃圾营销</string>
+    <string name="live_report_false">不实信息</string>
+    <string name="live_report_illegal">违法信息</string>
+    <string name="live_report_tips">请选择您的举报原因</string>
+    <string name="live_report_virus">有害信息</string>
+    <string name="live_report_yellow">淫秽信息</string>
+    <string name="live_time_tips">直播时长</string>
+    <string name="live_titile">最新直播</string>
+    <string name="live_unknown">未知</string>
+    <string name="profile_about">关于随心播</string>
+    <string name="profile_icon">头像</string>
+    <string name="profile_nickname">昵称</string>
+    <string name="profile_set">设置</string>
+    <string name="profile_sign">签名</string>
+    <string name="profile_title">编辑个人信息</string>
+    <string name="publish_already_launch_avRoom">wait!</string>
+    <string name="publish_create_room_failed">创建房间失败</string>
+    <string name="publish_need_photo_tips">从未发起过图片，请选择一张作为直播封面</string>
+    <string name="publish_photo_album">相册</string>
+    <string name="publish_photo_make_sure_tips">请添加一张照片</string>
+    <string name="publish_photo_make_sure_title">请输入图片标题</string>
+    <string name="publish_photo_success">发布图片成功</string>
+    <string name="publish_photo_take">拍照</string>
+    <string name="publish_upload_cover_failed">上传封面失败</string>
+    <string name="publish_upload_success">上传封面成功</string>
+    <string name="publish_wait_uploading">请等待封面上传完成</string>
+    <string name="send">发送</string>
+    <string name="set_live_animator">渐隐动画</string>
+    <string name="set_log_level">日志等级</string>
+    <string name="set_sdk_version">SDK版本</string>
     <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="tencent_tls_ui_independentLoginTitle">用户名登录</string>
+    <string name="tencent_tls_ui_independentRegisterTitle">用户名注册</string>
+    <string name="text_continue">继续</string>
+    <string name="text_live">正在直播>></string>
+    <string name="text_live_add_title_tips">给你的直播设置一个满意的封面</string>
+    <string name="text_live_admire_limit">点赞过于频繁</string>
+    <string name="text_live_all_see">所有人可看</string>
+    <string name="text_live_close_lbs">不显示位置</string>
+    <string name="text_live_default_title">我的直播我做主</string>
+    <string name="text_live_lbs_fail">定位失败</string>
+    <string name="text_live_lbs_unknown">未知</string>
+    <string name="text_live_location">正在定位中</string>
+    <string name="text_live_open_lbs">开启位置</string>
+    <string name="text_live_preview">发布直播</string>
+    <string name="text_live_share">同步到</string>
+    <string name="text_live_title_input">给直播写个标题吧</string>
+    <string name="text_photo_preview">发布照片</string>
+    <string name="text_photo_title_input">你的照片你做主</string>
+    <string name="text_publish">开始直播</string>
+    <string name="text_record_info">开始录制后直播视频自动录制，并可以进行回放</string>
+    <string name="text_start_push">开启推流</string>
+    <string name="tip_force_offline">您的帐号已在其它地方登陆</string>
+    <string name="tip_no_permission">权限不足</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -237,9 +612,9 @@
     <eat-comment/>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+       <!-- <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccent</item>-->
     </style>
     <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
     <eat-comment/>
@@ -1538,4 +1913,67 @@
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="floag_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="host_info_dlg" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="inputdialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="report_dlg" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="tencent_tls_ui_theme" parent="android:Theme.Holo.Light.NoActionBar">
+    </style>
+    <style name="tencent_tls_ui_titleFontStyle" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textSize">@dimen/tencent_tls_ui_titleFontSize</item>
+        <item name="android:textColor">@color/tencent_tls_ui_titleFontColor</item>
+    </style>
+    <style name="tencent_tls_ui_transparent">
+        <item name="android:windowBackground">@color/tencent_tls_ui_transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
 </resources>

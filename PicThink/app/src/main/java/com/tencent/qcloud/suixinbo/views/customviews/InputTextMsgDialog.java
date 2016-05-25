@@ -3,20 +3,19 @@ package com.tencent.qcloud.suixinbo.views.customviews;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Rect;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mb.picthinklive.R;
 import com.tencent.TIMMessage;
 import com.tencent.TIMTextElem;
-import com.mb.picthinklive.R;
 import com.tencent.qcloud.suixinbo.presenters.LiveHelper;
 import com.tencent.qcloud.suixinbo.utils.SxbLog;
 import com.tencent.qcloud.suixinbo.views.LiveActivity;
@@ -48,7 +47,12 @@ public class InputTextMsgDialog extends Dialog {
         mContext = context;
         mLiveControlHelper = presenter;
         mVideoPlayActivity = activity;
+        //防止软键盘遮挡住Dialog的输入框
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE |
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
         setContentView(R.layout.input_text_dialog);
+
         messageTextView = (EditText) findViewById(R.id.input_message);
         confirmBtn = (TextView) findViewById(R.id.confrim_btn);
 //        rlDlg = (RelativeLayout) findViewById(R.id.rl_dlg);
@@ -92,33 +96,34 @@ public class InputTextMsgDialog extends Dialog {
             }
         });
 
-        final LinearLayout rldlgview = (LinearLayout) findViewById(R.id.rl_inputdlg_view);
-        rldlgview.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                Rect r = new Rect();
-                //获取当前界面可视部分
-                getWindow().getDecorView().getWindowVisibleDisplayFrame(r);
-                //获取屏幕的高度
-                int screenHeight =  getWindow().getDecorView().getRootView().getHeight();
-                //此处就是用来获取键盘的高度的， 在键盘没有弹出的时候 此高度为0 键盘弹出的时候为一个正数
-                int heightDifference = screenHeight - r.bottom;
-
-                if (heightDifference <= 0 && mLastDiff > 0){
-                    imm.hideSoftInputFromWindow(messageTextView.getWindowToken(), 0);
-                    dismiss();
-                }
-                SxbLog.d("XIAO", heightDifference+"/"+mLastDiff);
-                mLastDiff = heightDifference;
-            }
-        });
-        rldlgview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                imm.hideSoftInputFromWindow(messageTextView.getWindowToken(), 0);
-                dismiss();
-            }
-        });
+//        final LinearLayout rldlgview = (LinearLayout) findViewById(R.id.rl_inputdlg_view);
+//        rldlgview.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+//            @Override
+//            public void onGlobalLayout() {
+//                Rect r = new Rect();
+//                //获取当前界面可视部分
+//                getWindow().getDecorView().getWindowVisibleDisplayFrame(r);
+//
+//                //获取屏幕的高度
+//                int screenHeight =  getWindow().getDecorView().getRootView().getHeight();
+//                //此处就是用来获取键盘的高度的， 在键盘没有弹出的时候 此高度为0 键盘弹出的时候为一个正数
+//                int heightDifference = screenHeight - r.bottom;
+//
+//                if (heightDifference <= 0 && mLastDiff > 0){
+//                    imm.hideSoftInputFromWindow(messageTextView.getWindowToken(), 0);
+//                    dismiss();
+//                }
+//                SxbLog.d("XIAO", heightDifference+"/"+mLastDiff);
+//                mLastDiff = heightDifference;
+//            }
+//        });
+//        rldlgview.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                imm.hideSoftInputFromWindow(messageTextView.getWindowToken(), 0);
+//                dismiss();
+//            }
+//        });
     }
 
     /**
@@ -174,6 +179,6 @@ public class InputTextMsgDialog extends Dialog {
                 inputManager.showSoftInput(messageTextView, 0);
             }
 
-        }, 500);
+        }, 100);
     }
 }

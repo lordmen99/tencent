@@ -87,7 +87,7 @@
     <string name="text_publish">开始直播</string>
     <string name="text_live_preview">发布直播</string>
     <string name="text_photo_preview">发布照片</string>
-    <string name="text_live_title_input">请输入直播标题</string>
+    <string name="text_live_title_input">给直播写个标题吧</string>
     <string name="text_photo_title_input">你的照片你做主</string>
     <string name="text_live_open_lbs">开启位置</string>
     <string name="text_live_close_lbs">不显示位置</string>
