@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 
+import com.mb.picthinklive.MainFragment;
 import com.mb.picthinklive.R;
 import com.tencent.TIMUserProfile;
 import com.tencent.qcloud.suixinbo.QavsdkApplication;
@@ -32,8 +33,8 @@ public class HomeActivity extends FragmentActivity implements ProfileView {
     private FragmentTabHost mTabHost;
     private LayoutInflater layoutInflater;
     private ProfileInfoHelper infoHelper;
-    private LoginHelper mLoginHelper;
-    private final Class fragmentArray[] = {FragmentLiveList.class, FragmentPublish.class, FragmentProfile.class};
+    private LoginHelper mLoginHelper;//HomeFragment
+    private final Class fragmentArray[] = {com.mb.picthinklive.MainFragment.class, FragmentPublish.class, FragmentProfile.class};
     private int mImageViewArray[] = {R.drawable.tab_live, R.drawable.icon_publish, R.drawable.tab_profile};
     private String mTextviewArray[] = {"live", "publish", "profile"};
     private static final String TAG = HomeActivity.class.getSimpleName();
