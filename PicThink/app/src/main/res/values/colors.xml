@@ -5,6 +5,17 @@
     <color name="colorAccent">#FF4081</color>-->
 
 
+
+
+    <!--项目颜色-->
+    <color name="color_text_yellow">#F8D150</color>
+    <!--橘红色，商品价格-->
+    <color name="color_text_orange_red">#FD8265</color>
+    <!--灰色线条-->
+    <color name="color_line_gray">#F5F5F5</color>
+    <!--hint字-->
+    <color name="color_text_hint_gray">#9A9A9A</color>
+
     <color name="tencent_tls_ui_white">#FFFFFF</color>
     <color name="tencent_tls_ui_gray">#444444</color>
     <color name="tencent_tls_ui_shadowgray">#CCCCCC</color>
