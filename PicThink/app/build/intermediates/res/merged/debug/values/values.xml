@@ -105,6 +105,7 @@
     <color name="colorTheme">#80407A</color>
     <color name="colorThemeActive">#A15C9A</color>
     <color name="color_line_gray">#F5F5F5</color>
+    <color name="color_text_hint_gray">#9A9A9A</color>
     <color name="color_text_orange_red">#FD8265</color>
     <color name="color_text_yellow">#F8D150</color>
     <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
@@ -532,6 +533,7 @@
     <string name="dialog_members_tips">邀请互动连线（最多可与三个成员进行互动直播）</string>
     <string name="edit_error">修改失败</string>
     <string name="error_code_prefix">错误码：</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="host_admire">赞:11.3w</string>
     <string name="host_follow">关注:7089</string>
     <string name="host_funs">粉丝数:9090</string>
