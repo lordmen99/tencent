@@ -10,6 +10,7 @@ import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -35,6 +36,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
+import com.mb.picthinklive.GoodsDetailActivity;
 import com.mb.picthinklive.R;
 import com.mb.picthinklive.bean.AllGoodsBean;
 import com.tencent.TIMUserProfile;
@@ -1140,8 +1142,10 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
 
         LayoutInflater inflater = this.getLayoutInflater();
         View view = inflater.inflate(R.layout.pop_sale_window, null);
-        PopupWindow popupWindow = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT, 700);
+        final PopupWindow popupWindow = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT, 700);
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
         popupWindow.setFocusable(true);
+
         //显示(在该控件下面)
         final WindowManager.LayoutParams params = getWindow().getAttributes();//创建当前界面的一个参数对象
         params.alpha = 0.5f;//设置参数的透明度
@@ -1166,8 +1170,9 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //商品详情
+
                 Intent intent = new Intent();
-//                intent.setClass(LiveActivity.this,GoodsDetailActivity.class);
+                intent.setClass(LiveActivity.this,GoodsDetailActivity.class);
                 startActivity(intent);
             }
         });

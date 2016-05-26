@@ -45,6 +45,12 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.mb.picthinklive.StartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mb.picthinklive.AgreementActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.tencent.qcloud.suixinbo.views.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -97,6 +103,10 @@
                 <action android:name="android.intent.action.TIMEZONE_CHANGED" />
             </intent-filter>
         </receiver>
+
+        <activity android:name="com.mb.picthinklive.PicLoginActivity" />
+        <activity android:name="com.mb.picthinklive.GoodsDetailActivity" />
+        <activity android:name="com.mb.picthinklive.SetHeadActivity" />
     </application>
 
 </manifest>
