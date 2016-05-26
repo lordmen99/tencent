@@ -4,15 +4,54 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/fragement_textview1"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
 
-        android:text="标签1-1"
-        android:gravity="center"
-        android:textSize="80sp"
-        android:background="#003388" />
+    <com.mb.picthinklive.weight.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:id="@+id/fragment_hot_scrollview">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="200dip"
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="200dip"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/fragment_hot_banner" />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/frgment_hot_viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dip" />
+
+                <LinearLayout
+                    android:id="@+id/layout_point_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+            </RelativeLayout>
+
+
+
+           <include
+               layout="@layout/fragment_hot_part"/>
+
+        </LinearLayout>
+
+
+    </com.mb.picthinklive.weight.MyScrollView>
 
 </LinearLayout>
