@@ -65,9 +65,9 @@ public class MainFragment extends Fragment{
     private void initViewPage(View view) {
 
         viewPager = (ViewPager) view.findViewById(R.id.viewpager);
-        list.add(new FragmentLiveList());//Fragment4()
-        list.add(new Fragment4());
-        list.add(new Fragment6());
+        list.add(new FragmentLiveList());//HotFragment()
+        list.add(new HotFragment());
+        list.add(new MostNewFragment());
         viewPager.setAdapter(new FragmentAdapter(getChildFragmentManager()));
         MoveImage(view);
     }
