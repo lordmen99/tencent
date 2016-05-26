@@ -3,6 +3,6 @@
 
     <item android:drawable="@mipmap/home_zhib_on" android:state_selected="true"/>
     <item android:drawable="@mipmap/home_zhib_on" android:state_pressed="true"/>
-    <item android:drawable="@mipmap/home_zhibo_off"/>
+    <item android:drawable="@mipmap/home_zhib_on2"/>
 
 </selector>
