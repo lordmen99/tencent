@@ -3,7 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
     <com.mb.picthinklive.weight.MyScrollView
         android:layout_width="match_parent"
@@ -48,10 +52,15 @@
 
            <include
                layout="@layout/fragment_hot_part"/>
-
+            <com.mb.picthinklive.weight.ListViewForScrollView
+                android:id="@+id/fragment_hot_live_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:divider="@null" />
         </LinearLayout>
 
 
     </com.mb.picthinklive.weight.MyScrollView>
-
+</android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>
