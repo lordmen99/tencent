@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
+import android.widget.TextView;
 
 import com.mb.picthinklive.MainFragment;
 import com.mb.picthinklive.R;
@@ -35,8 +36,9 @@ public class HomeActivity extends FragmentActivity implements ProfileView {
     private ProfileInfoHelper infoHelper;
     private LoginHelper mLoginHelper;//HomeFragment
     private final Class fragmentArray[] = {com.mb.picthinklive.MainFragment.class, FragmentPublish.class, FragmentProfile.class};
-    private int mImageViewArray[] = {R.drawable.tab_live, R.drawable.icon_publish, R.drawable.tab_profile};
+    private int mImageViewArray[] = {R.drawable.tab_live, R.drawable.home_live_onclick, R.drawable.tab_profile};
     private String mTextviewArray[] = {"live", "publish", "profile"};
+    private String mTextTitleArray[] = {"主页", "直播", "我"};
     private static final String TAG = HomeActivity.class.getSimpleName();
 
 
@@ -93,6 +95,8 @@ public class HomeActivity extends FragmentActivity implements ProfileView {
     private View getTabItemView(int index) {
         View view = layoutInflater.inflate(R.layout.tab_content, null);
         ImageView icon = (ImageView) view.findViewById(R.id.tab_icon);
+        TextView txt=(TextView)view.findViewById(R.id.tab_txt);
+        txt.setText(mTextTitleArray[index]);
         icon.setImageResource(mImageViewArray[index]);
         return view;
     }

@@ -13,8 +13,6 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.tencent.qcloud.suixinbo.views.FragmentLiveList;
@@ -47,11 +45,17 @@ public class MainFragment extends Fragment{
     int beforeItem = 0;
     ViewPager viewPager;
 
+    private ViewTreeObserver vto ;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, null);
         ButterKnife.bind(this, view);
 
+        vto = (ViewTreeObserver) fragmentMainLine .getViewTreeObserver();
+
+
+        vto.addOnGlobalLayoutListener(mGlobalLayoutListener);
         initViewPage(view);
         return view;
     }
@@ -62,7 +66,7 @@ public class MainFragment extends Fragment{
 
         viewPager = (ViewPager) view.findViewById(R.id.viewpager);
         list.add(new FragmentLiveList());//Fragment4()
-        list.add(new Fragment5());
+        list.add(new Fragment4());
         list.add(new Fragment6());
         viewPager.setAdapter(new FragmentAdapter(getChildFragmentManager()));
         MoveImage(view);
@@ -99,9 +103,9 @@ public class MainFragment extends Fragment{
                     case 0: {
                         Log.e("==case 0==qian===",beforeItem+"");
                         if (beforeItem == 1) {
-                            animation = new TranslateAnimation(two, one, 0, 0);
+                            animation = new TranslateAnimation(bmWidth, 0, 0, 0);
                         } else {
-                            animation = new TranslateAnimation(two, 0, 0, 0);
+                            animation = new TranslateAnimation(bmWidth*2, 0, 0, 0);
                         }
                         animation.setDuration(200);//设置动画的持续时间
                         animation.setFillAfter(true);//让动画停止在结束位置
@@ -114,9 +118,9 @@ public class MainFragment extends Fragment{
                     case 1: {
                         Log.e("==case 1==qian===",beforeItem+"");
                         if (beforeItem == 0) {
-                            animation = new TranslateAnimation(one, two, 0, 0);
+                            animation = new TranslateAnimation(0, bmWidth, 0, 0);
                         } else {
-                            animation = new TranslateAnimation(three, two, 0, 0);
+                            animation = new TranslateAnimation(bmWidth*2, bmWidth, 0, 0);
                         }
                         animation.setDuration(200);//设置动画的持续时间
                         animation.setFillAfter(true);//让动画停止在结束位置
@@ -128,9 +132,9 @@ public class MainFragment extends Fragment{
                     case 2: {
                         Log.e("==case 2==qian===",beforeItem+"");
                         if (beforeItem == 0) {
-                            animation = new TranslateAnimation(gapWidth, two, 0, 0);
+                            animation = new TranslateAnimation(0, bmWidth*2, 0, 0);
                         } else {
-                            animation = new TranslateAnimation(two, three, 0, 0);
+                            animation = new TranslateAnimation(bmWidth, bmWidth*2, 0, 0);
                         }
                         animation.setDuration(200);//设置动画的持续时间
                         animation.setFillAfter(true);//让动画停止在结束位置
@@ -154,12 +158,7 @@ public class MainFragment extends Fragment{
 
     }
 
-    private void initImage(View view) {
-//        ImageView imageView = (ImageView) view.findViewById(R.id.image);
-//        setImageStartMove(imageView);
 
-        setImageStartMove();
-    }
 
     /**
      * 让图片移动到起始位置
@@ -167,23 +166,18 @@ public class MainFragment extends Fragment{
 
     private void setImageStartMove() {
 
-        bmWidth =fragmentMainLine.getMeasuredWidth();
-
-
-
-        //bmWidth = fragmentMainLine.getWidth();
-
-
-//        bmWidth = BitmapFactory.decodeResource(getResources(), R.drawable.line_below).getWidth();
        /*获取屏幕宽度*/
         int screenWidth = getActivity().getWindowManager().getDefaultDisplay().getWidth();
        /*计算间隙宽度*/
         int txtWidth=bmWidth*3;
         gapWidth = (screenWidth  - txtWidth) / 2;
-        System.out.println("--->" + gapWidth);
-//        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//        params.setMargins(gapWidth, 0, 0, 0);
-//        fragmentMainLine.setLayoutParams(params);
+
+//        Log.e("==set==gapWidth===",gapWidth+"");
+//        Log.e("==set==bmWidth===",bmWidth+"");
+//        Log.e("=set=screenWidth===",screenWidth+"");
+
+
+
     }
 
 
@@ -238,5 +232,21 @@ public class MainFragment extends Fragment{
     }
 
 
+    private final ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+        @Override
+        public void onGlobalLayout() {
+            int width = -1;
+           // int height = -1;
 
+            try {
+                width = fragmentMainLine.getWidth();
+                //height = getActivity().getWindow().getDecorView().getHeight();
+            } catch (Exception e) {
+                // called too early. so, just skip.
+            }
+
+            if (width != -1 && bmWidth != width) {//只有当尺寸真正有了数值，即已经确定了，更新UI才有意义
+                bmWidth = width;
+                setImageStartMove();
+            }  } };
 }
