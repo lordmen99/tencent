@@ -14,6 +14,6 @@
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/tabhost_bg" />
+        android:background="@mipmap/home_bottom" />
 
 </FrameLayout>
