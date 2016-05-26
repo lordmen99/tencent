@@ -95,8 +95,8 @@ public class HomeActivity extends FragmentActivity implements ProfileView {
     private View getTabItemView(int index) {
         View view = layoutInflater.inflate(R.layout.tab_content, null);
         ImageView icon = (ImageView) view.findViewById(R.id.tab_icon);
-        TextView txt=(TextView)view.findViewById(R.id.tab_txt);
-        txt.setText(mTextTitleArray[index]);
+//        TextView txt=(TextView)view.findViewById(R.id.tab_txt);
+//        txt.setText(mTextTitleArray[index]);
         icon.setImageResource(mImageViewArray[index]);
         return view;
     }
