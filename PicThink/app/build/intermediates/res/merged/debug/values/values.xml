@@ -108,6 +108,7 @@
     <color name="color_text_hint_gray">#9A9A9A</color>
     <color name="color_text_orange_red">#FD8265</color>
     <color name="color_text_yellow">#F8D150</color>
+    <color name="color_text_zongse">#AE9B64</color>
     <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
     <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
@@ -1575,6 +1576,17 @@
         <item name="android:minWidth">56dp</item>
         <item name="android:scaleType">center</item>
     </style>
+    <!-- From: file:/E:/PicThinkLive/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="CustomDatePickerDialog" parent="@style/AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowBackground"> @android:color/transparent </item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <!-- From: file:/E:/PicThinkLive/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/values/values.xml -->
+    <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
 
