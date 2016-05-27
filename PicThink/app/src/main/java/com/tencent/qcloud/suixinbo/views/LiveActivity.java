@@ -1,7 +1,6 @@
 package com.tencent.qcloud.suixinbo.views;
 
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -14,6 +13,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Display;
@@ -39,6 +40,7 @@ import com.bumptech.glide.RequestManager;
 import com.mb.picthinklive.GoodsDetailActivity;
 import com.mb.picthinklive.R;
 import com.mb.picthinklive.bean.AllGoodsBean;
+import com.mb.picthinklive.fragment.DialogFragmentWindow;
 import com.tencent.TIMUserProfile;
 import com.tencent.av.sdk.AVView;
 import com.tencent.qcloud.suixinbo.QavsdkApplication;
@@ -76,7 +78,7 @@ import java.util.TimerTask;
 /**
  * Live直播类
  */
-public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveView, View.OnClickListener, ProfileView {
+public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView, LiveView, View.OnClickListener, ProfileView {
     private static final String TAG = LiveActivity.class.getSimpleName();
     private static final int GETPROFILE_JOIN = 0x200;
 
@@ -342,9 +344,15 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
 
         TextView tv_message = (TextView) findViewById(R.id.tv_message);//消息图标
         TextView tv_sale = (TextView) findViewById(R.id.tv_sale);//出售商品
+        TextView tv_vrprop = (TextView) findViewById(R.id.tv_vrprop);//VR道具
+        TextView tv_lianxian = (TextView) findViewById(R.id.tv_lianxian);//连线
+        TextView tv_friends = (TextView) findViewById(R.id.tv_friends);//好友聊天
 
         tv_message.setOnClickListener(this);
         tv_sale.setOnClickListener(this);
+        tv_vrprop.setOnClickListener(this);
+        tv_lianxian.setOnClickListener(this);
+        tv_friends.setOnClickListener(this);
 
         BtnCtrlVideo.setOnClickListener(this);
         BtnCtrlMic.setOnClickListener(this);
@@ -1003,8 +1011,10 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
         return false;
     }
 
+
     @Override
     public void onClick(View view) {
+
         switch (view.getId()) {
             case R.id.btn_back:
                 quiteLiveByPurpose();
@@ -1120,8 +1130,39 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
             case  R.id.tv_sale://出售商品
                 SalePopWindow();//商品的Dialog
                 break;
+            case  R.id.tv_vrprop://VR道具
+               Toast.makeText(this,"暂无开通，敬请期待。",Toast.LENGTH_SHORT).show();
+                break;
+            case  R.id.tv_lianxian://连线
+               showLianXianPopWindow(view);
+                break;
+            case  R.id.tv_friends://好友聊天
+                DialogFragmentWindow friendsDialog = new DialogFragmentWindow();
+                friendsDialog.setStyle(DialogFragment.STYLE_NO_TITLE,R.style.CustomDatePickerDialog);
+                friendsDialog.show(getSupportFragmentManager(), "");
+                break;
+
         }
     }
+
+
+
+    /********************************发消息弹出输入框*******************************************/
+
+    private void inputMsgDialog() {
+        InputTextMsgDialog inputMsgDialog = new InputTextMsgDialog(this, R.style.inputdialog, mLiveHelper, this);
+        WindowManager windowManager = getWindowManager();
+        Display display = windowManager.getDefaultDisplay();
+        WindowManager.LayoutParams lp = inputMsgDialog.getWindow().getAttributes();
+        lp.width = (int) (display.getWidth()); //设置宽度
+        inputMsgDialog.getWindow().setAttributes(lp);
+//        inputMsgDialog.setCancelable(true);
+        inputMsgDialog.show();
+    }
+/******************************************************************************************/
+
+
+
 /********************************关于购物商品模块*******************************************/
     /**
      * 测试商品
@@ -1147,9 +1188,6 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
         popupWindow.setFocusable(true);
 
         //显示(在该控件下面)
-        final WindowManager.LayoutParams params = getWindow().getAttributes();//创建当前界面的一个参数对象
-        params.alpha = 0.5f;//设置参数的透明度
-        getWindow().setAttributes(params);
         popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
 
         //解决ListView抢占焦点
@@ -1172,7 +1210,7 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
                 //商品详情
 
                 Intent intent = new Intent();
-                intent.setClass(LiveActivity.this,GoodsDetailActivity.class);
+                intent.setClass(LiveActivity.this, GoodsDetailActivity.class);
                 startActivity(intent);
             }
         });
@@ -1237,6 +1275,48 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
 /******************************************************************************************/
 
 
+
+/**************************************连线功能*******************************************/
+    private void showLianXianPopWindow(View v) {
+        LayoutInflater inflater = this.getLayoutInflater();
+        View view = inflater.inflate(R.layout.pop_lianxian_window, null);
+        final PopupWindow popupWindow = new PopupWindow(view, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+        popupWindow.setFocusable(true);
+
+        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        int popupWidth = view.getMeasuredWidth();
+        int popupHeight = view.getMeasuredHeight();
+        int[] location = new int[2];
+        //显示(在该控件上面)
+        v.getLocationOnScreen(location);
+        popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, (location[0] + v.getWidth() / 2) - popupWidth / 2, location[1] - popupHeight);
+
+        TextView tv_yuyin = (TextView) view.findViewById(R.id.tv_yuyin);
+        TextView tv_shipin = (TextView) view.findViewById(R.id.tv_shipin);
+        //点击语音连线
+        tv_yuyin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+        //点击视频连线
+        tv_shipin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+    }
+
+/******************************************************************************************/
+
+
+
+
+
+/******************************************************************************************/
     //for 测试获取测试参数
     private boolean showTips = false;
     private TextView tvTipsMsg;
@@ -1308,20 +1388,7 @@ public class LiveActivity extends Activity implements EnterQuiteRoomView, LiveVi
     }
 
 
-    /**
-     * 发消息弹出框
-     */
-    private void inputMsgDialog() {
-        InputTextMsgDialog inputMsgDialog = new InputTextMsgDialog(this, R.style.inputdialog, mLiveHelper, this);
-        WindowManager windowManager = getWindowManager();
-        Display display = windowManager.getDefaultDisplay();
-        WindowManager.LayoutParams lp = inputMsgDialog.getWindow().getAttributes();
 
-        lp.width = (int) (display.getWidth()); //设置宽度
-        inputMsgDialog.getWindow().setAttributes(lp);
-//        inputMsgDialog.setCancelable(true);
-        inputMsgDialog.show();
-    }
 
 
     /**
