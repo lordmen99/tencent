@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 
 
 /**

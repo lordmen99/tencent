@@ -16,7 +16,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 import com.tencent.av.opengl.GraphicRendererMgr;
 import com.tencent.av.opengl.gesturedetectors.MoveGestureDetector;
 import com.tencent.av.opengl.gesturedetectors.MoveGestureDetector.OnMoveGestureListener;

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5"
     android:orientation="vertical"
-    tools:context="com.mb.picthinklive.SetHeadActivity">
+    tools:context="com.mb.picvisionlive.SetHeadActivity">
 
     <include layout="@layout/common_top_view" />
 

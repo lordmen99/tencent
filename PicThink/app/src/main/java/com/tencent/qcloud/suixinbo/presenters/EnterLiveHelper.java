@@ -15,7 +15,7 @@ import com.tencent.TIMValueCallBack;
 import com.tencent.av.sdk.AVContext;
 import com.tencent.av.sdk.AVRoom;
 import com.tencent.av.sdk.AVRoomMulti;
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 import com.tencent.qcloud.suixinbo.avcontrollers.QavsdkControl;
 import com.tencent.qcloud.suixinbo.model.CurLiveInfo;
 import com.tencent.qcloud.suixinbo.model.LiveInfoJson;

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/start_bg_img"
-    tools:context="com.mb.picthinklive.StartActivity">
+    tools:context="com.mb.picvisionlive.StartActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

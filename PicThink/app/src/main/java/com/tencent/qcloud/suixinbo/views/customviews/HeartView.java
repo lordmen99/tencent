@@ -26,7 +26,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 
 
 /**

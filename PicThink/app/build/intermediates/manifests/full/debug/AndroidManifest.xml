@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mb.picthinklive"
+    package="com.mb.picvisionlive"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -37,7 +37,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.mb.picthinklive.StartActivity" >
+        <activity android:name="com.mb.picvisionlive.StartActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,7 +48,7 @@
             android:name="com.tencent.qcloud.suixinbo.views.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.mb.picthinklive.AgreementActivity"
+            android:name="com.mb.picvisionlive.AgreementActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.tencent.qcloud.suixinbo.views.RegisterActivity"
@@ -104,9 +104,9 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.mb.picthinklive.PicLoginActivity" />
-        <activity android:name="com.mb.picthinklive.GoodsDetailActivity" />
-        <activity android:name="com.mb.picthinklive.SetHeadActivity" />
+        <activity android:name="com.mb.picvisionlive.PicLoginActivity" />
+        <activity android:name="com.mb.picvisionlive.GoodsDetailActivity" />
+        <activity android:name="com.mb.picvisionlive.SetHeadActivity" />
     </application>
 
 </manifest>

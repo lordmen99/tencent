@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 import com.tencent.qcloud.suixinbo.adapters.LiveShowAdapter;
 import com.tencent.qcloud.suixinbo.model.CurLiveInfo;
 import com.tencent.qcloud.suixinbo.model.LiveInfoJson;

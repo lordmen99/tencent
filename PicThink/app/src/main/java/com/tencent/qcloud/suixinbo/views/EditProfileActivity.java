@@ -26,7 +26,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 import com.tencent.TIMUserProfile;
 import com.tencent.qcloud.suixinbo.QavsdkApplication;
 
