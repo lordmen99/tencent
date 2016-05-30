@@ -35,7 +35,7 @@
                         android:drawablePadding="5dip"
                         android:text="达人推荐"
                         android:textColor="#484848"
-                        android:textSize="14sp" />
+                        android:textSize="12sp" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
                     android:drawablePadding="5dip"
                     android:text="最新直播"
                     android:textColor="#484848"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:padding="10dip"/>
                 <com.mb.picvisionlive.weight.MyGridView
                     android:id="@+id/fragment_most_new_onair_gridview"
