@@ -100,7 +100,8 @@
 
         <activity android:name=".PicLoginActivity" />
         <activity android:name=".GoodsDetailActivity" />
-        <activity android:name=".SetHeadActivity"></activity>
+        <activity android:name=".SetHeadActivity" />
+        <activity android:name=".EditPersonInfoActivity"></activity>
     </application>
 
 </manifest>
