@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 import com.tencent.qcloud.suixinbo.QavsdkApplication;
 
 import com.tencent.qcloud.suixinbo.model.MySelfInfo;

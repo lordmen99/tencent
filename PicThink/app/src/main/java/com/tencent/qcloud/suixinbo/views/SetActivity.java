@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 import com.tencent.TIMManager;
 import com.tencent.av.sdk.AVContext;
 import com.tencent.qalsdk.QALSDKManager;

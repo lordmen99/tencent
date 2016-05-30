@@ -6,7 +6,7 @@ import android.view.Gravity;
 import android.view.Window;
 import android.widget.ListView;
 
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 import com.tencent.qcloud.suixinbo.adapters.MembersAdapter;
 import com.tencent.qcloud.suixinbo.model.MemberInfo;
 import com.tencent.qcloud.suixinbo.presenters.LiveHelper;

@@ -26,7 +26,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 import com.tencent.qcloud.suixinbo.utils.AbstractPathAnimator;
 import com.tencent.qcloud.suixinbo.utils.PathAnimator;
 

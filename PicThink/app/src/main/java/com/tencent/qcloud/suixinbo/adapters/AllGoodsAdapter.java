@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mb.picthinklive.R;
-import com.mb.picthinklive.bean.AllGoodsBean;
+import com.mb.picvisionlive.R;
+import com.mb.picvisionlive.bean.AllGoodsBean;
 import com.tencent.qcloud.suixinbo.utils.ViewHolder;
 
 import java.util.List;

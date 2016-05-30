@@ -8,12 +8,11 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 import com.tencent.TIMMessage;
 import com.tencent.TIMTextElem;
 import com.tencent.qcloud.suixinbo.presenters.LiveHelper;

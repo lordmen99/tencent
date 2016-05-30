@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 
 
 /**

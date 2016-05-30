@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.mb.picthinklive.weight.MyScrollView
+    <com.mb.picvisionlive.weight.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -43,7 +43,7 @@
                         android:src="@mipmap/fragment_most_new_more" />
                 </LinearLayout>
 
-                <com.mb.picthinklive.weight.MyGridView
+                <com.mb.picvisionlive.weight.MyGridView
                     android:id="@+id/fragment_most_new_daren_gridview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                     android:textColor="#484848"
                     android:textSize="14sp"
                     android:padding="10dip"/>
-                <com.mb.picthinklive.weight.MyGridView
+                <com.mb.picvisionlive.weight.MyGridView
                     android:id="@+id/fragment_most_new_onair_gridview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
 
 
         </LinearLayout>
-    </com.mb.picthinklive.weight.MyScrollView>
+    </com.mb.picvisionlive.weight.MyScrollView>
 
 
 </LinearLayout>

@@ -21,7 +21,7 @@ import android.graphics.Path;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;

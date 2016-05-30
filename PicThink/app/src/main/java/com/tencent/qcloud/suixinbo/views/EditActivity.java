@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 
 
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 import com.tencent.qcloud.suixinbo.views.customviews.TemplateTitle;
 
 /**

@@ -37,10 +37,10 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
-import com.mb.picthinklive.GoodsDetailActivity;
-import com.mb.picthinklive.R;
-import com.mb.picthinklive.bean.AllGoodsBean;
-import com.mb.picthinklive.fragment.DialogFragmentWindow;
+import com.mb.picvisionlive.GoodsDetailActivity;
+import com.mb.picvisionlive.R;
+import com.mb.picvisionlive.bean.AllGoodsBean;
+import com.mb.picvisionlive.fragment.DialogFragmentWindow;
 import com.tencent.TIMUserProfile;
 import com.tencent.av.sdk.AVView;
 import com.tencent.qcloud.suixinbo.QavsdkApplication;

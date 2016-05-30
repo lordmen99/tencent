@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.mb.picthinklive.R;
+import com.mb.picvisionlive.R;
 
 
 /**
