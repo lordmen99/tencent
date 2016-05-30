@@ -81,7 +81,7 @@
             android:textColor="#484848"
             android:textSize="12sp" />
 
-        <com.mb.picthinklive.weight.MyGridView
+        <com.mb.picvisionlive.weight.MyGridView
             android:id="@+id/fragment_look_daren_gridview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

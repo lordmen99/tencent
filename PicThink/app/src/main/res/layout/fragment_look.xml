@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-    <com.mb.picthinklive.weight.MyScrollView
+    <com.mb.picvisionlive.weight.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -41,7 +41,7 @@
             </LinearLayout>
 
 
-            <com.mb.picthinklive.weight.ListViewForScrollView
+            <com.mb.picvisionlive.weight.ListViewForScrollView
                 android:id="@+id/fragment_look_live_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -51,7 +51,7 @@
               <include  layout="@layout/fragment_look_empty_part"/>
 
         </LinearLayout>
-    </com.mb.picthinklive.weight.MyScrollView>
+    </com.mb.picvisionlive.weight.MyScrollView>
 </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>
