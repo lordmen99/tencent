@@ -15,7 +15,7 @@ public abstract class BaseActivity extends FragmentActivity {
 
     protected Context appContext;
     protected Context mContext;
-
+//ss
 
     @Override
     protected void onCreate(Bundle arg0) {
