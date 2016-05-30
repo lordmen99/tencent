@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+    <com.mb.picthinklive.weight.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#F5F5F5">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dip"
+                android:background="#F5F5F5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/fragment_most_new_shu"
+                    android:drawablePadding="5dip"
+                    android:text="关注好友的直播"
+                    android:textColor="#484848"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+
+            <com.mb.picthinklive.weight.ListViewForScrollView
+                android:id="@+id/fragment_look_live_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:divider="@null" />
+
+              <include  layout="@layout/fragment_look_empty_part"/>
+
+        </LinearLayout>
+    </com.mb.picthinklive.weight.MyScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>
