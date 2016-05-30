@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#F5F5F5"
     android:orientation="vertical"
-    tools:context="com.mb.picthinklive.EditPersonInfoActivity">
+    tools:context="com.mb.picvisionlive.EditPersonInfoActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,12 +21,13 @@
             <include layout="@layout/common_top_view" />
 
             <LinearLayout
+                android:id="@+id/edit_person_info_head_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
+                android:background="@drawable/onclick_approve"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="10dip">
+                android:padding="15dip">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -37,6 +38,7 @@
                     android:textSize="14sp" />
 
                 <ImageView
+                    android:id="@+id/edit_person_info_head_img"
                     android:layout_width="60dip"
                     android:layout_height="60dip"
                     android:scaleType="fitXY"
@@ -50,12 +52,13 @@
                 android:background="#F5F5F5" />
 
             <LinearLayout
+                android:id="@+id/edit_person_info_nick_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
+                android:background="@drawable/onclick_approve"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="10dip">
+                android:padding="15dip">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -66,6 +69,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/edit_person_info_nick_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawablePadding="5dip"
@@ -82,12 +86,13 @@
                 android:background="#F5F5F5" />
 
             <LinearLayout
+                android:id="@+id/edit_person_info_ID_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
+                android:background="@drawable/onclick_approve"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="10dip">
+                android:padding="15dip">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -98,6 +103,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/edit_person_info_ID_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="66668888"
@@ -112,12 +118,13 @@
                 android:background="#F5F5F5" />
 
             <LinearLayout
+                android:id="@+id/edit_person_info_sex_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
+                android:background="@drawable/onclick_approve"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="10dip">
+                android:padding="15dip">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -128,6 +135,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/edit_person_info_sex_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="女"
@@ -142,12 +150,13 @@
                 android:background="#F5F5F5" />
 
             <LinearLayout
+                android:id="@+id/edit_person_info_sign_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
+                android:background="@drawable/onclick_approve"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="10dip">
+                android:padding="15dip">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -170,12 +179,13 @@
                 android:background="#F5F5F5" />
 
             <LinearLayout
+                android:id="@+id/edit_person_info_check_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
+                android:background="@drawable/onclick_approve"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="10dip">
+                android:padding="15dip">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -198,12 +208,13 @@
                 android:background="#F5F5F5" />
 
             <LinearLayout
+                android:id="@+id/edit_person_info_age_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
+                android:background="@drawable/onclick_approve"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="10dip">
+                android:padding="15dip">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -226,12 +237,13 @@
                 android:background="#F5F5F5" />
 
             <LinearLayout
+                android:id="@+id/edit_person_info_home_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
+                android:background="@drawable/onclick_approve"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="10dip">
+                android:padding="15dip">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -254,12 +266,13 @@
                 android:background="#F5F5F5" />
 
             <LinearLayout
+                android:id="@+id/edit_person_info_job_line"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
+                android:background="@drawable/onclick_approve"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="10dip">
+                android:padding="15dip">
 
                 <TextView
                     android:layout_width="match_parent"
