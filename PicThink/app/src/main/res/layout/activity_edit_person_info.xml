@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="F5F5F5"
+    android:background="#F5F5F5"
     android:orientation="vertical"
     tools:context="com.mb.picthinklive.EditPersonInfoActivity">
 
@@ -69,7 +69,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawablePadding="5dip"
-                    android:drawableRight="@mipmap/Common_arrow_right"
+                    android:drawableRight="@mipmap/common_arrow_right"
                     android:text="小喵喵"
                     android:textColor="#909090"
                     android:textSize="14sp" />
@@ -160,7 +160,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/Common_arrow_right" />
+                    android:src="@mipmap/common_arrow_right" />
 
             </LinearLayout>
 
@@ -188,7 +188,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/Common_arrow_right" />
+                    android:src="@mipmap/common_arrow_right" />
 
             </LinearLayout>
 
@@ -216,7 +216,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/Common_arrow_right" />
+                    android:src="@mipmap/common_arrow_right" />
 
             </LinearLayout>
 
@@ -244,7 +244,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/Common_arrow_right" />
+                    android:src="@mipmap/common_arrow_right" />
 
             </LinearLayout>
 
@@ -272,7 +272,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/Common_arrow_right" />
+                    android:src="@mipmap/common_arrow_right" />
 
             </LinearLayout>
         </LinearLayout>
