@@ -102,7 +102,10 @@
         <activity android:name=".GoodsDetailActivity" />
         <activity android:name=".SetHeadActivity" />
         <activity android:name=".EditPersonInfoActivity" />
-        <activity android:name=".EditNickActivity"></activity>
+        <activity android:name=".EditNickActivity" />
+        <activity android:name=".EditSexActivity" />
+        <activity android:name=".EditJobActivity" />
+        <activity android:name=".EditSignActivity"></activity>
     </application>
 
 </manifest>
