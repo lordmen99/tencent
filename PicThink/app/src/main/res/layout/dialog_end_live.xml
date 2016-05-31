@@ -2,35 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@drawable/dialog_tip_bg"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <TextView
         android:gravity="center"
-        android:textSize="@dimen/h12"
-        android:textColor="@color/colorTextWhite"
-        android:text="@string/live_end_tips"
+        android:textSize="16sp"
+        android:text="你确定要退出直播吗？"
+        android:textColor="@color/colorTextG4"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingBottom="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/btn_sure"
-        android:layout_marginTop="50dp"
-        android:padding="5dp"
-        android:text="@string/btn_sure"
-        android:textSize="@dimen/h10"
-        android:textColor="@color/btn_red"
-        android:gravity="center"
-        android:background="@drawable/button_pressed"
-        android:layout_width="225dp"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:id="@+id/btn_cancel"
-        android:layout_marginTop="15dp"
-        android:padding="5dp"
-        android:text="@string/btn_cancel"
-        android:textSize="@dimen/h10"
-        android:textColor="@color/btn_red"
-        android:gravity="center"
-        android:background="@drawable/button_pressed"
-        android:layout_width="225dp"
-        android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/color_line_gray" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/btn_cancel"
+            android:padding="5dp"
+            android:text="@string/btn_cancel"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="@color/colorTextG4"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:id="@+id/fg"
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/color_line_gray" />
+        <TextView
+            android:id="@+id/btn_sure"
+            android:padding="5dp"
+            android:textColor="@color/colorTextG4"
+            android:text="@string/btn_sure"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 </LinearLayout>
