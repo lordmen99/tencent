@@ -70,4 +70,9 @@ public class SetHeadActivity extends BaseActivity {
                 break;
         }
     }
+    @Override
+    protected void onDestroy() {
+        ButterKnife.unbind(this);
+        super.onDestroy();
+    }
 }

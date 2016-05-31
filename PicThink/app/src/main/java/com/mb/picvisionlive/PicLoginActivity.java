@@ -20,4 +20,9 @@ public class PicLoginActivity extends BaseActivity {
     public void bodymethod() {
 
     }
+    @Override
+    protected void onDestroy() {
+        ButterKnife.unbind(this);
+        super.onDestroy();
+    }
 }
