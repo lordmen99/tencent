@@ -63,7 +63,7 @@ public class LookFragment extends Fragment implements LiveListView, SwipeRefresh
         View view = inflater.inflate(R.layout.fragment_look, null);
         ButterKnife.bind(this, view);
 
-         a = 1;
+         a = 0;
 
         if (a == 1) {
             mLookEmptyLine.setVisibility(View.GONE);
@@ -74,7 +74,9 @@ public class LookFragment extends Fragment implements LiveListView, SwipeRefresh
             initDarenGridView();
         }
 
-
+        if (a==1){
+            mLiveListViewHelper.getPageData();
+        }
 
         return view;
     }
@@ -133,9 +135,9 @@ public class LookFragment extends Fragment implements LiveListView, SwipeRefresh
     }
     @Override
     public void onStart() {
-        if (a==1){
-            mLiveListViewHelper.getPageData();
-        }
+//        if (a==1){
+//            mLiveListViewHelper.getPageData();
+//        }
 
         super.onStart();
     }
