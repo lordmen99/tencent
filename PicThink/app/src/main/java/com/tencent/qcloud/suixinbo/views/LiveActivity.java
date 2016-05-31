@@ -347,12 +347,20 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
         TextView tv_vrprop = (TextView) findViewById(R.id.tv_vrprop);//VR道具
         TextView tv_lianxian = (TextView) findViewById(R.id.tv_lianxian);//连线
         TextView tv_friends = (TextView) findViewById(R.id.tv_friends);//好友聊天
+        TextView tv_share = (TextView) findViewById(R.id.tv_share);//分享
+        TextView tv_sing = (TextView) findViewById(R.id.tv_sing);//唱歌
+        TextView tv_camera = (TextView) findViewById(R.id.tv_camera);//翻转
+        TextView tv_close = (TextView) findViewById(R.id.tv_close);//关闭
 
         tv_message.setOnClickListener(this);
         tv_sale.setOnClickListener(this);
         tv_vrprop.setOnClickListener(this);
         tv_lianxian.setOnClickListener(this);
         tv_friends.setOnClickListener(this);
+        tv_share.setOnClickListener(this);
+        tv_sing.setOnClickListener(this);
+        tv_camera.setOnClickListener(this);
+        tv_close.setOnClickListener(this);
 
         BtnCtrlVideo.setOnClickListener(this);
         BtnCtrlMic.setOnClickListener(this);
@@ -557,7 +565,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
     private Dialog backDialog;
 
     private void initBackDialog() {
-        backDialog = new Dialog(this, R.style.dialog);
+        backDialog = new Dialog(this, R.style.BackDialog);
         backDialog.setContentView(R.layout.dialog_end_live);
 
         TextView tvSure = (TextView) backDialog.findViewById(R.id.btn_sure);
@@ -1141,7 +1149,18 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
                 friendsDialog.setStyle(DialogFragment.STYLE_NO_TITLE,R.style.CustomDatePickerDialog);
                 friendsDialog.show(getSupportFragmentManager(), "");
                 break;
-
+            case  R.id.tv_share://分享
+                showSharePopWindow(view);
+                break;
+            case  R.id.tv_sing://唱歌
+                Toast.makeText(this,"暂无开通，敬请期待。",Toast.LENGTH_SHORT).show();
+                break;
+            case  R.id.tv_camera://翻转，闪光灯
+                showCameraPopWindow(view);
+                break;
+            case  R.id.tv_close://关闭直播
+                quiteLiveByPurpose();
+                break;
         }
     }
 
@@ -1314,10 +1333,62 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
 
 
 
+/**************************************分享*******************************************/
+    private void showSharePopWindow(View v) {
+        LayoutInflater inflater = this.getLayoutInflater();
+        View view = inflater.inflate(R.layout.pop_share_window, null);
+        final PopupWindow popupWindow = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+        popupWindow.setFocusable(true);
 
+        popupWindow.showAtLocation(v, Gravity.BOTTOM, 0, 0);
+
+    }
 
 /******************************************************************************************/
-    //for 测试获取测试参数
+
+
+
+
+/**************************************连线功能*******************************************/
+    private void showCameraPopWindow(View v) {
+        LayoutInflater inflater = this.getLayoutInflater();
+        View view = inflater.inflate(R.layout.pop_lianxian_window, null);
+        final PopupWindow popupWindow = new PopupWindow(view, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+        popupWindow.setFocusable(true);
+
+        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        int popupWidth = view.getMeasuredWidth();
+        int popupHeight = view.getMeasuredHeight();
+        int[] location = new int[2];
+        //显示(在该控件上面)
+        v.getLocationOnScreen(location);
+        popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, (location[0] + v.getWidth() / 2) - popupWidth / 2, location[1] - popupHeight);
+
+        TextView tv_shanguang = (TextView) view.findViewById(R.id.tv_yuyin);
+        tv_shanguang.setText("闪光灯");
+        TextView tv_xuanzhuan = (TextView) view.findViewById(R.id.tv_shipin);
+        tv_xuanzhuan.setText("旋转");
+
+
+        tv_shanguang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+
+        tv_xuanzhuan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+    }
+/******************************************************************************************/
+
+     //for 测试获取测试参数
     private boolean showTips = false;
     private TextView tvTipsMsg;
     Timer paramTimer = new Timer();
