@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical"
+    tools:context="com.mb.picvisionlive.MoreDarenActivity">
+
+    <include layout="@layout/common_top_view" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/fragment_most_new_shu"
+        android:drawablePadding="5dip"
+        android:padding="15dip"
+        android:text="更多达人推荐"
+        android:textColor="#484848"
+        android:textSize="12sp" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+
+        <ListView
+            android:id="@+id/more_daren_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:divider="@null" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>
