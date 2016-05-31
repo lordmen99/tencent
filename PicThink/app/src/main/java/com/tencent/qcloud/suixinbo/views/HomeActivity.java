@@ -33,12 +33,12 @@ public class HomeActivity extends FragmentActivity implements ProfileView {
     private LayoutInflater layoutInflater;
     private ProfileInfoHelper infoHelper;
     private LoginHelper mLoginHelper;//HomeFragment
+//    private final Class fragmentArray[] = {com.mb.picvisionlive.MainFragment.class, FragmentPublish.class};
     private final Class fragmentArray[] = {com.mb.picvisionlive.MainFragment.class, FragmentPublish.class, com.mb.picvisionlive.PersonInfoFragment.class};
     private int mImageViewArray[] = {R.drawable.tab_live, R.drawable.home_live_onclick, R.drawable.tab_profile};
     private String mTextviewArray[] = {"live", "publish", "profile"};
     private String mTextTitleArray[] = {"主页", "直播", "我"};
     private static final String TAG = HomeActivity.class.getSimpleName();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
