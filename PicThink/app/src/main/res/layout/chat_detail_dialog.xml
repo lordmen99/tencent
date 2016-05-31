@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.tencent.qcloud.timchat.ui.ChatActivity">
+    android:layout_height="301dp">
     <com.tencent.qcloud.timchat.ui.customview.TemplateTitle
         android:id="@+id/chat_title"
         android:layout_width="match_parent"
@@ -23,17 +23,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@null"
+        android:background="@color/color_line_gray"
         android:layout_above="@id/input_panel"
         android:layout_below="@id/chat_title">
 
     </ListView>
-    <com.tencent.qcloud.timchat.ui.customview.VoiceSendingView
+ <!--   <com.tencent.qcloud.timchat.ui.customview.VoiceSendingView
         android:id="@+id/voice_sending"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:visibility="gone"
         android:layout_centerInParent="true"/>
-
+-->
 
 
 </RelativeLayout>
