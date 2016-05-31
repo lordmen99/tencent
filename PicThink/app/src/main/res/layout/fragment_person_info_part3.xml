@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/fragment_person_info_corner_white"
+        android:background="@drawable/onclick_approve_corner"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="15dip"
@@ -32,7 +32,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/fragment_person_info_corner_white"
+        android:background="@drawable/onclick_approve_corner"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="15dip"
@@ -54,7 +54,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/fragment_person_info_corner_white"
+        android:background="@drawable/onclick_approve_corner"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="15dip"
@@ -76,7 +76,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/fragment_person_info_corner_white"
+        android:background="@drawable/onclick_approve_corner"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="15dip"
@@ -98,7 +98,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/fragment_person_info_corner_white"
+        android:background="@drawable/onclick_approve_corner"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="15dip"
@@ -120,7 +120,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/fragment_person_info_corner_white"
+        android:background="@drawable/onclick_approve_corner"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="15dip"
@@ -142,7 +142,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/fragment_person_info_corner_white"
+        android:background="@drawable/onclick_approve_corner"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="15dip"
@@ -164,7 +164,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/fragment_person_info_corner_white"
+        android:background="@drawable/onclick_approve_corner"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="15dip"
