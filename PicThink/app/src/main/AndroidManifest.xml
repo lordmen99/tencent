@@ -105,7 +105,8 @@
         <activity android:name=".EditNickActivity" />
         <activity android:name=".EditSexActivity" />
         <activity android:name=".EditJobActivity" />
-        <activity android:name=".EditSignActivity"></activity>
+        <activity android:name=".EditSignActivity" />
+        <activity android:name=".MoreDarenActivity"></activity>
     </application>
 
 </manifest>
