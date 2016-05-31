@@ -9,7 +9,6 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,6 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
 import com.mb.picvisionlive.tools.FastBlur;
-import com.tencent.qcloud.suixinbo.views.HomeActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -59,8 +57,8 @@ public class PersonInfoFragment extends Fragment {
                         if (width_img == 0) {
                             width_img = infoBgImg.getWidth();
                             heigh_img = infoBgImg.getHeight();
-                            Log.e("===width_img===", width_img + "");
-                            Log.e("===heigh_imgt===", heigh_img + "");
+//                            Log.e("===width_img===", width_img + "");
+//                            Log.e("===heigh_imgt===", heigh_img + "");
                         }
                         //infoBgImg.setImageBitmap(resizeImage(bitmap, width_img, heigh_img));
                         Bitmap map = resizeImage(bitmap, width_img, heigh_img);
@@ -111,14 +109,14 @@ public class PersonInfoFragment extends Fragment {
         float scaleWidth = ((float) newWidth) / width;
         float scaleHeight = ((float) newHeight) / height;
 
-        Log.e("===newWidth===", newWidth + "");
-        Log.e("===newHeight===", newHeight + "");
-
-        Log.e("===width===", width + "");
-        Log.e("===height===", height + "");
-
-        Log.e("===scaleWidth===", scaleWidth + "");
-        Log.e("===scaleHeight===", scaleHeight + "");
+//        Log.e("===newWidth===", newWidth + "");
+//        Log.e("===newHeight===", newHeight + "");
+//
+//        Log.e("===width===", width + "");
+//        Log.e("===height===", height + "");
+//
+//        Log.e("===scaleWidth===", scaleWidth + "");
+//        Log.e("===scaleHeight===", scaleHeight + "");
 
         Matrix matrix = new Matrix();
         matrix.postScale(scaleWidth, scaleHeight);
@@ -127,8 +125,8 @@ public class PersonInfoFragment extends Fragment {
         // matrix.postRotate(45);
         Bitmap resizedBitmap = Bitmap.createBitmap(BitmapOrg, 0, 0, width,
                 height, matrix, true);
-        Log.e("===resizedBitmap===", resizedBitmap.getWidth() + "");
-        Log.e("===resizedBitmap===", resizedBitmap.getHeight() + "");
+//        Log.e("===resizedBitmap===", resizedBitmap.getWidth() + "");
+//        Log.e("===resizedBitmap===", resizedBitmap.getHeight() + "");
         // Drawable daw=new BitmapDrawable(getResources(), resizedBitmap);
         return resizedBitmap;
     }

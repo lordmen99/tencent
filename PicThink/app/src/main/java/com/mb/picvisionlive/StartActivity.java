@@ -98,5 +98,9 @@ public class StartActivity extends BaseActivity {
         }
     }
 
-
+    @Override
+    protected void onDestroy() {
+        ButterKnife.unbind(this);
+        super.onDestroy();
+    }
 }

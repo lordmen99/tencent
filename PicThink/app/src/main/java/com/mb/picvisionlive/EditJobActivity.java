@@ -10,24 +10,24 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+public class EditJobActivity extends BaseActivity {
 
-public class EditNickActivity extends BaseActivity {
 
 
-    @Bind(R.id.edit_nick_edit)
-    EditText editNickEdit;
-    String nickName="";
+    @Bind(R.id.edit_job_edit)
+    EditText mJobEdit;
+
+    String job="";
 
     @Override
     public void setContentView() {
-        setContentView(R.layout.activity_edit_nick);
+        setContentView(R.layout.activity_edit_job);
         ButterKnife.bind(this);
-
     }
 
     @Override
     public void findViewByid() {
-        initHead("昵称", "保存");
+        initHead("职业", "保存");
     }
 
     @Override
@@ -39,8 +39,8 @@ public class EditNickActivity extends BaseActivity {
 
     @OnClick(R.id.commom_right_txt)
     public void onClick() {
-        nickName=editNickEdit.getText().toString();
-        EventBus.getDefault().post(nickName, PicConstants.NICK_TAG);
+        job=mJobEdit.getText().toString();
+        EventBus.getDefault().post(job, PicConstants.JOB_TAG);
 
         finish();
     }

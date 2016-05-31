@@ -10,24 +10,23 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+public class EditSignActivity extends BaseActivity {
 
-public class EditNickActivity extends BaseActivity {
 
+    @Bind(R.id.edit_sign_edit)
+    EditText mSignEdit;
 
-    @Bind(R.id.edit_nick_edit)
-    EditText editNickEdit;
-    String nickName="";
+    String sign="";
 
     @Override
     public void setContentView() {
-        setContentView(R.layout.activity_edit_nick);
+        setContentView(R.layout.activity_edit_sign);
         ButterKnife.bind(this);
-
     }
 
     @Override
     public void findViewByid() {
-        initHead("昵称", "保存");
+      initHead("个性签名","保存");
     }
 
     @Override
@@ -39,11 +38,12 @@ public class EditNickActivity extends BaseActivity {
 
     @OnClick(R.id.commom_right_txt)
     public void onClick() {
-        nickName=editNickEdit.getText().toString();
-        EventBus.getDefault().post(nickName, PicConstants.NICK_TAG);
+        sign=mSignEdit.getText().toString();
+        EventBus.getDefault().post(sign, PicConstants.SIGN_TAG);
 
         finish();
     }
+
     @Override
     protected void onDestroy() {
         ButterKnife.unbind(this);
