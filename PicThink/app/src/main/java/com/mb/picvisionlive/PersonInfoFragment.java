@@ -141,4 +141,52 @@ public class PersonInfoFragment extends Fragment {
     public void onClick() {
         startActivity(new Intent(context, EditPersonInfoActivity.class));
     }
+
+    @OnClick({R.id.frgment_person_info_onair_rel, R.id.frgment_person_info_grade_rel, R.id.frgment_person_info_interst_rel, R.id.frgment_person_info_sauce_rel, R.id.fragment_person_info_order_line, R.id.fragment_person_info_address_line, R.id.fragment_person_info_selalist_line, R.id.fragment_person_info_check_line, R.id.fragment_person_info_business_line, R.id.fragment_person_info_tool_line, R.id.fragment_person_info_invite_line, R.id.fragment_person_info_setting_line})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.frgment_person_info_onair_rel: {
+                break;
+            }
+            case R.id.frgment_person_info_grade_rel: {
+                Intent intent = new Intent(context, GradeActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.frgment_person_info_interst_rel: {
+                break;
+            }
+            case R.id.frgment_person_info_sauce_rel: {
+                break;
+            }
+            case R.id.fragment_person_info_order_line: {
+                break;
+            }
+            case R.id.fragment_person_info_address_line: {
+                Intent intent = new Intent(context, AddressActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.fragment_person_info_selalist_line: {
+                break;
+            }
+            case R.id.fragment_person_info_check_line: {
+                break;
+            }
+            case R.id.fragment_person_info_business_line: {
+                break;
+            }
+            case R.id.fragment_person_info_tool_line: {
+                break;
+            }
+            case R.id.fragment_person_info_invite_line: {
+                break;
+            }
+            case R.id.fragment_person_info_setting_line: {
+                Intent intent = new Intent(context, SettingActivity.class);
+                startActivity(intent);
+                break;
+            }
+        }
+    }
 }
