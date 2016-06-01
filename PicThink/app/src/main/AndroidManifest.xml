@@ -106,7 +106,14 @@
         <activity android:name=".EditSexActivity" />
         <activity android:name=".EditJobActivity" />
         <activity android:name=".EditSignActivity" />
-        <activity android:name=".MoreDarenActivity"></activity>
+        <activity android:name=".MoreDarenActivity" />
+        <activity android:name=".GradeActivity" />
+        <activity android:name=".AddressActivity" />
+        <activity android:name=".ADDAddressActivity" />
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".AccountSafeActivity" />
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".PushMessageActivity"></activity>
     </application>
 
 </manifest>
