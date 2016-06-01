@@ -377,4 +377,14 @@
     <string name="about_qalsdk">QAL版本</string>
     <string name="about_tlssdk">TLS版本</string>
     <string name="about_log">日志等级</string>
+
+
+    <string name="grade_interest">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et
+        viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus
+        et magnis dis parturient montes</string>
+<string name="grade_up">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod
+    bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
+    Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes
+</string>
 </resources>

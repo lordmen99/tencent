@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical"
+    tools:context="com.mb.picvisionlive.PushMessageActivity">
+
+    <include layout="@layout/common_top_view" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="直播消息提醒"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/push_message_isOK_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/push_message_selector_checkbox"
+            android:button="@null"
+            android:checked="true"
+
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dip"
+        android:text="关闭某个人的消息提醒,不在收到TA的提示"
+        android:textColor="#484848"
+        android:textSize="14sp" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:scaleType="fitXY"
+                android:src="@mipmap/toux" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:drawablePadding="5dip"
+                android:drawableRight="@mipmap/common_female"
+                android:text="欧阳美美"
+                android:textColor="#484848"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+        <CheckBox
+            android:id="@+id/push_message_single_isOK_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/push_message_selector_checkbox"
+            android:button="@null"
+            android:checked="false"
+
+            />
+
+    </LinearLayout>
+</LinearLayout>

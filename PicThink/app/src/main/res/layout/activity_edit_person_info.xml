@@ -91,7 +91,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:padding="15dip">
+                android:padding="15dip"
+                android:background="#FFFFFF">
 
                 <TextView
                     android:layout_width="match_parent"

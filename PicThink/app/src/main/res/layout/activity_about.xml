@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:orientation="vertical"
+    android:background="#F5F5F5"
+    tools:context="com.mb.picvisionlive.AboutActivity">
+    <include layout="@layout/common_top_view" />
+    <LinearLayout
+        android:id="@+id/about_convention_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip"
+        android:layout_marginTop="10dip">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="社会公约"
+            android:textColor="#484848"
+            android:textSize="14sp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/common_arrow_right" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/about_private_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip"
+        android:layout_marginTop="10dip">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="隐私政策"
+            android:textColor="#484848"
+            android:textSize="14sp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/common_arrow_right" />
+    </LinearLayout>
+    <LinearLayout
+    android:id="@+id/about_service_line"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/onclick_approve"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="15dip"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="服务条款"
+        android:textColor="#484848"
+        android:textSize="14sp"
+        android:layout_weight="1"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/common_arrow_right" />
+</LinearLayout>
+    <LinearLayout
+        android:id="@+id/about_contact_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="联系我们"
+            android:textColor="#484848"
+            android:textSize="14sp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/common_arrow_right" />
+    </LinearLayout>
+</LinearLayout>
