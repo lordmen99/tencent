@@ -7,13 +7,14 @@
     android:padding="10dip">
 
     <LinearLayout
+        android:id="@+id/fragment_person_info_order_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/onclick_approve_corner"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="15dip"
-        android:layout_marginTop="10dip">
+        >
 
         <TextView
             android:layout_width="match_parent"
@@ -30,6 +31,7 @@
             android:scaleType="centerCrop"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/fragment_person_info_address_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/onclick_approve_corner"
@@ -52,6 +54,7 @@
             android:src="@mipmap/fragment_person_info_arrowdown" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/fragment_person_info_selalist_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/onclick_approve_corner"
@@ -74,6 +77,7 @@
             android:src="@mipmap/fragment_person_info_arrowdown" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/fragment_person_info_check_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/onclick_approve_corner"
@@ -96,6 +100,7 @@
             android:src="@mipmap/fragment_person_info_arrowdown" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/fragment_person_info_business_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/onclick_approve_corner"
@@ -118,6 +123,7 @@
             android:src="@mipmap/fragment_person_info_arrowdown" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/fragment_person_info_tool_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/onclick_approve_corner"
@@ -140,6 +146,7 @@
             android:src="@mipmap/fragment_person_info_arrowdown" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/fragment_person_info_invite_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/onclick_approve_corner"
@@ -162,6 +169,7 @@
             android:src="@mipmap/fragment_person_info_arrowdown" />
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/fragment_person_info_setting_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/onclick_approve_corner"

@@ -4,15 +4,17 @@
     android:layout_height="wrap_content"
     android:background="#F5F5F5"
     android:orientation="horizontal"
-    android:paddingTop="20dip"
-    android:paddingBottom="10dip"
     android:paddingLeft="10dip"
     android:paddingRight="10dip">
 
     <RelativeLayout
+        android:id="@+id/frgment_person_info_onair_rel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:paddingTop="20dip"
+        android:paddingBottom="20dip"
+        android:background="@drawable/onclick_approve_gray">
 
 
         <TextView
@@ -59,9 +61,13 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/frgment_person_info_grade_rel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:paddingTop="20dip"
+        android:paddingBottom="20dip"
+        android:background="@drawable/onclick_approve_gray">
 
         <TextView
             android:layout_width="wrap_content"
@@ -108,9 +114,13 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/frgment_person_info_interst_rel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:paddingTop="20dip"
+        android:paddingBottom="20dip"
+        android:background="@drawable/onclick_approve_gray">
 
         <TextView
             android:layout_width="wrap_content"
@@ -157,9 +167,13 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/frgment_person_info_sauce_rel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:paddingTop="20dip"
+        android:paddingBottom="20dip"
+        android:background="@drawable/onclick_approve_gray">
 
         <TextView
             android:layout_width="wrap_content"
