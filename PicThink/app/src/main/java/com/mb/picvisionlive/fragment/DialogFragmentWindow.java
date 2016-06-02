@@ -55,6 +55,7 @@ public class DialogFragmentWindow extends DialogFragment implements View.OnClick
         WindowManager.LayoutParams wlp = window.getAttributes();
         wlp.gravity = Gravity.BOTTOM;
         wlp.width = WindowManager.LayoutParams.MATCH_PARENT;
+
         window.setAttributes(wlp);
         return view;
     }

@@ -4,11 +4,9 @@ package com.tencent.qcloud.suixinbo.adapters;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +14,6 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-
 
 import com.mb.picvisionlive.R;
 import com.tencent.qcloud.suixinbo.model.ChatEntity;
@@ -112,6 +109,7 @@ public class ChatMsgListAdapter extends BaseAdapter implements AbsListView.OnScr
         switch (idx & 0x7) {
             case 1:
                 return context.getResources().getColor(R.color.colorSendName1);
+
             case 2:
                 return context.getResources().getColor(R.color.colorSendName2);
             case 3:
@@ -152,19 +150,22 @@ public class ChatMsgListAdapter extends BaseAdapter implements AbsListView.OnScr
             playViewAnimator(convertView, position, item);
         }
 
-        spanString = new SpannableString(item.getSenderName() + "  " + item.getContext());
+        spanString = new SpannableString(item.getSenderName() + " ： " + item.getContext());
         if (item.getType() != Constants.TEXT_TYPE) {
             // 设置名称为粗体
-            StyleSpan boldStyle = new StyleSpan(Typeface.BOLD_ITALIC);
-            spanString.setSpan(boldStyle, 0, item.getSenderName().length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            holder.textItem.setBackgroundResource(R.drawable.img_chat_black);
+//            StyleSpan boldStyle = new StyleSpan(Typeface.BOLD_ITALIC);
+//            spanString.setSpan(boldStyle, 0, item.getSenderName().length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            holder.textItem.setBackgroundResource(R.drawable.img_chat_black);
+
+            spanString.setSpan(new ForegroundColorSpan(calcNameColor(item.getSenderName())),
+                    0, item.getSenderName().length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
             holder.sendContext.setTextColor(context.getResources().getColor(R.color.colorTextWhite));
         } else {
             // 根据名称计算颜色
-            holder.textItem.setBackgroundResource(R.drawable.img_chat_white);
+//            holder.textItem.setBackgroundResource(R.drawable.img_chat_white);
             spanString.setSpan(new ForegroundColorSpan(calcNameColor(item.getSenderName())),
                     0, item.getSenderName().length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
-            holder.sendContext.setTextColor(context.getResources().getColor(R.color.colorTextBlack));
+            holder.sendContext.setTextColor(context.getResources().getColor(R.color.white));
         }
         holder.sendContext.setText(spanString);
         // 设置控件实际宽度以便计算列表项实际高度
