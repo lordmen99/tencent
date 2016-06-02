@@ -54,6 +54,15 @@
                 android:drawablePadding="10dip"
                 android:gravity="center"
                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/invite_rule"
+                android:paddingBottom="15dip"
+                android:textColor="@color/color_bg_red"
+                android:textSize="14sp"
+
+                />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
