@@ -25,11 +25,13 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -39,8 +41,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.mb.picvisionlive.GoodsDetailActivity;
 import com.mb.picvisionlive.R;
+import com.mb.picvisionlive.adapter.AudienceIconAdapter;
+import com.mb.picvisionlive.adapter.PopShopAdapter;
 import com.mb.picvisionlive.bean.AllGoodsBean;
+import com.mb.picvisionlive.bean.AudienceIconBean;
+import com.mb.picvisionlive.bean.ShopBean;
 import com.mb.picvisionlive.fragment.DialogFragmentWindow;
+import com.mb.picvisionlive.weight.HorizontialListView;
 import com.tencent.TIMUserProfile;
 import com.tencent.av.sdk.AVView;
 import com.tencent.qcloud.suixinbo.QavsdkApplication;
@@ -103,16 +110,10 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
     private TextView mLikeTv;
     private HeartBeatTask mHeartBeatTask;//心跳
     private ImageView mHeadIcon;
-    private TextView mHostNameTv;
-    private LinearLayout mHostLayout;
-
     private long mSecond = 0;
     private String formatTime;
-    private Timer mHearBeatTimer, mVideoTimer;
-    private VideoTimerTask mVideoTimerTask;//计时器
-    private TextView mVideoTime;
+    private Timer mHearBeatTimer;
     private ObjectAnimator mObjAnim;
-    private ImageView mRecordBall;
     private int thumbUp = 0;
     private long admireTime = 0;
     private int watchCount = 0;
@@ -121,9 +122,13 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
     private String backGroundId;
 
     private TextView tvMembers;
-    private TextView tvAdmires;
 
     private Dialog mDetailDialog;
+    private HorizontialListView hlv_audience;
+    private TextView member_count_bottom;
+    private TextView member_count_right;
+    private TextView tv_guanzhu;
+    private TextView tv_lives;
 
 
     @Override
@@ -142,6 +147,9 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
         mUserInfoHelper = new ProfileInfoHelper(this);
 
         initView();
+
+        initGuanZhuView();
+
         registerReceiver();
         backGroundId = CurLiveInfo.getHostID();
         //进入房间流程
@@ -149,8 +157,24 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
 
         //QavsdkControl.getInstance().setCameraPreviewChangeCallback();
 
+        initHoriLitView();
 
         QavsdkApplication.getInstance().addActivity(this);
+    }
+
+    private void initGuanZhuView() {
+
+        if (MySelfInfo.getInstance().getIdStatus() == Constants.HOST) {//是主播
+            tv_guanzhu.setVisibility(View.GONE);
+            member_count_bottom.setVisibility(View.GONE);
+            member_count_right.setVisibility(View.VISIBLE);
+            tv_lives.setPadding(0, 10, 0, 0);
+//            Drawable rightDrawable = getResources().getDrawable(R.mipmap.live_user_female);
+//            rightDrawable.setBounds(0, 0, rightDrawable.getMinimumWidth(), rightDrawable.getMinimumHeight());
+//            tv_lives.setCompoundDrawables(null, null, rightDrawable, null);
+        }else {
+            hlv_audience.setPadding(90,0,0,0);
+        }
     }
 
 
@@ -211,9 +235,8 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
             formatTime = hs + ":" + ms + ":" + ss;
         }
 
-        if (Constants.HOST == MySelfInfo.getInstance().getIdStatus() && null != mVideoTime) {
+        if (Constants.HOST == MySelfInfo.getInstance().getIdStatus()  ) {
             SxbLog.i(TAG, " refresh time ");
-            mVideoTime.setText(formatTime);
         }
     }
 
@@ -302,7 +325,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
      * 初始化UI
      */
     private View avView;
-    private TextView BtnBack, BtnInput, Btnflash, BtnSwitch, BtnBeauty, BtnMic, BtnScreen, BtnHeart, BtnNormal, mVideoChat, BtnCtrlVideo, BtnCtrlMic, BtnHungup, mBeautyConfirm;
+    private TextView BtnBack, BtnInput, Btnflash, BtnSwitch, BtnBeauty, BtnMic, BtnHeart, BtnNormal, mVideoChat, BtnCtrlVideo, BtnCtrlMic, BtnHungup, mBeautyConfirm;
     private TextView inviteView1, inviteView2, inviteView3;
     private ListView mListViewMsgItems;
     private LinearLayout mHostCtrView, mNomalMemberCtrView, mVideoMemberCtrlView, mBeautySettings;
@@ -331,12 +354,10 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
         mVideoMemberCtrlView = (LinearLayout) findViewById(R.id.video_member_bottom_layout);
         mVideoChat = (TextView) findViewById(R.id.video_interact);
         mHeartLayout = (HeartLayout) findViewById(R.id.heart_layout);
-        mVideoTime = (TextView) findViewById(R.id.broadcasting_time);
         mHeadIcon = (ImageView) findViewById(R.id.head_icon);
         mVideoMemberCtrlView.setVisibility(View.INVISIBLE);
-        mHostNameTv = (TextView) findViewById(R.id.host_name);
+
         tvMembers = (TextView) findViewById(R.id.member_counts);
-        tvAdmires = (TextView) findViewById(R.id.heart_counts);
 
         BtnCtrlVideo = (TextView) findViewById(R.id.camera_controll);
         BtnCtrlMic = (TextView) findViewById(R.id.mic_controll);
@@ -351,7 +372,16 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
         TextView tv_sing = (TextView) findViewById(R.id.tv_sing);//唱歌
         TextView tv_camera = (TextView) findViewById(R.id.tv_camera);//翻转
         TextView tv_close = (TextView) findViewById(R.id.tv_close);//关闭
+        RelativeLayout rl_user = (RelativeLayout) findViewById(R.id.rl_user);//主播信息
+        hlv_audience = (HorizontialListView) findViewById(R.id.hlv_audience);//观众头像
+        member_count_bottom = (TextView) findViewById(R.id.member_count_bottom);//观看数
+        member_count_right = (TextView) findViewById(R.id.member_counts);//观看数2
+        tv_guanzhu = (TextView) findViewById(R.id.tv_guanzhu);//关注按钮
+        tv_lives = (TextView) findViewById(R.id.tv_lives);
+        TextView tv_shopping = (TextView) findViewById(R.id.tv_shopping);//购物
 
+        tv_guanzhu.setOnClickListener(this);
+        tv_shopping.setOnClickListener(this);
         tv_message.setOnClickListener(this);
         tv_sale.setOnClickListener(this);
         tv_vrprop.setOnClickListener(this);
@@ -361,6 +391,8 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
         tv_sing.setOnClickListener(this);
         tv_camera.setOnClickListener(this);
         tv_close.setOnClickListener(this);
+        rl_user.setOnClickListener(this);
+
 
         BtnCtrlVideo.setOnClickListener(this);
         BtnCtrlMic.setOnClickListener(this);
@@ -379,19 +411,15 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
         if (MySelfInfo.getInstance().getIdStatus() == Constants.HOST) {
             mHostCtrView.setVisibility(View.VISIBLE);
             mNomalMemberCtrView.setVisibility(View.GONE);
-            mRecordBall = (ImageView) findViewById(R.id.record_ball);
 //            Btnflash = (TextView) findViewById(R.id.flash_btn);
 //            BtnSwitch = (TextView) findViewById(R.id.switch_cam);
 //            BtnBeauty = (TextView) findViewById(R.id.beauty_btn);
 //            BtnMic = (TextView) findViewById(R.id.mic_btn);
-//
-//            BtnScreen = (TextView) findViewById(R.id.fullscreen_btn);
-            mVideoChat.setVisibility(View.VISIBLE);
+//            mVideoChat.setVisibility(View.VISIBLE);
 //            Btnflash.setOnClickListener(this);
 //            BtnSwitch.setOnClickListener(this);
 //            BtnBeauty.setOnClickListener(this);
 //            BtnMic.setOnClickListener(this);
-//            BtnScreen.setOnClickListener(this);
 //            mVideoChat.setOnClickListener(this);
             inviteView1 = (TextView) findViewById(R.id.invite_view1);
             inviteView2 = (TextView) findViewById(R.id.invite_view2);
@@ -403,7 +431,6 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
             initBackDialog();
             initDetailDailog();
             mMemberDg = new MembersDialog(this, R.style.floag_dialog, this);
-            startRecordAnimation();
             showHeadIcon(mHeadIcon, MySelfInfo.getInstance().getAvatar());
             mBeautySettings = (LinearLayout) findViewById(R.id.qav_beauty_setting);
             mBeautyConfirm = (TextView) findViewById(R.id.qav_beauty_setting_finish);
@@ -434,9 +461,6 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
                 }
             });
         } else {
-            LinearLayout llRecordTip = (LinearLayout) findViewById(R.id.record_tip);
-            llRecordTip.setVisibility(View.GONE);
-            mHostNameTv.setVisibility(View.VISIBLE);
             initInviteDialog();
             mNomalMemberCtrView.setVisibility(View.VISIBLE);
             mHostCtrView.setVisibility(View.GONE);
@@ -445,16 +469,15 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
             mLikeTv = (TextView) findViewById(R.id.member_send_good);
             mLikeTv.setOnClickListener(this);
             mVideoChat.setVisibility(View.GONE);
-            BtnScreen = (TextView) findViewById(R.id.clean_screen);
+
 
             List<String> ids = new ArrayList<>();
             ids.add(CurLiveInfo.getHostID());
             showHeadIcon(mHeadIcon, CurLiveInfo.getHostAvator());
-            mHostNameTv.setText(CurLiveInfo.getHostName());
 
-            mHostLayout = (LinearLayout) findViewById(R.id.head_up_layout);
-            mHostLayout.setOnClickListener(this);
-            BtnScreen.setOnClickListener(this);
+
+
+
         }
         BtnNormal = (TextView) findViewById(R.id.normal_btn);
         BtnNormal.setOnClickListener(this);
@@ -469,7 +492,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
         mListViewMsgItems.setAdapter(mChatMsgListAdapter);
 
         tvMembers.setText("" + CurLiveInfo.getMembers());
-        tvAdmires.setText("" + CurLiveInfo.getAdmires());
+
     }
 
 
@@ -518,10 +541,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
             mHearBeatTimer.cancel();
             mHearBeatTimer = null;
         }
-        if (null != mVideoTimer) {
-            mVideoTimer.cancel();
-            mVideoTimer = null;
-        }
+
         if (null != paramTimer) {
             paramTimer.cancel();
             paramTimer = null;
@@ -563,6 +583,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
 
 
     private Dialog backDialog;
+    private Dialog userDialog;
 
     private void initBackDialog() {
         backDialog = new Dialog(this, R.style.BackDialog);
@@ -727,15 +748,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
 
     }
 
-    /**
-     * 红点动画
-     */
-    private void startRecordAnimation() {
-        mObjAnim = ObjectAnimator.ofFloat(mRecordBall, "alpha", 1f, 0f, 1f);
-        mObjAnim.setDuration(1000);
-        mObjAnim.setRepeatCount(-1);
-        mObjAnim.start();
-    }
+
 
     private static int index = 0;
 
@@ -764,10 +777,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
                 mHeartBeatTask = new HeartBeatTask();
                 mHearBeatTimer.schedule(mHeartBeatTask, 1000, 3 * 1000);
 
-                //直播时间
-                mVideoTimer = new Timer(true);
-                mVideoTimerTask = new VideoTimerTask();
-                mVideoTimer.schedule(mVideoTimerTask, 1000, 1000);
+
             }
         } else {
 //            QavsdkControl.getInstance().addRemoteVideoMembers(id);
@@ -809,7 +819,6 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
     public void refreshThumbUp() {
         CurLiveInfo.setAdmires(CurLiveInfo.getAdmires() + 1);
         mHeartLayout.addFavor();
-        tvAdmires.setText("" + CurLiveInfo.getAdmires());
     }
 
     @Override
@@ -1036,7 +1045,6 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
                 if (checkInterval()) {
                     mLiveHelper.sendC2CMessage(Constants.AVIMCMD_Praise, "", CurLiveInfo.getHostID());
                     CurLiveInfo.setAdmires(CurLiveInfo.getAdmires() + 1);
-                    tvAdmires.setText("" + CurLiveInfo.getAdmires());
                 } else {
                     //Toast.makeText(this, getString(R.string.text_live_admire_limit), Toast.LENGTH_SHORT).show();
                 }
@@ -1063,7 +1071,6 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
 //            case R.id.head_up_layout:
 //                showHostDetail();
 //                break;
-//            case R.id.clean_screen:
 //            case R.id.fullscreen_btn:
 //                mFullControllerUi.setVisibility(View.INVISIBLE);
 //                BtnNormal.setVisibility(View.VISIBLE);
@@ -1161,12 +1168,148 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
             case  R.id.tv_close://关闭直播
                 quiteLiveByPurpose();
                 break;
+            case  R.id.rl_user://主播信息
+
+               showUserDialog();
+                break;
+            case R.id.tv_guanzhu://关注按钮
+                tv_guanzhu.setVisibility(View.GONE);
+                member_count_bottom.setVisibility(View.GONE);
+                member_count_right.setVisibility(View.VISIBLE);
+                tv_lives.setPadding(0, 10, 0, 0);
+                hlv_audience.setPadding(-30,0,0,0);
+                break;
+            case R.id.tv_shopping://购物
+                ShopPopWindow();
+                break;
         }
     }
 
 
+    //获取观众头像
+    private void initHoriLitView() {
+        List<AudienceIconBean> AudienceIconList = AudienceIconBean.getList();
+        AudienceIconAdapter adapter = new AudienceIconAdapter(this,AudienceIconList,R.layout.item_audience_icon);
+        hlv_audience.setAdapter(adapter);
+        }
 
-    /********************************发消息弹出输入框*******************************************/
+
+/*******************************购物的PopWindow*********************************************/
+    private void ShopPopWindow() {
+        LayoutInflater inflater = this.getLayoutInflater();
+        View view = inflater.inflate(R.layout.pop_shop_window, null);
+        final PopupWindow popupWindow = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT, 500);
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+        popupWindow.setFocusable(true);
+        TextView tv_close = (TextView) view.findViewById(R.id.tv_close);
+        TextView tv_buy = (TextView) view.findViewById(R.id.tv_buy);
+        //关闭
+        tv_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+                //立即购买
+                tv_buy.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        LayoutInflater inflater = getLayoutInflater();
+                        View buyView = inflater.inflate(R.layout.pop_shop_confirm_window, null);
+                        final PopupWindow popupWindow = new PopupWindow(buyView, LinearLayout.LayoutParams.MATCH_PARENT, 500);
+                        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+                        popupWindow.setFocusable(true);
+                        popupWindow.showAtLocation(buyView, Gravity.BOTTOM, 0, 0);
+                        TextView tv_close = (TextView) buyView.findViewById(R.id.tv_close);
+                        TextView tv_pay = (TextView) buyView.findViewById(R.id.tv_pay);
+                        tv_close.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                popupWindow.dismiss();
+                            }
+                        });
+                        //立即支付
+                        tv_pay.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                final Dialog  payDialog = new Dialog(LiveActivity.this, R.style.BackDialog);
+                                payDialog.setContentView(R.layout.dialog_pay_live);
+                                payDialog.show();
+                                ImageView iv_close = (ImageView) payDialog.findViewById(R.id.iv_close);
+                                TextView tv_confirm = (TextView) findViewById(R.id.tv_confirm);//确定
+                                final CheckBox cb_sela = (CheckBox) payDialog.findViewById(R.id.cb_sela);//色拉余额
+                                final CheckBox cb_weixin = (CheckBox) payDialog.findViewById(R.id.cb_weixin);//微信
+                                final CheckBox cb_zhifubao = (CheckBox) payDialog.findViewById(R.id.cb_zhifubao);//支付宝
+                                cb_sela.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (cb_sela.isChecked()){
+                                            cb_weixin.setChecked(false);
+                                            cb_zhifubao.setChecked(false);
+                                        }
+                                    }
+                                });
+                                cb_weixin.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (cb_weixin.isChecked()){
+                                            cb_sela.setChecked(false);
+                                            cb_zhifubao.setChecked(false);
+                                        }
+                                    }
+                                });
+                                cb_zhifubao.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        if (cb_zhifubao.isChecked()){
+                                            cb_weixin.setChecked(false);
+                                            cb_sela.setChecked(false);
+                                        }
+                                    }
+                                });
+                                //确定
+                                tv_confirm.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        payDialog.dismiss();
+                                    }
+                                });
+                                //关闭
+                                iv_close.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        payDialog.dismiss();
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+
+        ListView lv_shop = (ListView) view.findViewById(R.id.lv_shop);
+        List<ShopBean> shopBeanList = ShopBean.getList();
+        PopShopAdapter shopAdapter = new PopShopAdapter(this,shopBeanList,R.layout.item_pop_shop);
+        lv_shop.setAdapter(shopAdapter);
+        lv_shop.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //商品详情
+                Intent intent = new Intent();
+                intent.setClass(LiveActivity.this, GoodsDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+        //显示(在该控件下面)
+        popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
+
+
+    }
+/****************************************************************************************/
+
+
+
+
+/********************************发消息弹出输入框*******************************************/
 
     private void inputMsgDialog() {
         InputTextMsgDialog inputMsgDialog = new InputTextMsgDialog(this, R.style.inputdialog, mLiveHelper, this);
@@ -1386,6 +1529,32 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
             }
         });
     }
+/******************************************************************************************/
+
+
+
+
+/**************************************查看主播信息*******************************************/
+private void showUserDialog() {
+
+    userDialog = new Dialog(this, R.style.BackDialog);
+    userDialog.setContentView(R.layout.dialog_user_live);
+    userDialog.show();
+    if (MySelfInfo.getInstance().getIdStatus() != Constants.HOST) {//不是主播
+        RelativeLayout rl_audience = (RelativeLayout) userDialog.findViewById(R.id.rl_audience);
+        TextView tv_jubao = (TextView) userDialog.findViewById(R.id.tv_jubao);
+        rl_audience.setVisibility(View.VISIBLE);
+        tv_jubao.setVisibility(View.VISIBLE);
+    }
+    ImageView iv_back_dialog = (ImageView) userDialog.findViewById(R.id.iv_back_dialog);
+    iv_back_dialog.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            userDialog.dismiss();
+        }
+    });
+
+}
 /******************************************************************************************/
 
      //for 测试获取测试参数

@@ -9,7 +9,6 @@
         android:id="@+id/text_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/img_chat_white"
         android:layout_gravity="left"
         android:orientation="horizontal">
 

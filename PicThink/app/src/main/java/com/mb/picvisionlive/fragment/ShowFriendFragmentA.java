@@ -11,6 +11,7 @@ import android.widget.ListView;
 import com.mb.picvisionlive.R;
 import com.mb.picvisionlive.adapter.goodsFriendAdapter;
 import com.mb.picvisionlive.bean.goodsFriendBean;
+import com.mb.picvisionlive.dialogs.ChatDetailDialog;
 
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class ShowFriendFragmentA extends Fragment implements AdapterView.OnItemC
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//        ChatDetailDialog dialog = new ChatDetailDialog();
+        ChatDetailDialog dialog = new ChatDetailDialog(getActivity(),R.style.CustomDatePickerDialog);
+        dialog.show();
     }
 }

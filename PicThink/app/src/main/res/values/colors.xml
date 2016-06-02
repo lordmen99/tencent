@@ -17,8 +17,13 @@
     <color name="color_text_hint_gray">#9A9A9A</color>
     <!--棕色-->
     <color name="color_text_zongse">#AE9B64</color>
+
+    <!--字体黑色-->
+    <color name="color_text_black">#484848</color>
+
     <!--红色背景-->
     <color name="color_bg_red">#FF6B6B</color>
+
 
     <color name="tencent_tls_ui_white">#FFFFFF</color>
     <color name="tencent_tls_ui_gray">#444444</color>
