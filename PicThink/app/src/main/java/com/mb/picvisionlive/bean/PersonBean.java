@@ -5,6 +5,15 @@ package com.mb.picvisionlive.bean;
  */
 public class PersonBean {
     int img_id=0;
+    String name="";
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getImg_id() {
         return img_id;

@@ -8,7 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-
         android:layout_alignParentTop="true"
         android:layout_alignBottom="@+id/top_one_rel"/>
     <RelativeLayout
@@ -17,14 +16,6 @@
         android:layout_height="wrap_content"
         >
 
-
-
-    <!--<ImageView
-        android:layout_width="match_parent"
-        android:layout_height="300dip"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/test_bg_box_image"
-        android:visibility="visible" />-->
 
     <RelativeLayout
         android:id="@+id/top1_rel"

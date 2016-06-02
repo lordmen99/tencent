@@ -2,14 +2,13 @@ package com.mb.picvisionlive;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SettingActivity extends BaseActivity {
-Context context=SettingActivity.this;
+    Context context = SettingActivity.this;
 
     @Override
     public void setContentView() {
@@ -19,7 +18,7 @@ Context context=SettingActivity.this;
 
     @Override
     public void findViewByid() {
-
+        initHead("设置");
     }
 
     @Override
@@ -33,34 +32,38 @@ Context context=SettingActivity.this;
         super.onDestroy();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 
     @OnClick({R.id.setting_safe_line, R.id.setting_blacklist_line, R.id.setting_send_line, R.id.setting_cache_line, R.id.setting_about_line, R.id.setting_suggest_line})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.setting_safe_line:{
-                Intent intent =new Intent(context, AccountSafeActivity.class);
+            case R.id.setting_safe_line: {
+                Intent intent = new Intent(context, AccountSafeActivity.class);
                 startActivity(intent);
-                break;}
-            case R.id.setting_blacklist_line:{
-                break;}
-            case R.id.setting_send_line:{
-                Intent intent =new Intent(context, PushMessageActivity.class);
+                break;
+            }
+            case R.id.setting_blacklist_line: {
+                Intent intent = new Intent(context, BlackListActivity.class);
                 startActivity(intent);
-                break;}
-            case R.id.setting_cache_line:{
-                break;}
-            case R.id.setting_about_line:{
-                Intent intent =new Intent(context, AboutActivity.class);
+                break;
+            }
+            case R.id.setting_send_line: {
+                Intent intent = new Intent(context, PushMessageActivity.class);
                 startActivity(intent);
-                break;}
-            case R.id.setting_suggest_line:{
-                break;}
+                break;
+            }
+            case R.id.setting_cache_line: {
+                break;
+            }
+            case R.id.setting_about_line: {
+                Intent intent = new Intent(context, AboutActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.setting_suggest_line: {
+                Intent intent = new Intent(context, HelpActivity.class);
+                startActivity(intent);
+                break;
+            }
         }
     }
 }

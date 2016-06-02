@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    tools:context="com.mb.picvisionlive.SuggestCheckActivity">
+
+    <include layout="@layout/common_top_view" />
+
+    <com.mb.picvisionlive.weight.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:fillViewport="true">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dip"
+        android:text="快速反馈"
+        android:textColor="#484848"
+        android:textSize="14sp" />
+<com.mb.picvisionlive.weight.ListViewForScrollView
+    android:id="@+id/suggest_check_listview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="15dip"
+    android:layout_marginTop="10dip">
+
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#484848"
+    android:textSize="14sp"
+    android:hint="其它意见与建议..."
+    android:minHeight="100dip"
+    android:gravity="left"
+    android:background="@null"/>
+
+    <TextView
+        android:layout_marginTop="15dip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="0/200"
+        android:textColor="#AAAAAA"
+        android:textSize="14sp" />
+</LinearLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dip"
+        android:background="@drawable/address_corner_yellow"
+        android:text="提交反馈"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+</LinearLayout>
+
+    </com.mb.picvisionlive.weight.MyScrollView>
+</LinearLayout>

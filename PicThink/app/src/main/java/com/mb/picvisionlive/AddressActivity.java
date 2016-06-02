@@ -2,7 +2,6 @@ package com.mb.picvisionlive;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 
 import com.mb.picvisionlive.adapter.AddressAdapter;
 import com.mb.picvisionlive.bean.AddressBean;
@@ -55,12 +54,7 @@ public class AddressActivity extends BaseActivity {
         super.onDestroy();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+
 
     @OnClick(R.id.address_add_btn)
     public void onClick() {

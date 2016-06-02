@@ -113,7 +113,15 @@
         <activity android:name=".SettingActivity" />
         <activity android:name=".AccountSafeActivity" />
         <activity android:name=".AboutActivity" />
-        <activity android:name=".PushMessageActivity"></activity>
+        <activity android:name=".PushMessageActivity" />
+        <activity android:name=".BlackListActivity" />
+        <activity android:name=".HelpActivity" />
+        <activity android:name=".CloseAccountActivity" />
+        <activity android:name=".SuggestCheckActivity" />
+        <activity android:name=".HelpDetailActivity" />
+        <activity android:name=".QuestionListActivity" />
+        <activity android:name=".ConventionActivity" />
+        <activity android:name=".ContactsUsActivity"></activity>
     </application>
 
 </manifest>

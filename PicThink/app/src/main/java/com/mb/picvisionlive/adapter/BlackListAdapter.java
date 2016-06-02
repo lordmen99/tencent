@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.mb.picvisionlive.R;
 import com.mb.picvisionlive.bean.PersonBean;
+import com.mb.picvisionlive.weight.SwipeItemLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +17,10 @@ import java.util.List;
 /**
  * Created by wenm on 2016/5/26.
  */
-public class HeadAdapter extends BaseAdapter{
+public class BlackListAdapter extends BaseAdapter{
     Context context;
     List<PersonBean> list = new ArrayList<PersonBean>();
-    public  HeadAdapter(android.content.Context context,List<PersonBean> list){
+    public BlackListAdapter(Context context, List<PersonBean> list){
         this.context=context;
         this.list=list;
     }
@@ -47,8 +48,11 @@ public class HeadAdapter extends BaseAdapter{
             holder=(ViewHolder) paramView.getTag();
         }else {
             holder=new ViewHolder();
-            paramView= LayoutInflater.from(context).inflate(R.layout.item_head,null);
-            holder.head=(ImageView)paramView.findViewById(R.id.item_head_img);
+            View view01 = LayoutInflater.from(context).inflate(R.layout.item_black_list, null);
+            View view02 = LayoutInflater.from(context).inflate(R.layout.item_address_layout2, null);
+            paramView = new SwipeItemLayout(view01, view02, null, null);
+
+            holder.head=(ImageView)paramView.findViewById(R.id.item_black_list_head_img);
             paramView.setTag(holder);
         }
         if (list.get(i).getImg_id()%2==0) {
