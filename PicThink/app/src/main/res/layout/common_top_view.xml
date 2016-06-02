@@ -33,5 +33,13 @@
         android:textColor="#484848"
         android:textSize="14sp"
         android:layout_marginRight="15dip"/>
+    <ImageView
+        android:id="@+id/commom_right_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/common_jiahao"
+        android:layout_alignParentRight="true"
+        android:padding="15dip"
+        android:visibility="gone"/>
 </RelativeLayout>
 

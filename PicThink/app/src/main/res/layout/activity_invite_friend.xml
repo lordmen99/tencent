@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical"
+    tools:context="com.mb.picvisionlive.InviteFriendActivity">
+
+    <include layout="@layout/common_top_view" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dip"
+                android:background="@mipmap/start_bg_img">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="邀请好友"
+    android:paddingBottom="10dip"
+    android:paddingTop="10dip"
+    android:paddingLeft="20dip"
+    android:paddingRight="20dip"
+    android:textColor="#FFFFFF"
+    android:textSize="16sp"
+    android:layout_alignParentRight="true"
+    android:layout_centerVertical="true"
+    android:background="@drawable/more_daren_corner_red"
+    android:layout_marginRight="20dip"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="邀请好友"
+                android:paddingBottom="20dip"
+                android:paddingTop="30dip"
+                android:textColor="@color/color_bg_red"
+                android:textSize="14sp"
+                android:drawableLeft="@mipmap/start_line_left"
+                android:drawableRight="@mipmap/start_line_right"
+                android:drawablePadding="10dip"
+                android:gravity="center"
+               />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

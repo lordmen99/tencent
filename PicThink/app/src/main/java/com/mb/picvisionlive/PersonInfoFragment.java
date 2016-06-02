@@ -109,25 +109,12 @@ public class PersonInfoFragment extends Fragment {
         float scaleWidth = ((float) newWidth) / width;
         float scaleHeight = ((float) newHeight) / height;
 
-//        Log.e("===newWidth===", newWidth + "");
-//        Log.e("===newHeight===", newHeight + "");
-//
-//        Log.e("===width===", width + "");
-//        Log.e("===height===", height + "");
-//
-//        Log.e("===scaleWidth===", scaleWidth + "");
-//        Log.e("===scaleHeight===", scaleHeight + "");
-
         Matrix matrix = new Matrix();
         matrix.postScale(scaleWidth, scaleHeight);
-        //matrix.postScale(8f, 8f);
-        // if you want to rotate the Bitmap
-        // matrix.postRotate(45);
+
         Bitmap resizedBitmap = Bitmap.createBitmap(BitmapOrg, 0, 0, width,
                 height, matrix, true);
-//        Log.e("===resizedBitmap===", resizedBitmap.getWidth() + "");
-//        Log.e("===resizedBitmap===", resizedBitmap.getHeight() + "");
-        // Drawable daw=new BitmapDrawable(getResources(), resizedBitmap);
+
         return resizedBitmap;
     }
 
@@ -137,14 +124,21 @@ public class PersonInfoFragment extends Fragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick(R.id.fragment_person_info_goEdit_img)
-    public void onClick() {
-        startActivity(new Intent(context, EditPersonInfoActivity.class));
-    }
 
-    @OnClick({R.id.frgment_person_info_onair_rel, R.id.frgment_person_info_grade_rel, R.id.frgment_person_info_interst_rel, R.id.frgment_person_info_sauce_rel, R.id.fragment_person_info_order_line, R.id.fragment_person_info_address_line, R.id.fragment_person_info_selalist_line, R.id.fragment_person_info_check_line, R.id.fragment_person_info_business_line, R.id.fragment_person_info_tool_line, R.id.fragment_person_info_invite_line, R.id.fragment_person_info_setting_line})
+    @OnClick({R.id.frgment_person_info_onair_rel, R.id.frgment_person_info_grade_rel,
+            R.id.frgment_person_info_interst_rel, R.id.frgment_person_info_sauce_rel,
+            R.id.fragment_person_info_order_line, R.id.fragment_person_info_address_line,
+            R.id.fragment_person_info_selalist_line, R.id.fragment_person_info_check_line,
+            R.id.fragment_person_info_business_line, R.id.fragment_person_info_tool_line,
+            R.id.fragment_person_info_invite_line, R.id.fragment_person_info_setting_line,
+            R.id.frgment_person_info_look_txt, R.id.frgment_person_info_fan_txt,
+            R.id.fragment_person_info_goEdit_img})
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.fragment_person_info_goEdit_img: {
+                startActivity(new Intent(context, EditPersonInfoActivity.class));
+                break;
+            }
             case R.id.frgment_person_info_onair_rel: {
                 break;
             }
@@ -154,9 +148,13 @@ public class PersonInfoFragment extends Fragment {
                 break;
             }
             case R.id.frgment_person_info_interst_rel: {
+                Intent intent = new Intent(context, MyProfitActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.frgment_person_info_sauce_rel: {
+                Intent intent = new Intent(context, MySauceActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.fragment_person_info_order_line: {
@@ -180,10 +178,22 @@ public class PersonInfoFragment extends Fragment {
                 break;
             }
             case R.id.fragment_person_info_invite_line: {
+                Intent intent = new Intent(context, InviteFriendActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.fragment_person_info_setting_line: {
                 Intent intent = new Intent(context, SettingActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.frgment_person_info_look_txt: {
+                Intent intent = new Intent(context, MyLookActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.frgment_person_info_fan_txt: {
+                Intent intent = new Intent(context, MyFanActivity.class);
                 startActivity(intent);
                 break;
             }
