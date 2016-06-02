@@ -74,7 +74,26 @@ public abstract class BaseActivity extends FragmentActivity {
         label.setText(title);
 
     }
+    /**
+     * 初始化只有返回标头和标题的头部
+     *
+     * @param title 标题
+     **/
+    public void initHead(String title,boolean isAdd) {
 
+        RelativeLayout view = (RelativeLayout) findViewById(R.id.common_top_rel);
+
+        ImageView back = (ImageView) view.findViewById(R.id.common_back_img);
+        TextView label = (TextView) view.findViewById(R.id.commom_title_txt);
+        ImageView right_img = (ImageView) view.findViewById(R.id.commom_right_img);
+        if (isAdd){
+            right_img.setVisibility(View.VISIBLE);
+        }
+
+        back.setOnClickListener(headback);
+        label.setText(title);
+
+    }
     public OnClickListener headback = new OnClickListener() {
 
         @Override

@@ -121,7 +121,11 @@
         <activity android:name=".HelpDetailActivity" />
         <activity android:name=".QuestionListActivity" />
         <activity android:name=".ConventionActivity" />
-        <activity android:name=".ContactsUsActivity"></activity>
+        <activity android:name=".ContactsUsActivity" />
+        <activity android:name=".MyLookActivity" />
+        <activity android:name=".MyProfitActivity" />
+        <activity android:name=".ProfitRecordActivity" />
+        <activity android:name=".InviteFriendActivity"></activity>
     </application>
 
 </manifest>

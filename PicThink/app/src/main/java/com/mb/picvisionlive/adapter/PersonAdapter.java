@@ -18,10 +18,10 @@ import java.util.List;
 /**
  * Created by wenm on 2016/5/26.
  */
-public class MoreDarenAdapter extends BaseAdapter{
+public class PersonAdapter extends BaseAdapter{
     Context context;
     List<PersonBean> list = new ArrayList<PersonBean>();
-    public MoreDarenAdapter(android.content.Context context, List<PersonBean> list){
+    public PersonAdapter(Context context, List<PersonBean> list){
         this.context=context;
         this.list=list;
     }
@@ -49,7 +49,7 @@ public class MoreDarenAdapter extends BaseAdapter{
             holder=(ViewHolder) paramView.getTag();
         }else {
             holder=new ViewHolder();
-            paramView= LayoutInflater.from(context).inflate(R.layout.item_more_daren,null);
+            paramView= LayoutInflater.from(context).inflate(R.layout.item_person,null);
             holder.head=(ImageView)paramView.findViewById(R.id.more_daren_head_img);
             holder.look=(TextView)paramView.findViewById(R.id.more_daren_look_text);
             paramView.setTag(holder);
@@ -64,6 +64,7 @@ public class MoreDarenAdapter extends BaseAdapter{
             holder.look.setBackgroundResource(R.drawable.more_daren_corner_stroke);
             holder.look.setTextColor(Color.parseColor("#FF6B6B"));
             holder.look.setText("已关注");
+
         }
 
         return paramView;

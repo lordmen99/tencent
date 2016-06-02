@@ -25,7 +25,7 @@
         android:textSize="14sp"
         android:maxLength="32"
         android:textCursorDrawable="@null"
-        android:minLines="8"
+        android:minHeight="80dip"
         android:gravity="left"/>
 
     <TextView

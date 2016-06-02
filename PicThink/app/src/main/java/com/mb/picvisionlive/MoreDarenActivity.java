@@ -1,7 +1,6 @@
 package com.mb.picvisionlive;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.widget.ListView;
 
@@ -34,16 +33,6 @@ public class MoreDarenActivity extends BaseActivity {
     }
 
     private void getDatas() {
-
-    }
-
-    @Override
-    public void findViewByid() {
-        initHead("达人");
-    }
-
-    @Override
-    public void bodymethod() {
         for (int i = 0; i < 18; i++) {
             PersonBean person = new PersonBean();
             person.setImg_id(i);
@@ -55,15 +44,21 @@ public class MoreDarenActivity extends BaseActivity {
     }
 
     @Override
+    public void findViewByid() {
+        initHead("达人");
+        swipeRefreshLayoutList.setRefreshing(false);
+    }
+
+    @Override
+    public void bodymethod() {
+
+    }
+
+    @Override
     protected void onDestroy() {
         ButterKnife.unbind(this);
         super.onDestroy();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+
 }
