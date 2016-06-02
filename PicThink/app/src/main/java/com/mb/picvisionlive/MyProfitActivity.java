@@ -7,7 +7,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MyProfitActivity extends BaseActivity {
-Context context=MyProfitActivity.this;
+    Context context = MyProfitActivity.this;
 
     @Override
     public void setContentView() {
@@ -32,10 +32,17 @@ Context context=MyProfitActivity.this;
     }
 
 
-
     @OnClick(R.id.commom_right_txt)
     public void onClick() {
         Intent intent = new Intent(context, ProfitRecordActivity.class);
         startActivity(intent);
+    }
+
+
+
+    @OnClick(R.id.my_profit_btn)
+    public void onMyClick() {
+//        Intent intent = new Intent(context, ProfitRecordActivity.class);
+//        startActivity(intent);
     }
 }

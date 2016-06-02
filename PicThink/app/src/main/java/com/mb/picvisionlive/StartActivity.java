@@ -84,15 +84,21 @@ public class StartActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.start_weibo_img:{
+                Intent intent = new Intent(StartActivity.this,com.tencent.qcloud.suixinbo.views.LoginActivity.class);//PicLoginActivity
+                startActivity(intent);
                 break;}
             case R.id.start_weixin_img:{
+                Intent intent = new Intent(StartActivity.this,com.tencent.qcloud.suixinbo.views.LoginActivity.class);//PicLoginActivity
+                startActivity(intent);
                 break;}
             case R.id.start_qq_img:{
                 Intent intent = new Intent(StartActivity.this,com.tencent.qcloud.suixinbo.views.LoginActivity.class);//PicLoginActivity
                 startActivity(intent);
                 break;}
             case R.id.start_mobile_img:{
-                Intent intent = new Intent(StartActivity.this,SetHeadActivity.class);//PicLoginActivity
+//                Intent intent = new Intent(StartActivity.this,SetHeadActivity.class);//PicLoginActivity
+//                startActivity(intent);
+                Intent intent = new Intent(StartActivity.this,com.tencent.qcloud.suixinbo.views.LoginActivity.class);//PicLoginActivity
                 startActivity(intent);
                 break;}
         }
