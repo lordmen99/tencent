@@ -27,14 +27,14 @@ public class SwipeListView extends ListView {
 //	private OnMenuItemClickListener mOnMenuItemClickListener;
 	private Interpolator mCloseInterpolator;
 	private Interpolator mOpenInterpolator;
-	@Override
+	/*@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
 		int expandSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2,
 				MeasureSpec.AT_MOST);
 
 		super.onMeasure(widthMeasureSpec, expandSpec);
-	}
+	}*/
 
 	public SwipeListView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
