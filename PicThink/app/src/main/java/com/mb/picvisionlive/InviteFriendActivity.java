@@ -20,6 +20,7 @@ public class InviteFriendActivity extends BaseActivity {
 
     @Override
     public void findViewByid() {
+        initHead("邀请好友");
 
     }
 
