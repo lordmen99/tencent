@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:layout_marginTop="30dip">
+
+    <LinearLayout
+        android:id="@+id/close_account_rule_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="封号规则"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/common_arrow_right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/close_account_smoke_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="常规违规-吸烟"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/common_arrow_right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/close_account_opposition_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="常规违规-涉黄"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/common_arrow_right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/close_account_head_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="常规违规-封面头像违规"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/common_arrow_right" />
+    </LinearLayout>
+</LinearLayout>

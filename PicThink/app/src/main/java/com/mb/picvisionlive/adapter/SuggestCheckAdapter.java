@@ -5,10 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.mb.picvisionlive.R;
-import com.mb.picvisionlive.bean.PersonBean;
+import com.mb.picvisionlive.bean.QuestionBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +16,10 @@ import java.util.List;
 /**
  * Created by wenm on 2016/5/26.
  */
-public class HeadAdapter extends BaseAdapter{
+public class SuggestCheckAdapter extends BaseAdapter{
     Context context;
-    List<PersonBean> list = new ArrayList<PersonBean>();
-    public  HeadAdapter(android.content.Context context,List<PersonBean> list){
+    List<QuestionBean> list = new ArrayList<QuestionBean>();
+    public SuggestCheckAdapter(Context context, List<QuestionBean> list){
         this.context=context;
         this.list=list;
     }
@@ -47,19 +47,14 @@ public class HeadAdapter extends BaseAdapter{
             holder=(ViewHolder) paramView.getTag();
         }else {
             holder=new ViewHolder();
-            paramView= LayoutInflater.from(context).inflate(R.layout.item_head,null);
-            holder.head=(ImageView)paramView.findViewById(R.id.item_head_img);
+            paramView= LayoutInflater.from(context).inflate(R.layout.item_help_list,null);
+            holder.question_txt=(TextView)paramView.findViewById(R.id.item_help_list_question_txt);
             paramView.setTag(holder);
         }
-        if (list.get(i).getImg_id()%2==0) {
-            holder.head.setImageResource(R.mipmap.toux1);
-        }else{
-            holder.head.setImageResource(R.mipmap.toux);
-        }
-
+        holder.question_txt.setText(list.get(i).getQuestion());
         return paramView;
     }
     class ViewHolder{
-        ImageView head;
+        TextView question_txt;
     }
 }

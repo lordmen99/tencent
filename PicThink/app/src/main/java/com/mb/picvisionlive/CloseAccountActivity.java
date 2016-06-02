@@ -2,17 +2,17 @@ package com.mb.picvisionlive;
 
 import butterknife.ButterKnife;
 
-public class PushMessageActivity extends BaseActivity {
+public class CloseAccountActivity extends BaseActivity {
 
     @Override
     public void setContentView() {
-        setContentView(R.layout.activity_push_message);
+        setContentView(R.layout.activity_close_account);
         ButterKnife.bind(this);
     }
 
     @Override
     public void findViewByid() {
-initHead("推送管理");
+initHead("封号系统");
     }
 
     @Override

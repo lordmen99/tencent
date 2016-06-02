@@ -108,7 +108,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/common_arrow_right" />
+                    android:text="23.4"
+                    android:textSize="14sp"
+                    android:textColor="#AAAAAA"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/setting_about_line"

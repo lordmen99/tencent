@@ -2,17 +2,19 @@ package com.mb.picvisionlive;
 
 import butterknife.ButterKnife;
 
-public class PushMessageActivity extends BaseActivity {
+public class HelpDetailActivity extends BaseActivity {
+
+
 
     @Override
     public void setContentView() {
-        setContentView(R.layout.activity_push_message);
+        setContentView(R.layout.activity_help_detail);
         ButterKnife.bind(this);
     }
 
     @Override
     public void findViewByid() {
-initHead("推送管理");
+        initHead("帮助和反馈");
     }
 
     @Override

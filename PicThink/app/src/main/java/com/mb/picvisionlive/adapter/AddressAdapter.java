@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.mb.picvisionlive.R;
 import com.mb.picvisionlive.bean.AddressBean;
@@ -51,18 +52,14 @@ public class AddressAdapter extends BaseAdapter{
             View view01 = LayoutInflater.from(context).inflate(R.layout.item_address_layout1, null);
             View view02 = LayoutInflater.from(context).inflate(R.layout.item_address_layout2, null);
             paramView = new SwipeItemLayout(view01, view02, null, null);
-
+            holder.name=(TextView) paramView.findViewById(R.id.item_address_name_txt);
             paramView.setTag(holder);
         }
-//        if (list.get(i).getImg_id()%2==0) {
-//            holder.head.setImageResource(R.mipmap.toux1);
-//        }else{
-//            holder.head.setImageResource(R.mipmap.toux);
-//        }
-
+        holder.name.setText(list.get(i).getName());
         return paramView;
     }
     class ViewHolder{
         ImageView head;
+        TextView name;
     }
 }
