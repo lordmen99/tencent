@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="邀请好友"
-                android:paddingBottom="20dip"
+                android:paddingBottom="5dip"
                 android:paddingTop="30dip"
                 android:textColor="@color/color_bg_red"
                 android:textSize="14sp"
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/invite_rule"
-                android:paddingBottom="15dip"
+                android:padding="15dip"
                 android:textColor="@color/color_bg_red"
                 android:textSize="14sp"
 

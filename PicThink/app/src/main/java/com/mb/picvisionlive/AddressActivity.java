@@ -39,7 +39,7 @@ public class AddressActivity extends BaseActivity {
     }
 
     private void getData() {
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 3; i++) {
             AddressBean bean = new AddressBean();
             bean.setName("空间" + i);
             list.add(bean);

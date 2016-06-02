@@ -126,6 +126,8 @@
         <activity android:name=".MyProfitActivity" />
         <activity android:name=".ProfitRecordActivity" />
         <activity android:name=".InviteFriendActivity"></activity>
+        <activity android:name=".MySauceActivity" />
+        <activity android:name=".MyFanActivity"></activity>
     </application>
 
 </manifest>
