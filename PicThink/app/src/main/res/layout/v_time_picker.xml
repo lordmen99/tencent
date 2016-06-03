@@ -58,6 +58,7 @@
         android:textColor="@color/color_text_black"
         />
     <TextView
+        android:id="@+id/tv_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0岁"
@@ -87,9 +88,10 @@
             android:textColor="@color/color_text_black"
             />
         <TextView
+            android:id="@+id/tv_xingzuo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="牡羊座"
+            android:text="白羊座"
             android:layout_centerVertical="true"
             android:textSize="14sp"
             android:layout_marginRight="15dp"

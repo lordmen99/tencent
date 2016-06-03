@@ -1,5 +1,6 @@
 package com.mb.picvisionlive;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,8 +15,6 @@ import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
-
-import com.tencent.qcloud.suixinbo.views.FragmentLiveList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -187,7 +186,7 @@ public class MainFragment extends Fragment{
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.fragment_main_look_txt, R.id.fragment_main_hot_txt, R.id.fragment_main_new_txt})
+    @OnClick({R.id.fragment_main_look_txt, R.id.fragment_main_hot_txt, R.id.fragment_main_new_txt,R.id.fragment_main_search_img,R.id.fragment_main_friend_img})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fragment_main_look_txt:
@@ -198,6 +197,12 @@ public class MainFragment extends Fragment{
                 break;
             case R.id.fragment_main_new_txt:
                 viewPager.setCurrentItem(2);
+                break;
+            case R.id.fragment_main_search_img:
+                startActivity(new Intent(getActivity(), SearchActivity.class));
+                break;
+            case R.id.fragment_main_friend_img:
+                startActivity(new Intent(getActivity(),ChatFriendActivity.class));
                 break;
         }
     }

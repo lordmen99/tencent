@@ -76,6 +76,8 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
     CircularImage mheadImg;
     @Bind(R.id.edit_person_info_home_txt)
     TextView editPersonInfoHomeTxt;
+    @Bind(R.id.edit_person_info_age_txt)
+    TextView editPersonInfoAgeTxt;
 
     private boolean bPermission = false;
     public static final String IMAGE_UNSPECIFIED = "image/*";
@@ -161,7 +163,7 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
                 province = mProvinceDatas[mViewProvince.getCurrentItem()];
                 String[] cities = mCitisDatasMap.get(province);
                 city = cities[mViewCity.getCurrentItem()];
-                String address = province+city;
+                String address = province + city;
                 editPersonInfoHomeTxt.setText(address);
 
                 break;
@@ -366,60 +368,66 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     String date;
     private String dateSave;
+
     private void showAgeDialog() {
-       LayoutInflater inflater = LayoutInflater.from(this);
-       View timePickerView = inflater.inflate(R.layout.v_time_picker, null);
-       ScreenInfoEntity screenInfo = new ScreenInfoEntity(this);
-       //为true显示小时分钟，false则不显示
-       wheelMain = new WheelMain(timePickerView, false);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View timePickerView = inflater.inflate(R.layout.v_time_picker, null);
+        ScreenInfoEntity screenInfo = new ScreenInfoEntity(this);
+        //为true显示小时分钟，false则不显示
+        wheelMain = new WheelMain(timePickerView, false);
 //       wheelMain.screenheight = screenInfo.getHeight();
-       Calendar calendar = Calendar.getInstance();
-       if (VeDate.isDate(date, "yyyy-MM-dd HH:mm")) {
-           try {
-               calendar.setTime(dateFormat.parse(date));
-           } catch (ParseException e) {
-               e.printStackTrace();
-           }
-       }
-       int year = calendar.get(Calendar.YEAR);
-       int month = calendar.get(Calendar.MONTH);
-       int day = calendar.get(Calendar.DAY_OF_MONTH);
-       int hour = calendar.get(Calendar.HOUR);
-       int min = calendar.get(Calendar.MINUTE);
+        Calendar calendar = Calendar.getInstance();
+        if (VeDate.isDate(date, "yyyy-MM-dd HH:mm")) {
+            try {
+                calendar.setTime(dateFormat.parse(date));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        final int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int hour = calendar.get(Calendar.HOUR);
+        int min = calendar.get(Calendar.MINUTE);
 
-       wheelMain.initDateTimePicker(year, month, day, hour, min);
+        wheelMain.initDateTimePicker(year, month, day, hour, min);
 
-       selectCityalertDialog  = new AlertDialog.Builder(this).create();
-       selectCityalertDialog.show();
-       selectCityalertDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-       selectCityalertDialog.getWindow().setGravity(Gravity.BOTTOM);
-       selectCityalertDialog.getWindow().setContentView(timePickerView);
-       TextView tv_time_cancel=(TextView) selectCityalertDialog.getWindow().findViewById(R.id.tv_cancel);
-       TextView tv_time_confirm=(TextView) selectCityalertDialog.getWindow().findViewById(R.id.tv_confirm);
+        selectCityalertDialog = new AlertDialog.Builder(this).create();
+        selectCityalertDialog.show();
+        selectCityalertDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        selectCityalertDialog.getWindow().setGravity(Gravity.BOTTOM);
+        selectCityalertDialog.getWindow().setContentView(timePickerView);
+        TextView tv_time_cancel = (TextView) selectCityalertDialog.getWindow().findViewById(R.id.tv_cancel);
+        TextView tv_time_confirm = (TextView) selectCityalertDialog.getWindow().findViewById(R.id.tv_confirm);
+         final TextView tv_xingzuo = (TextView) selectCityalertDialog.getWindow().findViewById(R.id.tv_xingzuo);//星座
+         final TextView tv_year = (TextView) selectCityalertDialog.getWindow().findViewById(R.id.tv_year);//年龄
 
-       tv_time_confirm.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               dateSave = wheelMain.getTime();
-               Date confirm = VeDate.parse(dateSave, "yyyy-MM-dd");
-               String dateSave = VeDate.format(confirm,"yyyy年MM月dd日");
-//               et_time.setText(dateSave);
-               if(selectCityalertDialog!=null&&selectCityalertDialog.isShowing()){
-                   selectCityalertDialog.dismiss();
-               }
-           }
-       });
-       tv_time_cancel.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               if(selectCityalertDialog!=null&&selectCityalertDialog.isShowing()){
-                   selectCityalertDialog.dismiss();
-               }
-           }
-       });
+        tv_time_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dateSave = wheelMain.getTime();
+                Date confirm = VeDate.parse(dateSave, "yyyy-MM-dd");
+                String dateSave = VeDate.format(confirm, "yyyy年MM月dd日");
+                 String xingzuo = tv_xingzuo.getText().toString();
+                 String age = tv_year.getText().toString();
+                editPersonInfoAgeTxt.setText(age+","+xingzuo);
+
+                if (selectCityalertDialog != null && selectCityalertDialog.isShowing()) {
+                    selectCityalertDialog.dismiss();
+                }
+            }
+        });
+        tv_time_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (selectCityalertDialog != null && selectCityalertDialog.isShowing()) {
+                    selectCityalertDialog.dismiss();
+                }
+            }
+        });
 
 
-   }
+    }
 
 
 /***************************************家乡选择**********************************************/
@@ -594,4 +602,5 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
             mCurrentZipCode = mZipcodeDatasMap.get(mCurrentDistrictName);
         }
     }
+
 }
