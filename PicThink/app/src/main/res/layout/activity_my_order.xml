@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_line_gray"
+    tools:context="com.mb.picvisionlive.MyOrderActivity">
+<include layout="@layout/common_top_view"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="@color/white"
+       >
+
+        <TextView
+            android:id="@+id/tv_sell"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="60dp"
+            android:gravity="center"
+            android:text="我的售卖记录"
+            android:textColor="#484848"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/tv_sell"
+            android:layout_marginLeft="40dp"
+            android:gravity="center"
+            android:text="我的购买记录 "
+            android:textColor="#484848"
+            android:textSize="16sp" />
+
+
+
+        <View
+            android:id="@+id/v_line"
+            android:layout_width="95dp"
+            android:layout_height="5dip"
+            android:layout_alignLeft="@+id/tv_sell"
+            android:layout_marginTop="45dip"
+            android:background="#000000" />
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:layout_marginTop="20dp"
+        android:id="@+id/viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+</LinearLayout>

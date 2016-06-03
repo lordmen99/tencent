@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        >
+        <ImageView
+            android:id="@+id/iv_goodsiamge"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@mipmap/live_shop_pic"
+            />
+        <TextView
+            android:id="@+id/tv_goodscontent"
+            android:layout_toRightOf="@id/iv_goodsiamge"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/color_text_black"
+            android:text="美肤宝面膜贴女补水保湿控油收缩毛孔的哟"
+            android:singleLine="true"
+            android:maxEms="15"
+            android:ellipsize="end"
+            />
+        <TextView
+            android:id="@+id/tv_goodsprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:layout_below="@id/tv_goodscontent"
+            android:layout_toRightOf="@id/iv_goodsiamge"
+            android:text="¥219"
+            android:textColor="@color/color_text_orange_red"
+            />
+        <TextView
+            android:id="@+id/tv_sell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已售卖 32 件"
+            android:layout_marginTop="23dp"
+            android:layout_below="@id/tv_goodscontent"
+            android:layout_toLeftOf="@+id/tv_buy"
+            android:layout_marginRight="10dp"
+            />
+        <TextView
+            android:id="@+id/tv_buy"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已赚金币 100 金币"
+            android:layout_marginTop="23dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@id/tv_goodscontent"
+            />
+    </RelativeLayout>
+</LinearLayout>
