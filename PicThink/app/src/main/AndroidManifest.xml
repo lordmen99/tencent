@@ -128,7 +128,7 @@
         <activity android:name=".InviteFriendActivity"></activity>
         <activity android:name=".MySauceActivity" />
         <activity android:name=".MyFanActivity"></activity>
-        <activity android:name=".ChatFriendActivity"></activity>
+       
 
     </application>
 
