@@ -132,11 +132,15 @@ public class PersonInfoFragment extends Fragment {
             R.id.fragment_person_info_business_line, R.id.fragment_person_info_tool_line,
             R.id.fragment_person_info_invite_line, R.id.fragment_person_info_setting_line,
             R.id.frgment_person_info_look_txt, R.id.frgment_person_info_fan_txt,
-            R.id.fragment_person_info_goEdit_img})
+            R.id.fragment_person_info_goEdit_img, R.id.fragment_person_info_message_img})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fragment_person_info_goEdit_img: {
                 startActivity(new Intent(context, EditPersonInfoActivity.class));
+                break;
+            }
+            case R.id.fragment_person_info_message_img: {
+                startActivity(new Intent(context, ChatFriendActivity.class));
                 break;
             }
             case R.id.frgment_person_info_onair_rel: {
@@ -174,6 +178,8 @@ public class PersonInfoFragment extends Fragment {
                 break;
             }
             case R.id.fragment_person_info_business_line: {
+                Intent intent = new Intent(context, BussinessActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.fragment_person_info_tool_line: {

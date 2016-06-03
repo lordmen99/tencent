@@ -58,7 +58,7 @@ public class PersonAdapter extends BaseAdapter{
             holder.head.setImageResource(R.mipmap.toux1);
             holder.look.setBackgroundResource(R.drawable.more_daren_corner_red);
             holder.look.setTextColor(Color.parseColor("#FFFFFF"));
-            holder.look.setText("+关注");
+            holder.look.setText("＋关注");
         }else{
             holder.head.setImageResource(R.mipmap.toux);
             holder.look.setBackgroundResource(R.drawable.more_daren_corner_stroke);

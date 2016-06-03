@@ -55,8 +55,16 @@
             android:layout_width="60dp"
             android:layout_height="5dip"
             android:layout_alignLeft="@+id/fragment_main_look_txt"
-            android:layout_marginTop="45dip"
+            android:layout_marginTop="40dip"
             android:background="#000000" />
+        <ImageView
+            android:id="@+id/main_screen"
+            android:layout_marginTop="40dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/fragment_main_screen"
+            android:visibility="gone"/>
 
 
         <ImageView
