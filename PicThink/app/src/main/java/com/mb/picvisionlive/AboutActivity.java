@@ -39,14 +39,17 @@ Context context=AboutActivity.this;
         switch (view.getId()) {
             case R.id.about_convention_line:{
                 Intent intent =new Intent(context, ConventionActivity.class);
+                intent.putExtra("title","社会公约");
                 startActivity(intent);
                 break;}
             case R.id.about_private_line:{
                 Intent intent =new Intent(context, ConventionActivity.class);
+                intent.putExtra("title","隐私政策");
                 startActivity(intent);
                 break;}
             case R.id.about_service_line:{
                 Intent intent =new Intent(context, ConventionActivity.class);
+                intent.putExtra("title","服务条款");
                 startActivity(intent);
                 break;}
             case R.id.about_contact_line:{

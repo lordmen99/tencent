@@ -28,6 +28,7 @@ public class EditJobActivity extends BaseActivity {
     @Override
     public void findViewByid() {
         initHead("职业", "保存");
+        mJobEdit.setText(getIntent().getStringExtra("job"));
     }
 
     @Override

@@ -113,7 +113,7 @@ public class ScreenActivity extends BaseActivity implements ScreenOnclickCallbac
             }
             case R.id.single_male_img: {
                 singleMaleImg.setImageResource(R.mipmap.screen_male_a_xuanzhong);
-                singleMaleImg.setImageResource(R.mipmap.screen_heart_yixuan);
+                singleMaleHeartImg.setImageResource(R.mipmap.screen_heart_yixuan);
                 singleMaleTxt.setTextColor(Color.parseColor("#F8D150"));
                 break;
             }

@@ -47,8 +47,8 @@ public class HelpActivity extends BaseActivity {
         helpListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent =new Intent(context, HelpDetailActivity.class);
-                startActivity(intent);
+//                Intent intent =new Intent(context, HelpDetailActivity.class);
+//                startActivity(intent);
             }
         });
         helpGridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

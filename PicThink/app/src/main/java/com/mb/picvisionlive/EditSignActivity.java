@@ -27,6 +27,7 @@ public class EditSignActivity extends BaseActivity {
     @Override
     public void findViewByid() {
       initHead("个性签名","保存");
+      mSignEdit.setText(getIntent().getStringExtra("sign"));
     }
 
     @Override

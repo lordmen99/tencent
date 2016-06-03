@@ -14,4 +14,9 @@
         android:text="多少"
         android:textColor="#484848"
         android:textSize="14sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#F5F5F5"
+        />
 </LinearLayout>

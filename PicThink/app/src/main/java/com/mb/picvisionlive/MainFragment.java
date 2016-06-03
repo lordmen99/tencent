@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -37,6 +38,8 @@ public class MainFragment extends Fragment{
     TextView fragmentMainNewTxt;
     @Bind(R.id.viewpager)
     ViewPager viewpager;
+    @Bind(R.id.main_screen)
+    ImageView mainScreen;
     private FragmentTransaction ft;
     private List<Fragment> list = new ArrayList<Fragment>();
     private int gapWidth;
@@ -86,9 +89,6 @@ public class MainFragment extends Fragment{
                 int two = gapWidth + bmWidth * 2;
                 int three = gapWidth + bmWidth * 3;
 
-                Log.e("==case 0==gapWidth===",gapWidth+"");
-                Log.e("==case 0==bmWidth===",bmWidth+"");
-                Log.e("==case 0==one===",one+"");
 
 //                private int bmpw = 0; // 游标宽度
 //                private int offset = 0;// // 动画图片偏移量
@@ -100,7 +100,8 @@ public class MainFragment extends Fragment{
                 Animation animation = null;
                 switch (position) {
                     case 0: {
-                        Log.e("==case 0==qian===",beforeItem+"");
+                        mainScreen.setVisibility(View.GONE);
+                        fragmentMainLine.setVisibility(View.VISIBLE);
                         if (beforeItem == 1) {
                             animation = new TranslateAnimation(bmWidth, 0, 0, 0);
                         } else {
@@ -111,11 +112,11 @@ public class MainFragment extends Fragment{
                         fragmentMainLine.startAnimation(animation);
                         beforeItem = position;
 
-                        Log.e("==case 0==beforeItem===",beforeItem+"");
+                       // Log.e("==case 0==beforeItem===",beforeItem+"");
                         break;
                     }
                     case 1: {
-                        Log.e("==case 1==qian===",beforeItem+"");
+                        //Log.e("==case 1==qian===",beforeItem+"");
                         if (beforeItem == 0) {
                             animation = new TranslateAnimation(0, bmWidth, 0, 0);
                         } else {
@@ -125,11 +126,17 @@ public class MainFragment extends Fragment{
                         animation.setFillAfter(true);//让动画停止在结束位置
                         fragmentMainLine.startAnimation(animation);
                         beforeItem = position;
-                        Log.e("==case 1==beforeItem===",beforeItem+"");
+
+                        fragmentMainLine.clearAnimation();
+                        fragmentMainLine.invalidate();
+                        fragmentMainLine.setVisibility(View.GONE);
+                        mainScreen.setVisibility(View.VISIBLE);
+
                         break;
                     }
                     case 2: {
-                        Log.e("==case 2==qian===",beforeItem+"");
+                        mainScreen.setVisibility(View.GONE);
+                        fragmentMainLine.setVisibility(View.VISIBLE);
                         if (beforeItem == 0) {
                             animation = new TranslateAnimation(0, bmWidth*2, 0, 0);
                         } else {
@@ -186,16 +193,22 @@ public class MainFragment extends Fragment{
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.fragment_main_look_txt, R.id.fragment_main_hot_txt, R.id.fragment_main_new_txt,R.id.fragment_main_search_img,R.id.fragment_main_friend_img})
+    @OnClick({R.id.main_screen,R.id.fragment_main_look_txt, R.id.fragment_main_hot_txt, R.id.fragment_main_new_txt,R.id.fragment_main_search_img,R.id.fragment_main_friend_img})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fragment_main_look_txt:
+                mainScreen.setVisibility(View.GONE);
+                fragmentMainLine.setVisibility(View.VISIBLE);
                 viewPager.setCurrentItem(0);
                 break;
             case R.id.fragment_main_hot_txt:
+                mainScreen.setVisibility(View.VISIBLE);
+                fragmentMainLine.setVisibility(View.GONE);
                 viewPager.setCurrentItem(1);
                 break;
             case R.id.fragment_main_new_txt:
+                mainScreen.setVisibility(View.GONE);
+                fragmentMainLine.setVisibility(View.VISIBLE);
                 viewPager.setCurrentItem(2);
                 break;
             case R.id.fragment_main_search_img:
@@ -203,6 +216,9 @@ public class MainFragment extends Fragment{
                 break;
             case R.id.fragment_main_friend_img:
                 startActivity(new Intent(getActivity(),ChatFriendActivity.class));
+                break;
+            case R.id.main_screen:
+                startActivity(new Intent(getActivity(),ScreenActivity.class));
                 break;
         }
     }

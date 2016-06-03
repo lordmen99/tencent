@@ -105,12 +105,7 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+
 
     @OnClick({R.id.commom_right_txt, R.id.edit_person_info_head_line, R.id.edit_person_info_nick_line, R.id.edit_person_info_ID_line, R.id.edit_person_info_sex_line, R.id.edit_person_info_sign_line, R.id.edit_person_info_check_line, R.id.edit_person_info_age_line, R.id.edit_person_info_home_line, R.id.edit_person_info_job_line})
     public void onClick(View view) {
@@ -124,6 +119,7 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
             }
             case R.id.edit_person_info_nick_line: {
                 Intent intent = new Intent(context, EditNickActivity.class);
+                intent.putExtra("nick",mNickText.getText().toString());
                 startActivity(intent);
                 break;
             }
@@ -132,11 +128,13 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
             }
             case R.id.edit_person_info_sex_line: {
                 Intent intent = new Intent(context, EditSexActivity.class);
+                intent.putExtra("sex",mSexText.getText().toString());
                 startActivity(intent);
                 break;
             }
             case R.id.edit_person_info_sign_line: {
                 Intent intent = new Intent(context, EditSignActivity.class);
+                intent.putExtra("sign",mSignText.getText().toString());
                 startActivity(intent);
                 break;
             }
@@ -169,6 +167,7 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
                 break;
             case R.id.edit_person_info_job_line: {
                 Intent intent = new Intent(context, EditJobActivity.class);
+                intent.putExtra("job",mJobText.getText().toString());
                 startActivity(intent);
                 break;
             }

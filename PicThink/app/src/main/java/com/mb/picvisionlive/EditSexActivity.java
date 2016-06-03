@@ -1,6 +1,5 @@
 package com.mb.picvisionlive;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -28,6 +27,15 @@ public class EditSexActivity extends BaseActivity {
     @Override
     public void findViewByid() {
         initHead("性别");
+
+        String sex=getIntent().getStringExtra("sex");
+        if (sex.equals("女")) {
+            mBoyImg.setVisibility(View.GONE);
+            mGirlImg.setVisibility(View.VISIBLE);
+        }else{
+            mBoyImg.setVisibility(View.VISIBLE);
+            mGirlImg.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -35,12 +43,7 @@ public class EditSexActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+
 
     @OnClick({R.id.edit_sex_boy_line, R.id.edit_sex_girl_line})
     public void onClick(View view) {

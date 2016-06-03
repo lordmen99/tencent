@@ -14,7 +14,8 @@ public class ConventionActivity extends BaseActivity {
 
     @Override
     public void findViewByid() {
-        initHead("社区公约");
+
+        initHead(getIntent().getStringExtra("title"));
     }
 
     @Override
