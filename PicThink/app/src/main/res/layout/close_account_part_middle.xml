@@ -28,7 +28,11 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/common_arrow_right" />
     </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#F5F5F5"
+        />
     <LinearLayout
         android:id="@+id/close_account_smoke_line"
         android:layout_width="match_parent"
@@ -52,7 +56,11 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/common_arrow_right" />
     </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#F5F5F5"
+        />
     <LinearLayout
         android:id="@+id/close_account_opposition_line"
         android:layout_width="match_parent"
@@ -76,7 +84,11 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/common_arrow_right" />
     </LinearLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#F5F5F5"
+        />
     <LinearLayout
         android:id="@+id/close_account_head_line"
         android:layout_width="match_parent"

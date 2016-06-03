@@ -28,6 +28,7 @@ public class EditNickActivity extends BaseActivity {
     @Override
     public void findViewByid() {
         initHead("昵称", "保存");
+        editNickEdit.setText(getIntent().getStringExtra("nick"));
     }
 
     @Override

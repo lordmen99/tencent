@@ -35,4 +35,9 @@
             android:gravity="right"/>
 
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#F5F5F5"
+        />
 </LinearLayout>

@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/common_arrow_right" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/about_private_line"
         android:layout_width="match_parent"
@@ -53,6 +54,11 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/common_arrow_right" />
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#F5F5F5"
+        />
     <LinearLayout
     android:id="@+id/about_service_line"
     android:layout_width="match_parent"
@@ -76,6 +82,11 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/common_arrow_right" />
 </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#F5F5F5"
+        />
     <LinearLayout
         android:id="@+id/about_contact_line"
         android:layout_width="match_parent"

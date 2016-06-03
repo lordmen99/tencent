@@ -48,13 +48,13 @@ public class ExchangeListAdapter extends BaseAdapter{
         }else {
             holder=new ViewHolder();
             paramView= LayoutInflater.from(context).inflate(R.layout.item_exchange_list,null);
-            holder.record_salad_txt=(TextView)paramView.findViewById(R.id.record_salad_txt);
+            holder.exchange_salad_txt=(TextView)paramView.findViewById(R.id.exchange_salad_txt);
             paramView.setTag(holder);
         }
-        holder.record_salad_txt.setText(list.get(i).getNumber()+"");
+        holder.exchange_salad_txt.setText(list.get(i).getNumber()+"");
         return paramView;
     }
     class ViewHolder{
-        TextView record_salad_txt;
+        TextView exchange_salad_txt;
     }
 }
