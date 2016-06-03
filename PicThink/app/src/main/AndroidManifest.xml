@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mb.picvisionlive">
+    package="com.mb.picvisionlive" >
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -30,8 +30,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".StartActivity">
+        android:theme="@style/AppTheme" >
+        <activity android:name=".StartActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -76,14 +76,14 @@
 
         <receiver
             android:name="com.tencent.qalsdk.QALBroadcastReceiver"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.tencent.qalsdk.broadcast.qal" />
             </intent-filter>
         </receiver>
         <receiver
             android:name="com.tencent.qalsdk.core.NetConnInfoCenter"
-            android:process=":QALSERVICE">
+            android:process=":QALSERVICE" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -114,6 +114,12 @@
         <activity android:name=".AccountSafeActivity" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".PushMessageActivity" />
+        <activity android:name=".ChatFriendActivity" >
+        </activity>
+        <activity android:name=".ChatDetailActivity" >
+        </activity>
+        <activity android:name=".SearchActivity" >
+        </activity>
         <activity android:name=".BlackListActivity" />
         <activity android:name=".HelpActivity" />
         <activity android:name=".CloseAccountActivity" />
@@ -125,9 +131,11 @@
         <activity android:name=".MyLookActivity" />
         <activity android:name=".MyProfitActivity" />
         <activity android:name=".ProfitRecordActivity" />
-        <activity android:name=".InviteFriendActivity"></activity>
+        <activity android:name=".InviteFriendActivity" />
         <activity android:name=".MySauceActivity" />
-        <activity android:name=".MyFanActivity"></activity>
+        <activity android:name=".MyFanActivity" />
+        <activity android:name=".MyOrderActivity" >
+        </activity>
     </application>
 
 </manifest>

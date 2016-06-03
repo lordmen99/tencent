@@ -158,6 +158,8 @@ public class PersonInfoFragment extends Fragment {
                 break;
             }
             case R.id.fragment_person_info_order_line: {
+                Intent intent = new Intent(context, MyOrderActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.fragment_person_info_address_line: {
