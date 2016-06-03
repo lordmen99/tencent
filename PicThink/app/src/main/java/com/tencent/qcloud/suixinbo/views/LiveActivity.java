@@ -363,15 +363,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
         BtnCtrlMic = (TextView) findViewById(R.id.mic_controll);
         BtnHungup = (TextView) findViewById(R.id.close_member_video);
 
-        TextView tv_message = (TextView) findViewById(R.id.tv_message);//消息图标
-        TextView tv_sale = (TextView) findViewById(R.id.tv_sale);//出售商品
-        TextView tv_vrprop = (TextView) findViewById(R.id.tv_vrprop);//VR道具
-        TextView tv_lianxian = (TextView) findViewById(R.id.tv_lianxian);//连线
-        TextView tv_friends = (TextView) findViewById(R.id.tv_friends);//好友聊天
-        TextView tv_share = (TextView) findViewById(R.id.tv_share);//分享
-        TextView tv_sing = (TextView) findViewById(R.id.tv_sing);//唱歌
-        TextView tv_camera = (TextView) findViewById(R.id.tv_camera);//翻转
-        TextView tv_close = (TextView) findViewById(R.id.tv_close);//关闭
+
         RelativeLayout rl_user = (RelativeLayout) findViewById(R.id.rl_user);//主播信息
         hlv_audience = (HorizontialListView) findViewById(R.id.hlv_audience);//观众头像
         member_count_bottom = (TextView) findViewById(R.id.member_count_bottom);//观看数
@@ -382,15 +374,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
 
         tv_guanzhu.setOnClickListener(this);
         tv_shopping.setOnClickListener(this);
-        tv_message.setOnClickListener(this);
-        tv_sale.setOnClickListener(this);
-        tv_vrprop.setOnClickListener(this);
-        tv_lianxian.setOnClickListener(this);
-        tv_friends.setOnClickListener(this);
-        tv_share.setOnClickListener(this);
-        tv_sing.setOnClickListener(this);
-        tv_camera.setOnClickListener(this);
-        tv_close.setOnClickListener(this);
+
         rl_user.setOnClickListener(this);
 
 
@@ -460,6 +444,24 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
 
                 }
             });
+            TextView tv_message = (TextView) findViewById(R.id.tv_message);//消息图标
+            TextView tv_sale = (TextView) findViewById(R.id.tv_sale);//出售商品
+            TextView tv_vrprop = (TextView) findViewById(R.id.tv_vrprop);//VR道具
+            TextView tv_lianxian = (TextView) findViewById(R.id.tv_lianxian);//连线
+            TextView tv_friends = (TextView) findViewById(R.id.tv_friends);//好友聊天
+            TextView tv_share = (TextView) findViewById(R.id.tv_share);//分享
+            TextView tv_sing = (TextView) findViewById(R.id.tv_sing);//唱歌
+            TextView tv_camera = (TextView) findViewById(R.id.tv_camera);//翻转
+            TextView tv_close = (TextView) findViewById(R.id.tv_close);//关闭
+            tv_message.setOnClickListener(this);
+            tv_sale.setOnClickListener(this);
+            tv_vrprop.setOnClickListener(this);
+            tv_lianxian.setOnClickListener(this);
+            tv_friends.setOnClickListener(this);
+            tv_share.setOnClickListener(this);
+            tv_sing.setOnClickListener(this);
+            tv_camera.setOnClickListener(this);
+            tv_close.setOnClickListener(this);
         } else {
             initInviteDialog();
             mNomalMemberCtrView.setVisibility(View.VISIBLE);
@@ -475,8 +477,14 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
             ids.add(CurLiveInfo.getHostID());
             showHeadIcon(mHeadIcon, CurLiveInfo.getHostAvator());
 
-
-
+            TextView tv_friends_user = (TextView) findViewById(R.id.tv_friends_user);//用户端好友
+            tv_friends_user.setOnClickListener(this);
+            TextView tv_share_user = (TextView) findViewById(R.id.tv_share_user);//用户端分享
+            tv_share_user.setOnClickListener(this);
+            TextView tv_close_user = (TextView) findViewById(R.id.tv_close_user);//用户端关闭
+            tv_close_user.setOnClickListener(this);
+            TextView tv_vrprop_user = (TextView) findViewById(R.id.tv_vrprop_user);//用户端道具
+            tv_vrprop_user.setOnClickListener(this);
 
         }
         BtnNormal = (TextView) findViewById(R.id.normal_btn);
@@ -1146,26 +1154,31 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
                 SalePopWindow();//商品的Dialog
                 break;
             case  R.id.tv_vrprop://VR道具
-               Toast.makeText(this,"暂无开通，敬请期待。",Toast.LENGTH_SHORT).show();
+            case  R.id.tv_vrprop_user://用户端道具
+               Toast.makeText(this,"暂未开通，敬请期待。",Toast.LENGTH_SHORT).show();
                 break;
             case  R.id.tv_lianxian://连线
                showLianXianPopWindow(view);
                 break;
             case  R.id.tv_friends://好友聊天
+            case  R.id.tv_friends_user://用户端好友聊天
                 DialogFragmentWindow friendsDialog = new DialogFragmentWindow();
                 friendsDialog.setStyle(DialogFragment.STYLE_NO_TITLE,R.style.CustomDatePickerDialog);
                 friendsDialog.show(getSupportFragmentManager(), "");
                 break;
+
             case  R.id.tv_share://分享
+            case  R.id.tv_share_user://用户端分享
                 showSharePopWindow(view);
                 break;
             case  R.id.tv_sing://唱歌
-                Toast.makeText(this,"暂无开通，敬请期待。",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"暂未开通，敬请期待。",Toast.LENGTH_SHORT).show();
                 break;
             case  R.id.tv_camera://翻转，闪光灯
                 showCameraPopWindow(view);
                 break;
             case  R.id.tv_close://关闭直播
+            case  R.id.tv_close_user://用户端关闭直播
                 quiteLiveByPurpose();
                 break;
             case  R.id.rl_user://主播信息
@@ -1236,7 +1249,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
                                 payDialog.setContentView(R.layout.dialog_pay_live);
                                 payDialog.show();
                                 ImageView iv_close = (ImageView) payDialog.findViewById(R.id.iv_close);
-                                TextView tv_confirm = (TextView) findViewById(R.id.tv_confirm);//确定
+                                TextView tv_confirm = (TextView) payDialog.findViewById(R.id.tv_confirm);//确定
                                 final CheckBox cb_sela = (CheckBox) payDialog.findViewById(R.id.cb_sela);//色拉余额
                                 final CheckBox cb_weixin = (CheckBox) payDialog.findViewById(R.id.cb_weixin);//微信
                                 final CheckBox cb_zhifubao = (CheckBox) payDialog.findViewById(R.id.cb_zhifubao);//支付宝
