@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:id="@+id/screen_line">
+    <LinearLayout
+        android:id="@+id/setting_cache_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip"
+        android:background="@drawable/onclick_approve"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="热门"
+            android:textColor="#484848"
+            android:textSize="14sp"
+            />
+
+        <TextView
+            android:id="@+id/screen_count_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15696"
+            android:textSize="14sp"
+            android:textColor="#F8D150"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"/>
+        <ImageView
+            android:id="@+id/screen_xuanz_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/screen_xuanz"/>
+    </LinearLayout>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dip"
+    android:background="#F5F5F5"
+    android:layout_marginLeft="15dip"
+    android:layout_marginRight="15dip"/>
+</LinearLayout>

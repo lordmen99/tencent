@@ -2,6 +2,7 @@ package com.mb.picvisionlive;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -41,8 +42,8 @@ public class MyProfitActivity extends BaseActivity {
 
 
     @OnClick(R.id.my_profit_btn)
-    public void onMyClick() {
-//        Intent intent = new Intent(context, ProfitRecordActivity.class);
-//        startActivity(intent);
+    public void onMyClick(View view) {
+        Intent intent = new Intent(context, ExchangeActivity.class);
+        startActivity(intent);
     }
 }

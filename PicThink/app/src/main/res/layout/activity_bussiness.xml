@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    tools:context="com.mb.picvisionlive.BussinessActivity">
+    <include layout="@layout/common_top_view" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:padding="15dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:text="客服电话"/>
+        <TextView
+            android:layout_marginLeft="30dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#484848"
+            android:textSize="14sp"
+            android:text="600-880-8888"/>
+    </LinearLayout>
+</LinearLayout>
