@@ -13,11 +13,16 @@ public class AgreementActivity extends BaseActivity {
 
     @Override
     public void findViewByid() {
-
+           initHead("协议");
     }
 
     @Override
     public void bodymethod() {
 
+    }
+    @Override
+    protected void onDestroy() {
+        ButterKnife.unbind(this);
+        super.onDestroy();
     }
 }
