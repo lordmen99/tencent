@@ -86,6 +86,7 @@ public class StartActivity extends BaseActivity {
             case R.id.start_weibo_img:{
                 Intent intent = new Intent(StartActivity.this,com.tencent.qcloud.suixinbo.views.LoginActivity.class);//PicLoginActivity
                 startActivity(intent);
+                finish();
                 break;}
             case R.id.start_weixin_img:{
                 Intent intent = new Intent(StartActivity.this,com.tencent.qcloud.suixinbo.views.LoginActivity.class);//PicLoginActivity
@@ -94,12 +95,14 @@ public class StartActivity extends BaseActivity {
             case R.id.start_qq_img:{
                 Intent intent = new Intent(StartActivity.this,com.tencent.qcloud.suixinbo.views.LoginActivity.class);//PicLoginActivity
                 startActivity(intent);
+                finish();
                 break;}
             case R.id.start_mobile_img:{
 //                Intent intent = new Intent(StartActivity.this,SetHeadActivity.class);//PicLoginActivity
 //                startActivity(intent);
                 Intent intent = new Intent(StartActivity.this,com.tencent.qcloud.suixinbo.views.LoginActivity.class);//PicLoginActivity
                 startActivity(intent);
+                finish();
                 break;}
         }
     }
