@@ -1,8 +1,8 @@
 package com.mb.picvisionlive.choosedata;
 
 
-import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.mb.picvisionlive.R;
 
@@ -24,6 +24,12 @@ public class WheelMain {
 
 	int today;
 	int thisMonth;
+	int thisYear;
+	int newYear;
+	private TextView tv_year;
+	private TextView tv_xingzuo;
+
+
 	public View getView() {
 		return view;
 	}
@@ -52,12 +58,15 @@ public class WheelMain {
 		super();
 		this.view = view;
 		hasSelectTime = false;
+
+
 		setView(view);
 	}
 	public WheelMain(View view,boolean hasSelectTime) {
 		super();
 		this.view = view;
 		this.hasSelectTime = hasSelectTime;
+
 		setView(view);
 	}
 	public void initDateTimePicker(int year ,int month,int day){
@@ -68,6 +77,8 @@ public class WheelMain {
 	 * @Description: TODO 弹出日期时间选择器
 	 */
 	public void initDateTimePicker(int year ,int month ,int day,int h,int m) {
+		tv_xingzuo = (TextView) view.findViewById(R.id.tv_xingzuo);
+		tv_year = (TextView) view.findViewById(R.id.tv_year);
 //		int year = calendar.get(Calendar.YEAR);
 //		int month = calendar.get(Calendar.MONTH);
 //		int day = calendar.get(Calendar.DATE);
@@ -84,7 +95,7 @@ public class WheelMain {
 		wv_year.setCyclic(true);// 可循环滚动
 		wv_year.setLabel("年");// 添加文字
 		wv_year.setCurrentItem(year - START_YEAR);// 初始化时显示的数据
-
+		thisYear = year;
 		// 月
 		wv_month = (WheelTimeView) view.findViewById(R.id.month);
 		wv_month.setAdapter(new NumericWheelAdapter(1, 12));
@@ -136,6 +147,13 @@ public class WheelMain {
 		OnWheelChangedListener wheelListener_year = new OnWheelChangedListener() {
 			public void onChanged(WheelTimeView wheel, int oldValue, int newValue) {
 				int year_num = newValue + START_YEAR;
+				newYear = year_num;
+
+				if (thisYear>=newYear) {
+					tv_year.setText(thisYear - newYear + "岁");
+				}else {
+					tv_year.setText(0 + "岁");
+				}
 				// 判断大小月及是否闰年,用来确定"日"的数据
 				if (list_big
 						.contains(String.valueOf(wv_month.getCurrentItem() + 1))) {
@@ -184,21 +202,7 @@ public class WheelMain {
 		OnWheelChangedListener wheelListener_day = new OnWheelChangedListener() {
 			public void onChanged(WheelTimeView wheel, int oldValue, int newValue) {
 
-//				// 判断大小月及是否闰年,用来确定"日"的数据
-//				if (list_big.contains(String.valueOf(month_num))) {
-//					wv_day.setAdapter(new NumericWheelAdapter(1, 31));
-//				} else if (list_little.contains(String.valueOf(month_num))) {
-//					wv_day.setAdapter(new NumericWheelAdapter(1, 30));
-//				} else {
-//					if (((wv_year.getCurrentItem() + START_YEAR) % 4 == 0 && (wv_year
-//							.getCurrentItem() + START_YEAR) % 100 != 0)
-//							|| (wv_year.getCurrentItem() + START_YEAR) % 400 == 0)
-//						wv_day.setAdapter(new NumericWheelAdapter(1, 29));
-//					else
-//						wv_day.setAdapter(new NumericWheelAdapter(1, 28));
-//				}
-//				Log.i("Home",thisMonth+"---日");
-//				Log.i("Home",newValue+1+"---日");
+
 				//算星座
 				getStarSeat(thisMonth, newValue+1);
 			}
@@ -249,7 +253,7 @@ public class WheelMain {
 	 * @param day
 	 * @return
 	 */
-	public static String getStarSeat(int mouth, int day) {
+	public  String getStarSeat(int mouth, int day) {
 		String starSeat = null;
 
 		if ((mouth == 3 && day >= 21) || (mouth == 4 && day <= 19)) {
@@ -277,7 +281,9 @@ public class WheelMain {
 		} else {
 			starSeat = "双鱼座";
 		}
-		Log.i("Home",starSeat);
+
+
+		tv_xingzuo.setText(starSeat);
 		return starSeat;
 	}
 
