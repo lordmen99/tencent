@@ -130,10 +130,7 @@
         <activity android:name=".MyFanActivity"></activity>
 
         <activity android:name=".ExchangeActivity" />
-
-
-
-
+        <activity android:name=".ScreenActivity" />
 
         <activity android:name=".SearchActivity" />
         <activity android:name=".ChatFriendActivity" />
