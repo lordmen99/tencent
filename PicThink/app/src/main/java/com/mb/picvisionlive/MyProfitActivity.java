@@ -33,17 +33,20 @@ public class MyProfitActivity extends BaseActivity {
     }
 
 
-    @OnClick(R.id.commom_right_txt)
-    public void onClick() {
-        Intent intent = new Intent(context, ProfitRecordActivity.class);
-        startActivity(intent);
+
+    @OnClick({R.id.commom_right_txt, R.id.my_profit_btn})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.commom_right_txt:{
+                Intent intent = new Intent(context, ProfitRecordActivity.class);
+                startActivity(intent);
+                break;}
+            case R.id.my_profit_btn:{
+                Intent intent = new Intent(context, ExchangeActivity.class);
+                startActivity(intent);
+                break;}
+        }
     }
 
 
-
-    @OnClick(R.id.my_profit_btn)
-    public void onMyClick(View view) {
-        Intent intent = new Intent(context, ExchangeActivity.class);
-        startActivity(intent);
-    }
 }
