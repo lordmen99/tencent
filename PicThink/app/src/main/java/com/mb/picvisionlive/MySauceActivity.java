@@ -28,7 +28,7 @@ public class MySauceActivity extends BaseActivity {
 
     @Override
     public void findViewByid() {
-        initHead("领取记录");
+        initHead("我的酱");
     }
 
     @Override

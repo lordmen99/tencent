@@ -12,9 +12,9 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-
 import com.mb.picvisionlive.adapter.HeadAdapter;
 import com.mb.picvisionlive.bean.PersonBean;
+import com.mb.picvisionlive.setting.PicConstants;
 import com.mb.picvisionlive.weight.ListViewForScrollView;
 import com.mb.picvisionlive.weight.MyGridView;
 import com.tencent.qcloud.suixinbo.adapters.LiveShowAdapter;
@@ -26,16 +26,19 @@ import com.tencent.qcloud.suixinbo.presenters.viewinface.LiveListView;
 import com.tencent.qcloud.suixinbo.utils.Constants;
 import com.tencent.qcloud.suixinbo.views.LiveActivity;
 
+import org.simple.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2015/1/13.
  */
-public class LookFragment extends Fragment implements LiveListView, SwipeRefreshLayout.OnRefreshListener{
+public class LookFragment extends Fragment implements LiveListView, SwipeRefreshLayout.OnRefreshListener {
     Context context;
     @Bind(R.id.fragment_look_live_list)
     ListViewForScrollView mLookLiveList;
@@ -56,6 +59,7 @@ public class LookFragment extends Fragment implements LiveListView, SwipeRefresh
     List<PersonBean> darenList = new ArrayList<PersonBean>();
 
     int a = 0;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         context = inflater.getContext();
@@ -63,18 +67,18 @@ public class LookFragment extends Fragment implements LiveListView, SwipeRefresh
         View view = inflater.inflate(R.layout.fragment_look, null);
         ButterKnife.bind(this, view);
 
-         a = 0;
+        a = 0;
 
         if (a == 1) {
             mLookEmptyLine.setVisibility(View.GONE);
             initLiveListView();
-        }else{
+        } else {
             mLookLiveList.setVisibility(View.GONE);
             mLookEmptyLine.setVisibility(View.VISIBLE);
             initDarenGridView();
         }
 
-        if (a==1){
+        if (a == 1) {
             mLiveListViewHelper.getPageData();
         }
 
@@ -118,12 +122,12 @@ public class LookFragment extends Fragment implements LiveListView, SwipeRefresh
     }
 
     private void initDarenGridView() {
-        for (int i = 0; i < 18; i++) {
+        darenList.clear();
+        for (int i = 0; i < 12; i++) {
             PersonBean person = new PersonBean();
             person.setImg_id(i);
 
             darenList.add(person);
-
 
 
         }
@@ -133,6 +137,7 @@ public class LookFragment extends Fragment implements LiveListView, SwipeRefresh
         mLookDarenGridview.setAdapter(mheadDarenAdapter);
 
     }
+
     @Override
     public void onStart() {
 //        if (a==1){
@@ -141,6 +146,7 @@ public class LookFragment extends Fragment implements LiveListView, SwipeRefresh
 
         super.onStart();
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -149,7 +155,7 @@ public class LookFragment extends Fragment implements LiveListView, SwipeRefresh
 
     @Override
     public void showFirstPage(ArrayList<LiveInfoJson> result) {
-        if (a==1){
+        if (a == 1) {
             mSwipeRefreshLayout.setRefreshing(false);
             liveList.clear();
             if (null != result) {
@@ -158,15 +164,20 @@ public class LookFragment extends Fragment implements LiveListView, SwipeRefresh
                 }
             }
             adapter.notifyDataSetChanged();
-    }
+        }
 
     }
 
     @Override
     public void onRefresh() {
-        if (a==1){
+        if (a == 1) {
             mLiveListViewHelper.getPageData();
         }
 
+    }
+
+    @OnClick(R.id.frgment_look_empty_look_txt)
+    public void onClick() {
+        EventBus.getDefault().post(1, PicConstants.INDEX);
     }
 }

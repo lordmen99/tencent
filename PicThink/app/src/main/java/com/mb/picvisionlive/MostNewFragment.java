@@ -51,8 +51,9 @@ public class MostNewFragment extends Fragment {
     }
 
     private void initGridView() {
-
-        for (int i = 0; i < 18; i++) {
+        darenList.clear();
+        newOnairList.clear();
+        for (int i = 0; i < 12; i++) {
             PersonBean person = new PersonBean();
             person.setImg_id(i);
             if (i < 6) {

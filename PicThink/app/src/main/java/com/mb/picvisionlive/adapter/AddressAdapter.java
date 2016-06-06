@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mb.picvisionlive.R;
@@ -53,13 +52,20 @@ public class AddressAdapter extends BaseAdapter{
             View view02 = LayoutInflater.from(context).inflate(R.layout.item_address_layout2, null);
             paramView = new SwipeItemLayout(view01, view02, null, null);
             holder.name=(TextView) paramView.findViewById(R.id.item_address_name_txt);
+            holder.default_txt=(TextView) paramView.findViewById(R.id.item_default_txt);
+
             paramView.setTag(holder);
         }
         holder.name.setText(list.get(i).getName());
+        if (i==0) {
+            holder.default_txt.setText("【默认】");
+        }else{
+            holder.default_txt.setText("");
+        }
         return paramView;
     }
     class ViewHolder{
-        ImageView head;
-        TextView name;
+
+        TextView name,default_txt;
     }
 }

@@ -17,6 +17,11 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mb.picvisionlive.setting.PicConstants;
+
+import org.simple.eventbus.EventBus;
+import org.simple.eventbus.Subscriber;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +58,7 @@ public class MainFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, null);
         ButterKnife.bind(this, view);
-
+        EventBus.getDefault().register(this);
         vto = (ViewTreeObserver) fragmentMainLine .getViewTreeObserver();
 
 
@@ -189,8 +194,11 @@ public class MainFragment extends Fragment{
 
     @Override
     public void onDestroyView() {
-        super.onDestroyView();
+        EventBus.getDefault().unregister(this);
         ButterKnife.unbind(this);
+        super.onDestroyView();
+
+
     }
 
     @OnClick({R.id.main_screen,R.id.fragment_main_look_txt, R.id.fragment_main_hot_txt, R.id.fragment_main_new_txt,R.id.fragment_main_search_img,R.id.fragment_main_friend_img})
@@ -202,9 +210,14 @@ public class MainFragment extends Fragment{
                 viewPager.setCurrentItem(0);
                 break;
             case R.id.fragment_main_hot_txt:
-                mainScreen.setVisibility(View.VISIBLE);
-                fragmentMainLine.setVisibility(View.GONE);
-                viewPager.setCurrentItem(1);
+                if (mainScreen.getVisibility()==View.VISIBLE) {
+                    startActivity(new Intent(getActivity(),ScreenActivity.class));
+                }else{
+                    mainScreen.setVisibility(View.VISIBLE);
+                    fragmentMainLine.setVisibility(View.GONE);
+                    viewPager.setCurrentItem(1);
+                }
+
                 break;
             case R.id.fragment_main_new_txt:
                 mainScreen.setVisibility(View.GONE);
@@ -218,11 +231,16 @@ public class MainFragment extends Fragment{
                 startActivity(new Intent(getActivity(),ChatFriendActivity.class));
                 break;
             case R.id.main_screen:
-                startActivity(new Intent(getActivity(),ScreenActivity.class));
+               // startActivity(new Intent(getActivity(),ScreenActivity.class));
                 break;
         }
     }
-
+    @Subscriber(tag = PicConstants.INDEX)
+    private void moreLook(int index) {
+        mainScreen.setVisibility(View.VISIBLE);
+        fragmentMainLine.setVisibility(View.GONE);
+        viewPager.setCurrentItem(index);
+    }
     class FragmentAdapter extends FragmentStatePagerAdapter {
 
         public FragmentAdapter(FragmentManager fm) {
