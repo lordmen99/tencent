@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mb.picvisionlive.bean.CityModel;
 import com.mb.picvisionlive.bean.DistrictModel;
@@ -198,7 +199,10 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
 
     private void startZoomCamera(int arg1) {
 
-
+        if (!bPermission){
+            Toast.makeText(this, getString(R.string.tip_no_permission), Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (0 == arg1) {// 选择本地相片
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
             intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
