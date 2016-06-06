@@ -32,7 +32,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="最多编辑32个字"
+        android:text="请最多输入32个字"
         android:textColor="#AAAAAA"
         android:textSize="14sp"
         android:gravity="right"/>
