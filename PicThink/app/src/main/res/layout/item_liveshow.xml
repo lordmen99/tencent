@@ -129,13 +129,26 @@ android:layout_weight="1"
             android:src="@drawable/cover_background"
             android:scaleType="centerCrop" />
 
-        <ImageView
+       <!-- <ImageView
             android:id="@+id/live_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_margin="10dp"
-            android:src="@drawable/icon_livewhite" />
+            android:src="@drawable/icon_livewhite" />-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="直播"
+            android:textColor="#FFFFFF"
+            android:paddingBottom="2dip"
+            android:paddingTop="2dip"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/hot_corner_white_stroke"/>
     </RelativeLayout>
 
 
