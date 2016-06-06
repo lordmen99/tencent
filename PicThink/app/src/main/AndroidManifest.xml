@@ -136,6 +136,7 @@
         <activity android:name=".ChatFriendActivity" />
         <activity android:name=".ChatDetailActivity" />
         <activity android:name=".MyOrderActivity" />
+        <activity android:name=".BussinessActivity" />
 
 
     </application>
