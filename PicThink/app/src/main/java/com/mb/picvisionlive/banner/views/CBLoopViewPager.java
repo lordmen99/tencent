@@ -20,7 +20,6 @@ import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.TextView;
 
 /**
@@ -49,8 +48,8 @@ public class CBLoopViewPager extends ViewPager {
     OnPageChangeListener mOuterPageChangeListener;
     private CBLoopPagerAdapterWrapper mAdapter;
     private boolean mBoundaryCaching = DEFAULT_BOUNDARY_CASHING;
-    
-    
+
+
     /**
      * helper function which may be used when implementing FragmentPagerAdapter
      *   
@@ -133,6 +132,7 @@ public class CBLoopViewPager extends ViewPager {
 
     private static TextView views;
     private static int count;
+
     public  static void setTextView(TextView view,int i){
         views = view;
         count = i;
@@ -145,12 +145,12 @@ public class CBLoopViewPager extends ViewPager {
 
         @Override
         public void onPageSelected(int position) {
-            Log.i("Home", position + "zz");
-
-    if (position<=count) {
-        views.setText(position + "/" + count);
-    }
-
+//            Log.i("Home", position + "zz");
+        if (views!=null) {
+            if (position <= count) {
+                views.setText(position + "/" + count);
+            }
+        }
             int realPosition = mAdapter.toRealPosition(position);
             if (mPreviousPosition != realPosition) {
                 mPreviousPosition = realPosition;
@@ -194,6 +194,7 @@ public class CBLoopViewPager extends ViewPager {
 
         @Override
         public void onPageScrollStateChanged(int state) {
+
             if (mAdapter != null) {
                 int position = CBLoopViewPager.super.getCurrentItem();
                 int realPosition = mAdapter.toRealPosition(position);

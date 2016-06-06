@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_refresh_layout_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+   <com.mb.picvisionlive.banner.views.VerticalSwipeRefreshLayout
+      android:id="@+id/swipe_refresh_layout_list"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_weight="1">
 
     <com.mb.picvisionlive.weight.MyScrollView
         android:layout_width="match_parent"
@@ -26,16 +26,12 @@
                 android:orientation="vertical"
                 >
 
-                <ImageView
-                    android:layout_width="fill_parent"
-                    android:layout_height="200dip"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/fragment_hot_banner" />
 
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/frgment_hot_viewPager"
+
+                <com.mb.picvisionlive.banner.views.ConvenientBanner
+                    android:id="@+id/convenientBanner"
                     android:layout_width="match_parent"
-                    android:layout_height="200dip" />
+                    android:layout_height="200dp"/>
 
                 <LinearLayout
                     android:id="@+id/layout_point_parent"
@@ -62,5 +58,5 @@
 
 
     </com.mb.picvisionlive.weight.MyScrollView>
-</android.support.v4.widget.SwipeRefreshLayout>
+</com.mb.picvisionlive.banner.views.VerticalSwipeRefreshLayout>
 </LinearLayout>

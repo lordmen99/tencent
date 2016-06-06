@@ -77,6 +77,7 @@ public class MainFragment extends Fragment{
         list.add(new MostNewFragment());
         viewPager.setAdapter(new FragmentAdapter(getChildFragmentManager()));
         MoveImage(view);
+        viewPager.setCurrentItem(1);
     }
 
     private void MoveImage(View view) {
