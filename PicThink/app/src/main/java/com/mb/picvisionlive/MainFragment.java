@@ -49,7 +49,7 @@ public class MainFragment extends Fragment{
     private List<Fragment> list = new ArrayList<Fragment>();
     private int gapWidth;
     private int bmWidth;
-    int beforeItem = 0;
+    int beforeItem = 1;
     ViewPager viewPager;
 
     private ViewTreeObserver vto ;
@@ -106,8 +106,7 @@ public class MainFragment extends Fragment{
                 Animation animation = null;
                 switch (position) {
                     case 0: {
-                        mainScreen.setVisibility(View.GONE);
-                        fragmentMainLine.setVisibility(View.VISIBLE);
+
                         if (beforeItem == 1) {
                             animation = new TranslateAnimation(bmWidth, 0, 0, 0);
                         } else {
@@ -117,7 +116,8 @@ public class MainFragment extends Fragment{
                         animation.setFillAfter(true);//让动画停止在结束位置
                         fragmentMainLine.startAnimation(animation);
                         beforeItem = position;
-
+                        mainScreen.setVisibility(View.GONE);
+                        fragmentMainLine.setVisibility(View.VISIBLE);
                        // Log.e("==case 0==beforeItem===",beforeItem+"");
                         break;
                     }
@@ -135,14 +135,13 @@ public class MainFragment extends Fragment{
 
                         fragmentMainLine.clearAnimation();
                         fragmentMainLine.invalidate();
-                        fragmentMainLine.setVisibility(View.GONE);
+                        fragmentMainLine.setVisibility(View.INVISIBLE);
                         mainScreen.setVisibility(View.VISIBLE);
 
                         break;
                     }
                     case 2: {
-                        mainScreen.setVisibility(View.GONE);
-                        fragmentMainLine.setVisibility(View.VISIBLE);
+
                         if (beforeItem == 0) {
                             animation = new TranslateAnimation(0, bmWidth*2, 0, 0);
                         } else {
@@ -152,6 +151,8 @@ public class MainFragment extends Fragment{
                         animation.setFillAfter(true);//让动画停止在结束位置
                         fragmentMainLine.startAnimation(animation);
                         beforeItem = position;
+                        mainScreen.setVisibility(View.GONE);
+                        fragmentMainLine.setVisibility(View.VISIBLE);
                         Log.e("==case 2==beforeItem===",beforeItem+"");
                         break;
                     }
@@ -215,7 +216,7 @@ public class MainFragment extends Fragment{
                     startActivity(new Intent(getActivity(),ScreenActivity.class));
                 }else{
                     mainScreen.setVisibility(View.VISIBLE);
-                    fragmentMainLine.setVisibility(View.GONE);
+                    fragmentMainLine.setVisibility(View.INVISIBLE);
                     viewPager.setCurrentItem(1);
                 }
 
@@ -239,7 +240,7 @@ public class MainFragment extends Fragment{
     @Subscriber(tag = PicConstants.INDEX)
     private void moreLook(int index) {
         mainScreen.setVisibility(View.VISIBLE);
-        fragmentMainLine.setVisibility(View.GONE);
+        fragmentMainLine.setVisibility(View.INVISIBLE);
         viewPager.setCurrentItem(index);
     }
     class FragmentAdapter extends FragmentStatePagerAdapter {

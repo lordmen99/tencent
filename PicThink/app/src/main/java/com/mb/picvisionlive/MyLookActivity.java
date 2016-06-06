@@ -1,6 +1,7 @@
 package com.mb.picvisionlive;
 
 import android.content.Context;
+import android.content.Intent;
 import android.widget.ListView;
 
 import com.mb.picvisionlive.adapter.PersonAdapter;
@@ -56,5 +57,8 @@ public class MyLookActivity extends BaseActivity {
 
     @OnClick(R.id.commom_right_img)
     public void onClick() {
+        Intent intent = new Intent(context, SearchActivity.class);
+
+        startActivity(intent);
     }
 }
