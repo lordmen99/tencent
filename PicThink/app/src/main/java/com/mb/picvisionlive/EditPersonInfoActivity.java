@@ -8,12 +8,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -37,13 +39,18 @@ import com.mb.picvisionlive.setting.PicConstants;
 import com.mb.picvisionlive.tools.BitmapUtils;
 import com.mb.picvisionlive.tools.XmlParserHandler;
 import com.mb.picvisionlive.weight.CircularImage;
+import com.tencent.qcloud.suixinbo.model.MySelfInfo;
 import com.tencent.qcloud.suixinbo.utils.Constants;
+import com.tencent.qcloud.suixinbo.utils.SxbLog;
+import com.tencent.qcloud.suixinbo.utils.UIUtils;
 
 import org.simple.eventbus.EventBus;
 import org.simple.eventbus.Subscriber;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -83,10 +90,10 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
     private boolean bPermission = false;
     public static final String IMAGE_UNSPECIFIED = "image/*";
     public static final int NONE = 0;
-    public static final int PHOTOHRAPH = 1;// 拍照
-    public static final int PHOTOZOOM = 2; // 缩放
-    public static final int PHOTORESOULT = 3;// 结果
-
+    private static final int CROP_CHOOSE = 10;
+    private static final int CAPTURE_IMAGE_CAMERA = 100;
+    private static final int IMAGE_STORE = 200;
+    private Uri iconUrl, iconCrop;
 
     @Override
     public void setContentView() {
@@ -95,7 +102,13 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
         EventBus.getDefault().register(this);
         bPermission = checkCropPermission();
     }
-
+    // 使用系统当前日期加以调整作为照片的名称
+    private String getPhotoFileName() {
+        Date date = new Date(System.currentTimeMillis());
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                "'IMG'_yyyyMMdd_HHmmss");
+        return dateFormat.format(date) + ".jpg";
+    }
     @Override
     public void findViewByid() {
         initHead("编辑资料");
@@ -197,30 +210,54 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
     }
 
 
-    private void startZoomCamera(int arg1) {
 
+    private Uri createCoverUri(String type) {
+        String filename = MySelfInfo.getInstance().getId()+ type + ".jpg";
+        File outputImage = new File(Environment.getExternalStorageDirectory(), filename);
+        if (ContextCompat.checkSelfPermission(EditPersonInfoActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(EditPersonInfoActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, Constants.WRITE_PERMISSION_REQ_CODE);
+            return null;
+        }
+        try {
+            if (outputImage.exists()) {
+                outputImage.delete();
+            }
+            outputImage.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return Uri.fromFile(outputImage);
+    }
+
+
+    /**
+     * 获取图片资源
+     *
+     * @param type
+     */
+    private void getPicFrom(int type) {
         if (!bPermission){
             Toast.makeText(this, getString(R.string.tip_no_permission), Toast.LENGTH_SHORT).show();
             return;
         }
-        if (0 == arg1) {// 选择本地相片
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
-            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                    IMAGE_UNSPECIFIED);
-            startActivityForResult(intent, PHOTOZOOM);
+        switch (type) {
+            case CAPTURE_IMAGE_CAMERA:
+                Intent intent_photo = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                iconUrl = createCoverUri("_icon");
+                intent_photo.putExtra(MediaStore.EXTRA_OUTPUT, iconUrl);
+                startActivityForResult(intent_photo, CAPTURE_IMAGE_CAMERA);
+                break;
+            case IMAGE_STORE:
+                iconUrl = createCoverUri("_select_icon");
+                Intent intent_album = new Intent("android.intent.action.GET_CONTENT");
+                intent_album.setType("image/*");
+                startActivityForResult(intent_album, IMAGE_STORE);
+                break;
+
         }
-
-        if (1 == arg1) {// 拍照
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(
-                    Environment.getExternalStorageDirectory(), "temp.jpg")));
-            System.out.println("=============" + Environment.getExternalStorageDirectory());
-            startActivityForResult(intent, PHOTOHRAPH);
-        }
-
-
     }
-
 
     /**
      * 图片选择对话框
@@ -234,7 +271,7 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
         Window dlgwin = pickDialog.getWindow();
         WindowManager.LayoutParams lp = dlgwin.getAttributes();
         dlgwin.setGravity(Gravity.BOTTOM);
-        lp.width = (int) (display.getWidth()); //设置宽度
+        lp.width = (int)(display.getWidth()); //设置宽度
 
         pickDialog.getWindow().setAttributes(lp);
 
@@ -244,7 +281,7 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startZoomCamera(1);
+                getPicFrom(CAPTURE_IMAGE_CAMERA);
                 pickDialog.dismiss();
             }
         });
@@ -252,7 +289,7 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
         picLib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startZoomCamera(0);
+                getPicFrom(IMAGE_STORE);
                 pickDialog.dismiss();
             }
         });
@@ -287,58 +324,58 @@ public class EditPersonInfoActivity extends BaseActivity implements View.OnClick
     }
 
     public void startPhotoZoom(Uri uri) {
+        iconCrop = createCoverUri("_icon_crop");
+
         Intent intent = new Intent("com.android.camera.action.CROP");
-        intent.setDataAndType(uri, IMAGE_UNSPECIFIED);
+        intent.setDataAndType(uri, "image/*");
         intent.putExtra("crop", "true");
-        // aspectX aspectY 是宽高的比例
         intent.putExtra("aspectX", 1);
         intent.putExtra("aspectY", 1);
-        // outputX outputY 是裁剪图片宽高
-        intent.putExtra("outputX", 64);
-        intent.putExtra("outputY", 64);
-        intent.putExtra("return-data", true);
-        startActivityForResult(intent, PHOTORESOULT);
+        intent.putExtra("outputX", 300);
+        intent.putExtra("outputY", 300);
+        intent.putExtra("return-data", false);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, iconCrop);
+        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+        startActivityForResult(intent, CROP_CHOOSE);
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == NONE)
-            return;
-        // 拍照
-        if (requestCode == PHOTOHRAPH) {
-            // 设置文件保存路径这里放在跟目录下
-            File picture = new File(Environment.getExternalStorageDirectory()
-                    + "/temp.jpg");
-            System.out.println("------------------------" + picture.getPath());
-            startPhotoZoom(Uri.fromFile(picture));
+        switch (requestCode){
+        case CAPTURE_IMAGE_CAMERA:
+        startPhotoZoom(iconUrl);
+        break;
+        case IMAGE_STORE:
+        String path = UIUtils.getPath(this, data.getData());
+        if (null != path){
+            SxbLog.e("startPhotoZoom", "startPhotoZoom->path:" + path);
+            File file = new File(path);
+            startPhotoZoom(Uri.fromFile(file));
         }
-
-        if (data == null)
-            return;
-
-        // 读取相册缩放图片
-        if (requestCode == PHOTOZOOM) {
-            startPhotoZoom(data.getData());
-        }
-        // 处理结果
-        if (requestCode == PHOTORESOULT) {
-            Bundle extras = data.getExtras();
-            if (extras != null) {
-                Bitmap photo = extras.getParcelable("data");
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                photo.compress(Bitmap.CompressFormat.JPEG, 75, stream);// (0 -
-                // 100)压缩文件
-                mheadImg.setImageBitmap(photo);
-
-                getFile(photo);
-            }
-
+        break;
+        case CROP_CHOOSE:
+            Log.e("===iconCrop===",iconCrop.getPath());
+        //mUploadHelper.uploadCover(iconCrop.getPath());
+            Bitmap bitmap=decodeUriAsBitmap(iconCrop);
+            mheadImg.setImageBitmap(bitmap);
+        break;
         }
 
         super.onActivityResult(requestCode, resultCode, data);
     }
-
+    private Bitmap decodeUriAsBitmap(Uri uri) {
+        Bitmap bitmap = null;
+        try {
+            bitmap = BitmapFactory.decodeStream(getContentResolver()
+                    .openInputStream(uri));
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 75, stream);// (0 -// 100)压缩文件
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return bitmap;
+    }
     private void getFile(Bitmap photo) {
         boolean isSave = BitmapUtils.saveBitmapTofile(photo, "/zc_portraints.JPEG");
 
