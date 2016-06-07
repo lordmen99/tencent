@@ -40,6 +40,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.mb.picvisionlive.GoodsDetailActivity;
+import com.mb.picvisionlive.PersonMainActivity;
 import com.mb.picvisionlive.R;
 import com.mb.picvisionlive.adapter.AudienceIconAdapter;
 import com.mb.picvisionlive.adapter.PopShopAdapter;
@@ -84,7 +85,7 @@ import java.util.TimerTask;
 
 
 /**
- * Live直播类
+ * Live直播类a
  */
 public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView, LiveView, View.OnClickListener, ProfileView {
     private static final String TAG = LiveActivity.class.getSimpleName();
@@ -1167,6 +1168,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
                 DialogFragmentWindow friendsDialog = new DialogFragmentWindow();
                 friendsDialog.setStyle(DialogFragment.STYLE_NO_TITLE,R.style.CustomDatePickerDialog);
                 friendsDialog.show(getSupportFragmentManager(), "");
+
                 break;
 
             case  R.id.tv_share://分享
@@ -1561,10 +1563,12 @@ private void showUserDialog() {
 
     userDialog = new Dialog(this, R.style.BackDialog);
     userDialog.setContentView(R.layout.dialog_user_live);
+    TextView tv_zhuye = (TextView) userDialog.findViewById(R.id.tv_zhuye);
     userDialog.show();
     if (MySelfInfo.getInstance().getIdStatus() != Constants.HOST) {//不是主播
         RelativeLayout rl_audience = (RelativeLayout) userDialog.findViewById(R.id.rl_audience);
         TextView tv_jubao = (TextView) userDialog.findViewById(R.id.tv_jubao);
+
         rl_audience.setVisibility(View.VISIBLE);
         tv_jubao.setVisibility(View.VISIBLE);
     }
@@ -1575,7 +1579,14 @@ private void showUserDialog() {
             userDialog.dismiss();
         }
     });
-
+    tv_zhuye.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent();
+            intent.setClass(LiveActivity.this, PersonMainActivity.class);
+            startActivity(intent);
+        }
+    });
 }
 /******************************************************************************************/
 

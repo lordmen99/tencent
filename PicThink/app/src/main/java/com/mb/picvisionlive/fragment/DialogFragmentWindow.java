@@ -30,6 +30,8 @@ public class DialogFragmentWindow extends DialogFragment implements View.OnClick
     private LinearLayout ll_friend;
     private ViewPager vPager;
 
+   
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.pop_friends_window, container);
