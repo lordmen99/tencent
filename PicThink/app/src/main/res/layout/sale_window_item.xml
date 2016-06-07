@@ -6,12 +6,13 @@
 
     <RelativeLayout
         android:id="@+id/rl"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+
         android:layout_width="match_parent"
-        android:layout_height="65dp">
+        android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/iv_goodsurl"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -20,6 +21,8 @@
             />
 <TextView
     android:id="@+id/tv_goodsname"
+
+    android:layout_marginTop="10dp"
     android:layout_marginLeft="15dp"
     android:layout_toRightOf="@id/iv_goodsurl"
     android:layout_width="wrap_content"

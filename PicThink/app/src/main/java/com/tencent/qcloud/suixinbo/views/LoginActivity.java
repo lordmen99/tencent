@@ -111,7 +111,7 @@ public class LoginActivity extends Activity implements View.OnClickListener, Log
 
     @Override
     public void LoginSucc() {
-        Toast.makeText(LoginActivity.this, "" + MySelfInfo.getInstance().getId() + " login ", Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginActivity.this, "" + MySelfInfo.getInstance().getId() + " 登陆成功 ", Toast.LENGTH_SHORT).show();
         jumpIntoHomeActivity();
     }
 

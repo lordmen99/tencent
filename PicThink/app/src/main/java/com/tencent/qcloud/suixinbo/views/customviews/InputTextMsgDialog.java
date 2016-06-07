@@ -10,7 +10,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mb.picvisionlive.R;
 import com.tencent.TIMMessage;
@@ -66,7 +65,7 @@ public class InputTextMsgDialog extends Dialog {
                     imm.hideSoftInputFromWindow(messageTextView.getWindowToken(), 0);
                     dismiss();
                 } else {
-                    Toast.makeText(mContext, "input can not be empty!", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(mContext, "input can not be empty!", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -86,7 +85,7 @@ public class InputTextMsgDialog extends Dialog {
                             imm.hideSoftInputFromWindow(messageTextView.getWindowToken(), 0);
                             dismiss();
                         } else {
-                            Toast.makeText(mContext, "input can not be empty!", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(mContext, "input can not be empty!", Toast.LENGTH_LONG).show();
                         }
                         return true;
                     default:
@@ -151,7 +150,7 @@ public class InputTextMsgDialog extends Dialog {
         try {
             byte[] byte_num = msg.getBytes("utf8");
             if (byte_num.length > 160) {
-                Toast.makeText(mContext, "input message too long", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mContext, "input message too long", Toast.LENGTH_SHORT).show();
                 return;
             }
         } catch (UnsupportedEncodingException e) {

@@ -53,7 +53,7 @@
             android:textSize="16sp"
            android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:textColor="@color/color_text_black"
+            android:textColor="@color/text_gray1"
             />
         <TextView
             android:id="@+id/tv_buy"
