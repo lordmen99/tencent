@@ -15,7 +15,9 @@ public class LiveInfoJson {
     private int timeSpan;
     private int watchCount;
 
-
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public int getAvRoomId() {
         return avRoomId;

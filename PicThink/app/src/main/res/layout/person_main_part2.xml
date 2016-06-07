@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:id="@+id/person_main_part2_line">
+
+
+
+    <LinearLayout
+        android:id="@+id/person_main_contribution_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="色拉贡献榜"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/common_arrow_right" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#F5F5F5" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip"
+
+        >
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:text="ID"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6666888"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#F5F5F5" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip"
+
+        >
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:text="性别"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="女"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#F5F5F5" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip"
+
+        >
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:text="年龄"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="21  水瓶座"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#F5F5F5" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip"
+
+        >
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:text="家乡"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="北京"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#F5F5F5" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip"
+
+        >
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:text="职业"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="家里蹲"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#F5F5F5" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/onclick_approve"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dip"
+
+        >
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:text="个性签名"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="不要谈梦想,我只想睡觉"
+            android:textColor="#484848"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>
