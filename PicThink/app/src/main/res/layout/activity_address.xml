@@ -9,18 +9,6 @@
 
     <include layout="@layout/common_top_view" />
 
-    <com.mb.picvisionlive.weight.MyScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:scrollbars="none">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
             <com.mb.picvisionlive.weight.SwipeListView
                 android:id="@+id/address_list"
                 android:layout_width="match_parent"
@@ -31,23 +19,10 @@
 
                 />
 
-            <Button
-                android:id="@+id/address_add_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dip"
-                android:layout_marginRight="20dip"
-                android:layout_marginTop="30dip"
-                android:layout_marginBottom="30dip"
-                android:background="@drawable/address_corner_yellow"
-                android:text="新增收货地址"
-                android:gravity="center"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-               />
 
-        </LinearLayout>
 
-    </com.mb.picvisionlive.weight.MyScrollView>
+
+
+
 
 </LinearLayout>

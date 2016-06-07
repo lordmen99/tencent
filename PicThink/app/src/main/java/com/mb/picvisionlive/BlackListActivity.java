@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.mb.picvisionlive.adapter.BlackListAdapter;
 import com.mb.picvisionlive.bean.PersonBean;
+import com.mb.picvisionlive.tools.ScreenOnclickCallback;
 import com.mb.picvisionlive.weight.SwipeListView;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class BlackListActivity extends BaseActivity {
+public class BlackListActivity extends BaseActivity implements ScreenOnclickCallback {
     Context context = BlackListActivity.this;
     List<PersonBean> list = new ArrayList<PersonBean>();
     BlackListAdapter mBlackListAdapter;
@@ -37,12 +38,13 @@ public class BlackListActivity extends BaseActivity {
     }
 
     private void getData() {
+        list.clear();
         for (int i = 0; i < 13; i++) {
             PersonBean bean = new PersonBean();
             bean.setName("黑名单" + i);
             list.add(bean);
         }
-        mBlackListAdapter = new BlackListAdapter(context, list);
+        mBlackListAdapter = new BlackListAdapter(context, list,this);
         blackList.setAdapter(mBlackListAdapter);
     }
 
@@ -53,4 +55,9 @@ public class BlackListActivity extends BaseActivity {
     }
 
 
+    @Override
+    public void screenOnclick(int arg1) {
+        list.remove(arg1);
+        mBlackListAdapter.notifyDataSetChanged();
+    }
 }
