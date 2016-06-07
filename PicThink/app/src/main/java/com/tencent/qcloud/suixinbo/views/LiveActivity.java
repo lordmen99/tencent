@@ -1564,6 +1564,7 @@ private void showUserDialog() {
     userDialog = new Dialog(this, R.style.BackDialog);
     userDialog.setContentView(R.layout.dialog_user_live);
     TextView tv_zhuye = (TextView) userDialog.findViewById(R.id.tv_zhuye);
+    TextView tv_sixin = (TextView) userDialog.findViewById(R.id.tv_sixin);
     userDialog.show();
     if (MySelfInfo.getInstance().getIdStatus() != Constants.HOST) {//不是主播
         RelativeLayout rl_audience = (RelativeLayout) userDialog.findViewById(R.id.rl_audience);
@@ -1585,6 +1586,15 @@ private void showUserDialog() {
             Intent intent = new Intent();
             intent.setClass(LiveActivity.this, PersonMainActivity.class);
             startActivity(intent);
+        }
+    });
+    tv_sixin.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ChatDetailDialog dialog = new ChatDetailDialog(LiveActivity.this, R.style.CustomDatePickerDialog);
+            userDialog.dismiss();
+            dialog.show();
+
         }
     });
 }
