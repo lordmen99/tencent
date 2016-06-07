@@ -46,7 +46,7 @@ public class PersonMainActivity extends BaseActivity {
 
     private void getListData() {
         list.clear();
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             LiveInfoJson bean=new LiveInfoJson();
             bean.setTitle("卡不爱看"+i);
             list.add(bean);

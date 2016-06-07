@@ -65,6 +65,9 @@ public class LiveInfoJson {
         return lbs;
     }
 
+    public void setWatchCount(int watchCount) {
+        this.watchCount = watchCount;
+    }
 
     @Override
     public String toString() {

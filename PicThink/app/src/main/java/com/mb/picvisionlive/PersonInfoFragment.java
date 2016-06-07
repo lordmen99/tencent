@@ -144,6 +144,9 @@ public class PersonInfoFragment extends Fragment {
                 break;
             }
             case R.id.frgment_person_info_onair_rel: {
+                Intent intent = new Intent(context, MyOnairActivity.class);
+                startActivity(intent);
+
                 break;
             }
             case R.id.frgment_person_info_grade_rel: {

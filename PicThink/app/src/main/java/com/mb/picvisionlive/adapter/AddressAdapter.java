@@ -1,5 +1,6 @@
 package com.mb.picvisionlive.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.mb.picvisionlive.R;
 import com.mb.picvisionlive.bean.AddressBean;
+import com.mb.picvisionlive.tools.ScreenOnclickCallback;
 import com.mb.picvisionlive.weight.SwipeItemLayout;
 
 import java.util.ArrayList;
@@ -19,10 +21,19 @@ import java.util.List;
  */
 public class AddressAdapter extends BaseAdapter{
     Context context;
+    Activity activity;
     List<AddressBean> list = new ArrayList<AddressBean>();
-    public AddressAdapter(android.content.Context context, List<AddressBean> list){
+    private ScreenOnclickCallback mScreenOnclickCallback;
+    public AddressAdapter(android.content.Context context, List<AddressBean> list, Activity activity){
         this.context=context;
         this.list=list;
+        this.activity=activity;
+        try {
+            mScreenOnclickCallback = (ScreenOnclickCallback) activity;
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+            throw new RuntimeException("activity impl ScreenOnclickCallback error");
+        }
     }
     @Override
     public int getCount() {
@@ -40,7 +51,7 @@ public class AddressAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         View paramView;
         ViewHolder holder;
         if (view != null) {
@@ -53,7 +64,7 @@ public class AddressAdapter extends BaseAdapter{
             paramView = new SwipeItemLayout(view01, view02, null, null);
             holder.name=(TextView) paramView.findViewById(R.id.item_address_name_txt);
             holder.default_txt=(TextView) paramView.findViewById(R.id.item_default_txt);
-
+            holder.del_txt=(TextView) paramView.findViewById(R.id.del_txt);
             paramView.setTag(holder);
         }
         holder.name.setText(list.get(i).getName());
@@ -62,10 +73,16 @@ public class AddressAdapter extends BaseAdapter{
         }else{
             holder.default_txt.setText("");
         }
+        holder.del_txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mScreenOnclickCallback.screenOnclick(i);
+            }
+        });
         return paramView;
     }
     class ViewHolder{
 
-        TextView name,default_txt;
+        TextView name,default_txt,del_txt;
     }
 }
