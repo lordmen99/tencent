@@ -1,6 +1,7 @@
 package com.mb.picvisionlive;
 
 import android.content.Context;
+import android.widget.TextView;
 
 import com.mb.picvisionlive.adapter.HelpListAdapter;
 import com.mb.picvisionlive.bean.QuestionBean;
@@ -22,6 +23,9 @@ public class QuestionListActivity extends BaseActivity {
     @Bind(R.id.question_listview)
     ListViewForScrollView questionListview;
 
+    @Bind(R.id.question_type_txt)
+    TextView question_type_txt;
+
     @Override
     public void setContentView() {
         setContentView(R.layout.activity_question_list);
@@ -31,7 +35,7 @@ public class QuestionListActivity extends BaseActivity {
     @Override
     public void findViewByid() {
         initHead("帮助和反馈");
-
+        question_type_txt.setText(getIntent().getStringExtra("title"));
     }
 
     @Override

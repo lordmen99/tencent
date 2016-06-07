@@ -125,20 +125,22 @@
         <activity android:name=".MyLookActivity" />
         <activity android:name=".MyProfitActivity" />
         <activity android:name=".ProfitRecordActivity" />
-        <activity android:name=".InviteFriendActivity"></activity>
+        <activity android:name=".InviteFriendActivity" />
         <activity android:name=".MySauceActivity" />
-        <activity android:name=".MyFanActivity"></activity>
-
+        <activity android:name=".MyFanActivity" />
         <activity android:name=".ExchangeActivity" />
         <activity android:name=".ScreenActivity" />
-
         <activity android:name=".SearchActivity" />
         <activity android:name=".ChatFriendActivity" />
         <activity android:name=".ChatDetailActivity" />
         <activity android:name=".MyOrderActivity" />
         <activity android:name=".BussinessActivity" />
+
+        <activity android:name=".PersonMainActivity"></activity>
+
         <activity android:name=".StartActivity" />
         <activity android:name=".GuideActivity" />
+
     </application>
 
 </manifest>

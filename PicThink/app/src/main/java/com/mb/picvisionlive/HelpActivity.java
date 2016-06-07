@@ -55,6 +55,7 @@ public class HelpActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent =new Intent(context, QuestionListActivity.class);
+                intent.putExtra("title",Questions_grid[i]);
                 startActivity(intent);
             }
         });
