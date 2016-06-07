@@ -1,7 +1,6 @@
 package com.mb.picvisionlive;
 
 import android.content.Context;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.widget.ListView;
 
 import com.mb.picvisionlive.adapter.MoreDarenAdapter;
@@ -21,8 +20,8 @@ public class MoreDarenActivity extends BaseActivity {
 
     @Bind(R.id.more_daren_list)
     ListView moreDarenList;
-    @Bind(R.id.swipe_refresh_layout_list)
-    SwipeRefreshLayout swipeRefreshLayoutList;
+//    @Bind(R.id.swipe_refresh_layout_list)
+//    SwipeRefreshLayout swipeRefreshLayoutList;
 
     @Override
     public void setContentView() {
@@ -46,7 +45,7 @@ public class MoreDarenActivity extends BaseActivity {
     @Override
     public void findViewByid() {
         initHead("达人");
-        swipeRefreshLayoutList.setRefreshing(false);
+        //swipeRefreshLayoutList.setRefreshing(false);
     }
 
     @Override

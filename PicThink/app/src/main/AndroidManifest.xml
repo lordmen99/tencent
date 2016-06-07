@@ -135,12 +135,10 @@
         <activity android:name=".ChatDetailActivity" />
         <activity android:name=".MyOrderActivity" />
         <activity android:name=".BussinessActivity" />
-
-        <activity android:name=".PersonMainActivity"></activity>
-
+        <activity android:name=".PersonMainActivity" />
         <activity android:name=".StartActivity" />
         <activity android:name=".GuideActivity" />
-
+        <activity android:name=".MyOnairActivity"></activity>
     </application>
 
 </manifest>

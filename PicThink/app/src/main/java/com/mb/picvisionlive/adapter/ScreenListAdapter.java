@@ -34,7 +34,7 @@ public class ScreenListAdapter extends BaseAdapter{
             mScreenOnclickCallback = (ScreenOnclickCallback) activity;
         } catch (ClassCastException e) {
             e.printStackTrace();
-            throw new RuntimeException("activity impl employeeOnclickCallback error");
+            throw new RuntimeException("activity impl ScreenOnclickCallback error");
         }
     }
     @Override

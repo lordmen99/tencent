@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.mb.picvisionlive.adapter.AddressAdapter;
 import com.mb.picvisionlive.bean.AddressBean;
+import com.mb.picvisionlive.tools.ScreenOnclickCallback;
 import com.mb.picvisionlive.weight.SwipeListView;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AddressActivity extends BaseActivity {
+public class AddressActivity extends BaseActivity implements ScreenOnclickCallback {
     Context context = AddressActivity.this;
     AddressAdapter mAddressAdapter;
     @Bind(R.id.address_list)
@@ -44,7 +45,7 @@ public class AddressActivity extends BaseActivity {
             bean.setName("空间" + i);
             list.add(bean);
         }
-        mAddressAdapter = new AddressAdapter(context, list);
+        mAddressAdapter = new AddressAdapter(context, list,this);
         addressList.setAdapter(mAddressAdapter);
     }
 
@@ -61,5 +62,11 @@ public class AddressActivity extends BaseActivity {
         Intent intent = new Intent(context, ADDAddressActivity.class);
         startActivity(intent);
 
+    }
+
+    @Override
+    public void screenOnclick(int arg1) {
+//        list.remove(arg1);
+//        mAddressAdapter.notifyDataSetChanged();
     }
 }
