@@ -142,6 +142,7 @@ public class ChatFriendActivity extends BaseActivity {
        /*计算间隙宽度*/
         int txtWidth = bmWidth * 3;
         gapWidth = (screenWidth - txtWidth) / 2;
+
     }
 
     private void MoveImage( ) {
@@ -155,18 +156,19 @@ public class ChatFriendActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
-                int one = gapWidth + bmWidth;
-                int two = gapWidth + bmWidth * 2;
-                int three = gapWidth + bmWidth * 3;
+//                int one = gapWidth + bmWidth;
+                int one =bmWidth*2;
+//                int two = gapWidth + bmWidth * 2;
+//                int three = gapWidth + bmWidth * 3;
 
-               int BWidth = bmWidth+85;
+
                 Animation animation = null;
                 switch (position) {
                     case 0: {
                         if (beforeItem == 1) {
-                            animation = new TranslateAnimation(BWidth, 0, 0, 0);
+                            animation = new TranslateAnimation(one, 0, 0, 0);
                         } else {
-                            animation = new TranslateAnimation(BWidth * 2, 0, 0, 0);
+                            animation = new TranslateAnimation(one * 2, 0, 0, 0);
                         }
                         animation.setDuration(200);//设置动画的持续时间
                         animation.setFillAfter(true);//让动画停止在结束位置
@@ -178,9 +180,9 @@ public class ChatFriendActivity extends BaseActivity {
                     case 1: {
 
                         if (beforeItem == 0) {
-                            animation = new TranslateAnimation(0, BWidth, 0, 0);
+                            animation = new TranslateAnimation(0, one, 0, 0);
                         } else {
-                            animation = new TranslateAnimation(BWidth * 2, BWidth, 0, 0);
+                            animation = new TranslateAnimation(one * 2, one, 0, 0);
                         }
                         animation.setDuration(200);//设置动画的持续时间
                         animation.setFillAfter(true);//让动画停止在结束位置

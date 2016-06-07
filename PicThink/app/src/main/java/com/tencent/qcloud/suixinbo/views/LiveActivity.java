@@ -46,6 +46,7 @@ import com.mb.picvisionlive.adapter.PopShopAdapter;
 import com.mb.picvisionlive.bean.AllGoodsBean;
 import com.mb.picvisionlive.bean.AudienceIconBean;
 import com.mb.picvisionlive.bean.ShopBean;
+import com.mb.picvisionlive.dialogs.ChatDetailDialog;
 import com.mb.picvisionlive.fragment.DialogFragmentWindow;
 import com.mb.picvisionlive.weight.HorizontialListView;
 import com.tencent.TIMUserProfile;
@@ -169,11 +170,12 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
             member_count_bottom.setVisibility(View.GONE);
             member_count_right.setVisibility(View.VISIBLE);
             tv_lives.setPadding(0, 10, 0, 0);
+
 //            Drawable rightDrawable = getResources().getDrawable(R.mipmap.live_user_female);
 //            rightDrawable.setBounds(0, 0, rightDrawable.getMinimumWidth(), rightDrawable.getMinimumHeight());
 //            tv_lives.setCompoundDrawables(null, null, rightDrawable, null);
         }else {
-            hlv_audience.setPadding(90,0,0,0);
+
         }
     }
 
@@ -426,7 +428,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
                 public void onStopTrackingTouch(SeekBar seekBar) {
                     // TODO Auto-generated method stub
                     SxbLog.d("SeekBar", "onStopTrackingTouch");
-                    Toast.makeText(LiveActivity.this, "beauty " + mBeautyRate + "%", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LiveActivity.this, "beauty " + mBeautyRate + "%", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -638,7 +640,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
      */
     @Override
     public void EnterRoomComplete(int id_status, boolean isSucc) {
-        Toast.makeText(LiveActivity.this, "EnterRoom  " + id_status + " isSucc " + isSucc, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(LiveActivity.this, "EnterRoom  " + id_status + " isSucc " + isSucc, Toast.LENGTH_SHORT).show();
         //必须得进入房间之后才能初始化UI
         mEnterRoomHelper.initAvUILayer(avView);
 
@@ -845,17 +847,17 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
     public boolean showInviteView(String id) {
         int index = QavsdkControl.getInstance().getAvailableViewIndex(1);
         if (index == -1) {
-            Toast.makeText(LiveActivity.this, "the invitation's upper limit is 3", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(LiveActivity.this, "the invitation's upper limit is 3", Toast.LENGTH_SHORT).show();
             return false;
         }
         int requetCount = index + inviteViewCount;
         if (requetCount > 3) {
-            Toast.makeText(LiveActivity.this, "the invitation's upper limit is 3", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(LiveActivity.this, "the invitation's upper limit is 3", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         if (hasInvited(id)) {
-            Toast.makeText(LiveActivity.this, "it has already invited", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(LiveActivity.this, "it has already invited", Toast.LENGTH_SHORT).show();
             return false;
         }
         switch (requetCount) {
@@ -1189,8 +1191,8 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
                 tv_guanzhu.setVisibility(View.GONE);
                 member_count_bottom.setVisibility(View.GONE);
                 member_count_right.setVisibility(View.VISIBLE);
-                tv_lives.setPadding(0, 10, 0, 0);
-                hlv_audience.setPadding(-30,0,0,0);
+                tv_lives.setPadding(0,16,0,0);
+
                 break;
             case R.id.tv_shopping://购物
                 ShopPopWindow();
@@ -1204,6 +1206,12 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
         List<AudienceIconBean> AudienceIconList = AudienceIconBean.getList();
         AudienceIconAdapter adapter = new AudienceIconAdapter(this,AudienceIconList,R.layout.item_audience_icon);
         hlv_audience.setAdapter(adapter);
+        hlv_audience.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showAudienceDialog();
+            }
+        });
         }
 
 
@@ -1211,7 +1219,8 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
     private void ShopPopWindow() {
         LayoutInflater inflater = this.getLayoutInflater();
         View view = inflater.inflate(R.layout.pop_shop_window, null);
-        final PopupWindow popupWindow = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT, 500);
+        final int screenHeight = this.getWindowManager().getDefaultDisplay().getHeight();
+        final PopupWindow popupWindow = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT, screenHeight*2/5);
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
         popupWindow.setFocusable(true);
         TextView tv_close = (TextView) view.findViewById(R.id.tv_close);
@@ -1229,7 +1238,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
                     public void onClick(View v) {
                         LayoutInflater inflater = getLayoutInflater();
                         View buyView = inflater.inflate(R.layout.pop_shop_confirm_window, null);
-                        final PopupWindow popupWindow = new PopupWindow(buyView, LinearLayout.LayoutParams.MATCH_PARENT, 500);
+                        final PopupWindow popupWindow = new PopupWindow(buyView, LinearLayout.LayoutParams.MATCH_PARENT, screenHeight*2/5);
                         popupWindow.setBackgroundDrawable(new BitmapDrawable());
                         popupWindow.setFocusable(true);
                         popupWindow.showAtLocation(buyView, Gravity.BOTTOM, 0, 0);
@@ -1345,7 +1354,7 @@ public class LiveActivity extends FragmentActivity implements EnterQuiteRoomView
     private SwipeListView mListView;
     private ArrayList<String> mList = new ArrayList<String>();
     private void initData() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             mList.add("Dior迪奥真我香水系列");
         }
     }
@@ -1570,6 +1579,42 @@ private void showUserDialog() {
 }
 /******************************************************************************************/
 
+
+
+
+/**************************************查看观众信息*****************************************/
+private void showAudienceDialog(){
+    userDialog = new Dialog(this, R.style.BackDialog);
+    userDialog.setContentView(R.layout.dialog_audience_live);
+    userDialog.show();
+    TextView tv_guanli = (TextView) userDialog.findViewById(R.id.tv_guanli);
+    TextView tv_sixin = (TextView) userDialog.findViewById(R.id.tv_sixin);
+    TextView tv_huifu = (TextView) userDialog.findViewById(R.id.tv_huifu);
+    if (MySelfInfo.getInstance().getIdStatus() != Constants.HOST) {//不是主播
+        tv_guanli.setText("举报");
+    }else {
+        tv_guanli.setText("管理");
+    }
+    ImageView iv_back_dialog = (ImageView) userDialog.findViewById(R.id.iv_back_dialog);
+    iv_back_dialog.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            userDialog.dismiss();
+        }
+    });
+    tv_sixin.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ChatDetailDialog dialog = new ChatDetailDialog(LiveActivity.this, R.style.CustomDatePickerDialog);
+            userDialog.dismiss();
+            dialog.show();
+
+        }
+    });
+
+
+}
+/******************************************************************************************/
      //for 测试获取测试参数
     private boolean showTips = false;
     private TextView tvTipsMsg;

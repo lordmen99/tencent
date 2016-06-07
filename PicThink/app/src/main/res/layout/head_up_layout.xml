@@ -32,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="直播"
+
         android:drawablePadding="5dp"
         android:drawableRight="@mipmap/live_user_female"
         android:layout_marginLeft="5dp"
@@ -77,6 +78,15 @@
         android:text="关注"
         android:textColor="@color/white"
         android:background="@mipmap/live_guanzhu_btn"
+        />
+    <com.mb.picvisionlive.weight.HorizontialListView
+        android:layout_toRightOf="@id/tv_guanzhu"
+        android:id="@+id/hlv_audience"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         />
 </RelativeLayout>
 

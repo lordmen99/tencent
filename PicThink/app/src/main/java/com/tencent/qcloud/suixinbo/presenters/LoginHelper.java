@@ -63,7 +63,7 @@ public class LoginHelper {
                     @Override
                     public void onError(int i, String s) {
                         SxbLog.e(TAG, "IMLogin fail ：" + i + " msg " + s);
-                        Toast.makeText(mContext, "IMLogin fail ：" + i + " msg " + s, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(mContext, "IMLogin fail ：" + i + " msg " + s, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

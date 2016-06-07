@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Toast;
 
+import com.mb.picvisionlive.R;
 import com.tencent.TIMCallBack;
 import com.tencent.TIMConversationType;
 import com.tencent.TIMGroupManager;
@@ -15,7 +15,6 @@ import com.tencent.TIMValueCallBack;
 import com.tencent.av.sdk.AVContext;
 import com.tencent.av.sdk.AVRoom;
 import com.tencent.av.sdk.AVRoomMulti;
-import com.mb.picvisionlive.R;
 import com.tencent.qcloud.suixinbo.avcontrollers.QavsdkControl;
 import com.tencent.qcloud.suixinbo.model.CurLiveInfo;
 import com.tencent.qcloud.suixinbo.model.LiveInfoJson;
@@ -173,7 +172,7 @@ public class EnterLiveHelper extends Presenter {
                     return;
                 }
                 // 创建IM房间失败，提示失败原因，并关闭等待对话框
-                Toast.makeText(mContext, " chatroom  error " + s + "i " + i, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mContext, " chatroom  error " + s + "i " + i, Toast.LENGTH_SHORT).show();
                 quiteLive();
             }
 
@@ -271,7 +270,7 @@ public class EnterLiveHelper extends Presenter {
                     joinAVRoom(CurLiveInfo.getRoomNum());
                     isInChatRoom = true;
                 } else {
-                    Toast.makeText(mContext, "join IM room fail " + s + " " + i, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(mContext, "join IM room fail " + s + " " + i, Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -304,6 +303,7 @@ public class EnterLiveHelper extends Presenter {
 
         //退出AV房间
         quiteAVRoom();
+
 
     }
 
