@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.tencent.qcloud.suixinbo.QavsdkApplication;
+
 
 public abstract class BaseActivity extends FragmentActivity {
 
@@ -26,7 +28,7 @@ public abstract class BaseActivity extends FragmentActivity {
 
         appContext = getApplicationContext();
         mContext = this;
-
+        QavsdkApplication.getInstance().addActivity(this);
 
         setContentView();
         findViewByid();
@@ -105,5 +107,10 @@ public abstract class BaseActivity extends FragmentActivity {
         }
     };
 
+    @Override
+    protected void onDestroy() {
+        QavsdkApplication.getInstance().removeActivity(this);
+        super.onDestroy();
 
+    }
 }
