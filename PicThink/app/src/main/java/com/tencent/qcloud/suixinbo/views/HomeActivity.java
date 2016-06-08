@@ -3,13 +3,16 @@ package com.tencent.qcloud.suixinbo.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.mb.picvisionlive.R;
 import com.tencent.TIMUserProfile;
@@ -122,5 +125,35 @@ public class HomeActivity extends FragmentActivity implements ProfileView {
 
     @Override
     public void updateUserInfo(int reqid, List<TIMUserProfile> profiles) {
+    }
+    /**
+     * 判断是否已经点击过一次回退键
+     */
+    private boolean isBackPressed = false;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            doublePressBackToast();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+    /**
+     * 双击回退键退出程序
+     *
+     */
+    private void doublePressBackToast() {
+        if (!isBackPressed) {
+            isBackPressed = true;
+            Toast.makeText(this, "再次点击返回退出程序", Toast.LENGTH_SHORT).show();
+        } else {
+           QavsdkApplication.getInstance().exitApplication();
+        }
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                isBackPressed = false;
+            }
+        }, 3000);
     }
 }
